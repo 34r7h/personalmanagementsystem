@@ -115,6 +115,7 @@
         </div>
         <div class="large-9 columns">
             <h1 class="panel current">Next Actions</h1>
+            <a ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create new task</a>
 
             <div class="large-6 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task">
                 <div>
