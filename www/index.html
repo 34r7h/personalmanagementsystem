@@ -20,8 +20,8 @@
 <script src="js/irth.js"></script>
 
 
-<body ng-model-options="{debounce:500}" ng-controller="ctrl"
-      style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
+<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="stockBg = 'http://ccl.northwestern.edu/papers/ABMVisualizationGuidelines/palette/scheme-color-scale-gradient.png'"
+      style="background: url('{{backgroundsImg || stockBg}}') center center no-repeat fixed; background-size: cover;"
       ng-style="dimensions">
 
 <top-bar>
@@ -89,15 +89,15 @@
 <div ng-if="!authData.uid">
 
     <div class="columns large-12">
-        <b class="columns small-6" ng-click="show.about = !show.about">...
+        <b class="columns small-4" ng-click="show.about = !show.about">...
             <p ng-show="show.about">
                 This app is intended to help you track daily activities. It is in a very early alpha stage. Feedback sent to
                 <a href="mailto:irth.03+personalmanagement@gmail.com">irth</a>
             </p>
         </b>
-        <div class="columns small-6 panel">
-            <h2 class="text-right">I'm an app to keep you on track</h2>
-            <p class="text-right">Please log in or register to get started.</p>
+        <div class="columns small-8 panel">
+            <h2 class="text-center">I'm an app to keep you on track</h2>
+            <p class="text-center">Please log in or register to get started.</p>
         </div>
     </div>
     <form name="login" class="column large-4 push-2" ng-submit="auth(login.email, login.password)"
@@ -124,11 +124,11 @@
             <textarea ng-model="yesterday.goals" style="font-size:2em!important" ng-style="{minHeight:(yesterday.goals.length*2.6)+'px'}"></textarea>
             <a
                     class="button success columns large-12"
-                    ng-click="new.day.recap = yesterday.goals;hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete
+                    ng-click="new.day.recap = yesterday.goals;hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete the
                 Day</a>
         </div>
         <div class="large-12 columns current">
-            <h1 class="large-12">Next Actions <a class="right button" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a>
+            <h1 class="large-12">Next Actions <a class="right button info" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a>
             </h1>
 
             <div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task">
@@ -140,7 +140,7 @@
                         <textarea ng-show="task.details" ng-model="task.details"
                                   ng-style="{minHeight:(task.details.length*1.2)+'px'}"></textarea>
                         <a
-                                class="button large-12 columns"
+                                class="button large-12 columns alert"
                                 ng-click="completeTask(key); new.action.name = task.name; new.action.tags = task.tags; new.action.details = (task.description || task.details ); hideAll(); beGone['action'] = ''; show.agenda = !show.agenda">Action Accomplished
                         </a>
                     </div>
