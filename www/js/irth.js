@@ -161,6 +161,9 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			var timestamp = Date.now();
 			sync.task.$update(id, {done: false, undone: timestamp});
 		};
+		$scope.reload = function() {
+			$window.location.reload();
+		}
 
 		/**
 		 // Local storage start ($window.TEMPORARY can be switched with $window.PERMANENT)
