@@ -1,0 +1,375 @@
+<!doctype html>
+<html ng-app="irth">
+
+<head>
+
+    <title>My Life</title>
+    <meta http-equiv='Content-Language' content='en'/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="shortcut icon" href="favicon.ico">
+
+</head>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+<script src="js/irth.js"></script>
+
+
+<body ng-model-options="{debounce:500}" ng-controller="ctrl"
+      style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
+      ng-style="dimensions">
+
+<top-bar>
+    <ul class="title-area">
+        <li class="name">
+            <a href="#">
+            <img class="" src="images/icon.png" alt=""/>
+            </a>
+        </li>
+        <li toggle-top-bar class="menu-icon"><a href="#" ng-click="show.agenda = !show.agenda">Menu</a></li>
+    </ul>
+
+    <top-bar-section>
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a ng-if="authObj.$getAuth().password.email">
+                {{ authObj.$getAuth().password.email }}
+            </a></li>
+            <li class="active">
+                <a class="button alert" ng-show="!show.agenda" ng-click="show.agenda = !show.agenda">Submit View</a>
+                <a class="button success" ng-hide="!show.agenda" ng-click="show.agenda = !show.agenda">Agenda View</a>
+            </li>
+            <li ng-show="authObj.$getAuth() || authObj.$requireAuth().$$state.value.uid"></li>
+
+
+        </ul>
+        <!-- Right Nav Section -->
+        <ul class="right">
+
+            <li has-dropdown>
+                <a href="">Account</a>
+
+                <ul top-bar-dropdown>
+                    <li>
+                        <a ng-click="show.settings = !show.settings">Settings</a>
+                    </li>
+                    <li>
+                        <a ng-show="authObj.$getAuth()" class="alert" ng-click="authObj.$unauth()">Log out</a>
+                    </li>
+                    <li>
+
+                        <form class="row" ng-submit="auth(login.email, login.password)"
+                              ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
+                            <input ng-model="login.email" placeholder="Email"/>
+                            <input ng-model="login.password" type="password" placeholder="password"/>
+                            <a type="submit">Login</a>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </top-bar-section>
+</top-bar>
+<br/>
+
+<div class="row" ng-show="!show.agenda">
+    <div class="settings" ng-if="show.settings">
+        <div style="width:80%; margin: 1% 5%"><input ng-model="newUrl" placeholder="Paste image url here"
+                                                     style="color:white; background:rgba(0,0,0,.38);">
+            <button ng-click="api.add['backgrounds'](newUrl); newUrl=''; backgroundsImg=syncBackgroundsObject[(syncBackgroundsObject.length-1)].$value">
+                Add Image
+            </button>
+        </div>
+        <ul>
+            <li ng-repeat="(key,img) in syncBackgroundsObject" style="list-style-decoration:none">
+                <img ng-src="{{img}}" height="30px" width="auto">
+                <a href ng-click="$parent.removeBackgrounds(key)">(X) {{key}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row" ng-if="!showCurrent">
+        <div class="large-3 columns current" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
+            <h3>Focus</h3>
+            <textarea ng-model="yesterday.goals" ng-style="{minHeight:(yesterday.goals.length*1.6)+'px'}"></textarea>
+            <a
+                    class="button success columns large-12"
+                    ng-click="new.day.recap = yesterday.goals;hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete
+                Day</a>
+        </div>
+        <div class="large-9 columns">
+            <h1 class="panel current">Next Actions</h1>
+
+            <div class="large-6 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task">
+                <div>
+                    <div class="panel">
+                        <h3>{{task.name}}</h3>
+                        <textarea ng-show="task.description" ng-model="task.description"
+                                  ng-style="{height:(task.description.length*2)+'px'}"></textarea>
+                        <textarea ng-show="task.details" ng-model="task.details"
+                                  ng-style="{minHeight:(task.details.length*1.2)+'px'}"></textarea>
+                        <a
+                                class="button large-12 columns"
+                                ng-click="completeTask(key); new.action.name = task.name; new.action.tags = task.tags; new.action.details = (task.description || task.details ); hideAll(); beGone['action'] = ''; show.agenda = !show.agenda">Action Accomplished
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="show.agenda" class="row">
+    <div class="row">
+        <div class="large-3 columns">
+            <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class=" button-group radius even-2 sticky">
+                <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
+                    ng-click="hideAll(); beGone[link] = ''">
+                    <a class="button large alert" href="">{{link}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="large-9 columns">
+            <div ng-repeat="life in lifestyle" class="row">
+                <div style="{{beGone[life]}}">
+                    <h1 class="panel current">{{life | uppercase}}</h1>
+
+                    <form class="small-12 columns panel current" id="{{life}}"
+                          ng-submit="$parent.api.add[life](new[life]); new[life]={};">
+
+                        <div class="row" ng-if="life !== 'day' && life !== 'event'">
+                            <div class="large-4 columns"><input type="text" ng-model="new[life].name"
+                                                                placeholder="{{life}} name" x-webkit-speech="true"/>
+                            </div>
+                            <div class="large-8 columns"><textarea type="text" ng-model="new[life].details"
+                                                                   placeholder="{{life}} details"
+                                                                   ng-style="{minHeight:(new[life].details.length*0.6)+'px'}"></textarea>
+                            </div>
+                        </div>
+
+                        <div ng-if="life === 'day' || life === 'event' " class="row">
+                            <div class="large-12 columns"><textarea class="large-12 columns" type="text"
+                                                                    ng-model="$parent.new[life].recap"
+                                                                    placeholder="{{life}} recap"
+                                                                    ng-style="{minHeight:(new[life].recap.length*0.6)+'px'}"></textarea>
+                            </div>
+                            <br/>
+
+                            <div class="large-12 columns"><textarea class="large-12 columns" type="text"
+                                                                    ng-model="$parent.new[life].goals"
+                                                                    placeholder="Next {{life}}'s goals"
+                                                                    ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
+                            </div>
+                            <br/>
+                        </div>
+
+                        <div ng-if="life === 'fuel'" class="row">
+
+                            <table name="fuel" class="large-12 columns"
+                                   ng-init="nutrition.types = ['good carbs', 'bad carbs', 'protein', 'fibre', 'fats']; nutrition.amounts = [1,2,3,4,5]">
+                                <thead>
+                                <tr>
+
+                                    <td colspan="10" class="text-right">Enter amounts 1 being small 5 being grand</td>
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="type in nutrition.types">
+                                    <td>
+                                        <b>{{type}}</b>
+                                    </td>
+                                    <td ng-repeat="amount in nutrition.amounts">
+                                        <label for="{{$parent.type+amount}}"><b>{{amount}}</b></label>
+                                        <input id="{{$parent.type+amount}}" type="radio"
+                                               ng-model="new[life].nutrition[type]" value="{{amount}}"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div ng-if="life === 'train'" class="row">
+                            <table class="large-12 columns"
+                                   ng-init="mode.types = ['cardio', 'strength', 'form', 'flex']; mode.amounts = [1,2,3,4,5]">
+                                <thead>
+                                <tr>
+                                    <td colspan="10" class="text-right">Enter intensity levels 1 being not much and 5
+                                        being demigod mode.
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="type in mode.types">
+                                    <td><b>{{type}}</b></td>
+                                    <td ng-repeat="amount in mode.amounts" style="text-align: center">
+                                        <label for="{{$parent.type + amount}}"><b>{{amount}}</b></label>
+                                        <input id="{{$parent.type + amount}}" type="radio"
+                                               ng-model="$parent.$parent.$parent.new[life].mode[type]"
+                                               value="{{amount}}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="row" ng-init="new[life].time = 0"
+                             ng-if="life !== 'day' && life !== 'event' && life !== 'fuel' && life !== 'task' && life !== 'note' && life !== 'love' && life !== 'fear'">
+                            <div class="large-3 columns">
+                                <input type="number" ng-model="new[life].minutes" placeholder="Minutes"
+                                       ng-change="new[life].time = ((new[life].hours * 60) + new[life].minutes);"/>
+                            </div>
+                            <div class="large-3 columns">
+                                <input type="number" ng-model="new[life].hours" placeholder="Hours"
+                                       ng-change="new[life].time = ((new[life].hours * 60) + new[life].minutes);">
+                            </div>
+                            <div class="large-6 columns">
+                                <select
+                                        ng-init="ratings = ['5', '4', '3', '2', '1']"
+                                        ng-model="new[life].quality"
+                                        ng-options="rating for rating in ratings | uppercase">
+                                    <option value="">Rate this {{life | uppercase}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-8 columns">
+                    <textarea
+                            type="text"
+                            ng-model="new[life].tags"
+                            placeholder="Tags">
+                    </textarea>
+                            </div>
+                            <div class="large-4 columns">
+                                <button class="button large alert expand" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <a class="large info button expand" ng-click="pastEntries = !pastEntries">Past {{life}}s</a>
+
+                    <div ng-if="pastEntries" class="large-4 columns" ng-repeat="(key, entry) in $parent[life] ">
+                        <div class="panel past">
+
+                            <input ng-if="entry.title" type="text" ng-model="entry.title"
+                                   ng-click="showFullEntry = !showFullEntry"/>
+                            <input ng-if="entry.name" type="text" ng-model="entry.name"
+                                   ng-click="showFullEntry = !showFullEntry"/>
+                            <hr/>
+                            <div ng-if="showFullEntry">
+                                <code ng-if="entry.time">{{entry.time}} minutes </code>
+
+                                <div ng-if="entry.details">
+                                    <label for="details">Details</label>
+                                    <textarea id="details" ng-model="entry.details"
+                                              ng-style="{minHeight:(entry.details.length*0.6)+'px'}"></textarea>
+                                </div>
+                                <div ng-if="entry.description">
+                                    <label for="description">Description</label>
+                                    <textarea id="description" ng-model="entry.description"
+                                              ng-style="{minHeight:(entry.description.length*0.6)+'px'}"></textarea>
+                                </div>
+                                <div ng-if="entry.recap">
+                                    <label for="recap">Daily recap</label>
+                                    <textarea id="recap" ng-model="entry.recap"
+                                              ng-style="{minHeight:(entry.recap.length*0.6)+'px'}"></textarea>
+                                </div>
+                                <div ng-if="entry.note">
+                                    <textarea id="note" ng-model="entry.note"
+                                              ng-style="{minHeight:(entry.note.length*0.6)+'px'}"></textarea>
+                                </div>
+                                <div ng-if="entry.hydrate">
+                                    <input ng-model="entry.hydrate"/>
+                                </div>
+                                <div ng-if="entry.goals">
+                                    <label for="goals">Future goals</label>
+                                    <textarea ng-style="{minHeight:(entry.goals.length*0.6)+'px'}" id="goals"
+                                              ng-if="entry.goals" ng-model="entry.goals"></textarea>
+                                    <textarea id="goals" ng-if="entry.goals[0].name" ng-model="entry.goals[0].name"
+                                              ng-style="{minHeight:(entry.goals[0].name.length*0.6)+'px'}"></textarea>
+                                </div>
+                                <div ng-if="entry.tags">
+                                    <input type="text" ng-model="entry.tags"/>
+                                </div>
+                                <div ng-repeat="(key,mode) in entry.mode track by $index">
+                                    {{key}}: <input type="text" ng-model="entry.mode[key]"/>
+                                </div>
+                                <div ng-repeat="(key,nutrition) in entry.nutrition track by $index">
+                                    {{key}}: <input type="text" ng-model="entry.nutrition[key]"/>
+                                </div>
+                                <hr/>
+                            </div>
+                            <div ng-if="$parent.life === 'task'">
+                                <button class="button secondary" ng-show="entry.done===false"
+                                        ng-click="$parent.$parent.$parent.completeTask(key)">Do
+                                </button>
+                                <button class="button secondary" ng-show="entry.done!==false"
+                                        ng-click="$parent.$parent.$parent.unCompleteTask(key)">Renew
+                                </button>
+                            </div>
+                            <code>
+                                {{entry.created | date:['shortTime']}}
+                                {{entry.created | date:['mediumDate']}}
+                            </code>
+
+                            <div style="">
+                                <a ng-show="!remove" ng-click="remove = true">x</a>
+                                <a ng-show="remove" ng-click="remove = !remove">Cancel</a> |
+                                <a ng-show="remove" ng-click="removeEntry(life,key)">Kill</a>
+                                <a ng-click="$parent.new[life] = copy(entry);">Copy</a>
+                                <a ng-show="!showFullEntry" ng-click="showFullEntry = !showFullEntry">More</a>
+                                <a style="float:right;" ng-show="showFullEntry"
+                                   ng-click="showFullEntry = !showFullEntry">Less</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
+     ng-show="hide.note">
+    <dl class="sub-nav ">
+        <dt>Notes:</dt>
+        <dd class="active">
+            <a href="" class=" secondary" ng-click="hide.note = !hide.note">
+                <span ng-show="hide.note">Hide</span>
+                <span ng-show="!hide.note">Note</span>
+            </a>
+        </dd>
+        <dd><a href="" class=" success" ng-show="hide.note"
+               ng-click="api.add['note']({note:'New Note'}); showNote = Object.key(note[note.length])">New Note</a>
+        </dd>
+
+    </dl>
+
+
+    <div class="small-4 columns text-right" style="overflow:scroll; height:100%">
+        <a ng-click="$parent.showNote = key" class="button information columns small-12 large-12"
+           style="max-height:40px; overflow:hidden" ng-repeat="(key,note) in note" ng-show="note.note.length > 0">
+            <div ng-init="$parent.$parent.showNote = key" ng-if="$first"></div>
+            {{note.note}}
+        </a>
+        <br/>
+        <hr/>
+    </div>
+
+    <textarea class="small-8 columns" ng-model="note[showNote].note" style="height:100%"></textarea>
+
+</div>
+
+<div ng-style="{position:'fixed', bottom:0, left: 0, zIndex:100001}">
+    <a ng-show="!hide.note" class="button secondary" ng-click="hide.note = !hide.note">
+        <span>Note</span>
+    </a>
+
+
+</div>
+
+</body>
+</html>
+
