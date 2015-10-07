@@ -20,7 +20,7 @@
 <script src="js/irth.js"></script>
 
 
-<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="stockBg = 'http://ccl.northwestern.edu/papers/ABMVisualizationGuidelines/palette/scheme-color-scale-gradient.png'"
+<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="stockBg = 'http://beautyartpics.com/wp-content/uploads/2015/03/sky-railway-hd-image.jpg'"
       style="background: url('{{backgroundsImg || stockBg}}') center center no-repeat fixed; background-size: cover;"
       ng-style="dimensions">
 
@@ -100,21 +100,23 @@
             <p class="text-center">Please log in or register to get started.</p>
         </div>
     </div>
-    <form name="login" class="column large-4 push-2" ng-submit="auth(login.email, login.password)"
-          ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
-        <h1>Login</h1>
-        <input ng-model="login.email" type="email" placeholder="Email"/>
-        <input ng-model="login.password" type="password" placeholder="password"/>
-        <button type="submit">Login</button>
-    </form>
 
-    <form name="reg" class="column large-4 pull-1" ng-submit="register(reg.email, reg.password)"
+    <div class="row"><form name="reg" class="column medium-5 panel" ng-submit="register(reg.email, reg.password)"
           ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
         <h1>Register</h1>
         <input ng-model="reg.email" type="email" placeholder="Email"/>
         <input ng-model="reg.password" type="password" placeholder="password"/>
         <button type="submit">Register</button>
     </form>
+
+
+    <form name="login" class="column medium-6 panel" ng-submit="auth(login.email, login.password)"
+          ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
+        <h1>Login</h1>
+        <input ng-model="login.email" type="email" placeholder="Email"/>
+        <input ng-model="login.password" type="password" placeholder="password"/>
+        <button type="submit">Login</button>
+    </form></div>
 </div>
 
 <div class="row" ng-show="!show.agenda && authData.uid">
