@@ -169,18 +169,23 @@
                             <div class="large-4 columns"><input type="text" ng-model="new[life].name"
                                                                 placeholder="{{life}} name" x-webkit-speech="true"/>
                             </div>
-                            <div class="large-8 columns"><textarea type="text" ng-model="new[life].details"
-                                                                   placeholder="{{life}} details"
-                                                                   ng-style="{minHeight:(new[life].details.length*0.6)+'px'}"></textarea>
+                            <div class="large-8 columns">
+                                <textarea type="text" ng-model="new[life].details"
+                                          placeholder="{{life}} details"
+                                          ng-style="{minHeight:(new[life].details.length*0.6)+'px'}"></textarea>
+
                             </div>
+
                         </div>
 
                         <div ng-if="life === 'day' || life === 'event' " class="row">
-                            <div class="large-12 columns"><textarea class="large-12 columns" type="text"
-                                                                    ng-model="$parent.new[life].recap"
-                                                                    placeholder="{{life}} recap"
-                                                                    ng-style="{minHeight:(new[life].recap.length*0.6)+'px'}"></textarea>
+                            <div class="large-12 columns">
+                                <textarea class="large-12 columns" type="text"
+                                          ng-model="$parent.new[life].recap"
+                                          placeholder="{{life}} recap"
+                                          ng-style="{minHeight:(new[life].recap.length*0.6)+'px'}"></textarea>
                             </div>
+
                             <br/>
 
                             <div class="large-12 columns"><textarea class="large-12 columns" type="text"
@@ -246,14 +251,6 @@
                                 <input type="number" ng-model="new[life].hours" placeholder="Hours"
                                        ng-change="new[life].time = ((new[life].hours * 60) + new[life].minutes);">
                             </div>
-                            <div class="large-6 columns">
-                                <select
-                                        ng-init="ratings = ['5', '4', '3', '2', '1']"
-                                        ng-model="new[life].quality"
-                                        ng-options="rating for rating in ratings | uppercase">
-                                    <option value="">Rate this {{life | uppercase}}</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="large-8 columns">
@@ -264,7 +261,13 @@
                     </textarea>
                             </div>
                             <div class="large-4 columns">
-                                <button class="button large alert expand" type="submit">Submit</button>
+                                <select
+                                        ng-init="ratings = ['5', '4', '3', '2', '1']"
+                                        ng-model="new[life].quality"
+                                        ng-options="rating for rating in ratings | uppercase">
+                                    <option value="">Rate this {{life | uppercase}}</option>
+                                </select>
+                                <button class="button large alert expand" type="submit">Post new {{life}}</button>
                             </div>
                         </div>
                     </form>
