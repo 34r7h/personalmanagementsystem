@@ -59,7 +59,7 @@
                         <a ng-click="show.settings = !show.settings">Settings</a>
                     </li>
                     <li>
-                        <a ng-show="authObj.$getAuth()" class="alert" ng-click="authObj.$unauth(); getData() ">Log out</a>
+                        <a ng-show="authObj.$getAuth()" class="alert" ng-click="authObj.$unauth(); reload()">Log out</a>
                     </li>
 
                 </ul>
