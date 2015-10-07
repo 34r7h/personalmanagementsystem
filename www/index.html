@@ -27,21 +27,21 @@
 <top-bar>
     <ul class="title-area">
         <li class="name">
-            <a href="#">
+            <b href="#" ng-click="show.agenda = !show.agenda">
                 <img class="" src="images/icon.png" alt=""/>
-            </a>
+            </b>
         </li>
         <li toggle-top-bar class="menu-icon"><a href="#" ng-click="show.agenda = !show.agenda">Menu</a></li>
     </ul>
 
     <top-bar-section>
         <!-- Left Nav Section -->
-        <ul class="left">
-            <li><a ng-if="authObj.$getAuth().password.email">
-                {{ authObj.$getAuth().password.email }}
-            </a></li>
+        <ul class="title-area">
+            <li class="name" ng-click="show.agenda = !show.agenda"><h1 ng-if="authObj.$getAuth().password.email">
+                <a>{{ authObj.$getAuth().password.email }}</a>
+            </h1></li>
             <li class="active">
-                <a class="button alert" ng-show="!show.agenda" ng-click="show.agenda = !show.agenda">New / Edit Entries</a>
+                <a class="button success" ng-show="!show.agenda" ng-click="show.agenda = !show.agenda">New / Edit Entries</a>
                 <a class="button success" ng-hide="!show.agenda" ng-click="show.agenda = !show.agenda">Agenda View</a>
             </li>
             <li ng-show="authObj.$getAuth() || authObj.$requireAuth().$$state.value.uid"></li>
@@ -50,13 +50,15 @@
         </ul>
         <!-- Right Nav Section -->
         <ul class="right">
-
+            <li>
+                <a href class=" button danger">Feedback</a>
+            </li>
             <li has-dropdown>
                 <a href="">Account</a>
 
                 <ul top-bar-dropdown>
                     <li>
-                        <a ng-click="show.settings = !show.settings">Settings</a>
+                        <a ng-click="show.settings = !show.settings">Background</a>
                     </li>
                     <li>
                         <a ng-show="authObj.$getAuth()" class="alert" ng-click="authObj.$unauth(); reload()">Log out</a>
@@ -126,7 +128,7 @@
                 Day</a>
         </div>
         <div class="large-12 columns current">
-            <h1 class="large-12">Next Actions <a class="right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a>
+            <h1 class="large-12">Next Actions <a class="right button" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a>
             </h1>
 
             <div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task">
