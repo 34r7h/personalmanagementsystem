@@ -41,10 +41,11 @@
                 <a>{{ authObj.$getAuth().password.email }}</a>
             </h1></li>
             <li class="active" ng-show="authData.uid">
-                <a class="button success" ng-show="!show.agenda" ng-click="show.agenda = !show.agenda">New / Edit Entries</a>
-                <a class="button success" ng-hide="!show.agenda" ng-click="show.agenda = !show.agenda">Agenda View</a>
+                <a class="button success" ng-click="show.agenda = false">Agenda View</a>
             </li>
-            <li ng-show="authObj.$getAuth() || authObj.$requireAuth().$$state.value.uid"></li>
+            <li class="" ng-show="authData.uid">
+                <a class="button info" ng-click="show.agenda = true">New / Edit Entries</a>
+            </li>
 
 
         </ul>
