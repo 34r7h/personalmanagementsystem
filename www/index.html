@@ -40,7 +40,7 @@
             <li class="name" ng-click="show.agenda = !show.agenda"><h1 ng-if="authObj.$getAuth().password.email">
                 <a>{{ authObj.$getAuth().password.email }}</a>
             </h1></li>
-            <li class="active">
+            <li class="active" ng-show="authData.uid">
                 <a class="button success" ng-show="!show.agenda" ng-click="show.agenda = !show.agenda">New / Edit Entries</a>
                 <a class="button success" ng-hide="!show.agenda" ng-click="show.agenda = !show.agenda">Agenda View</a>
             </li>
@@ -53,7 +53,7 @@
             <li>
                 <a href="mailto:irth.03+personal-management@gmail.com" class="button danger">Feedback</a>
             </li>
-            <li has-dropdown>
+            <li has-dropdown ng-show="authData.uid">
                 <a href="">Account</a>
 
                 <ul top-bar-dropdown>
