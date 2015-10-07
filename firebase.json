@@ -1,0 +1,10 @@
+{
+  "firebase": "yourlife",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "ionic",
+    "**/node_modules/**"
+  ]
+}
