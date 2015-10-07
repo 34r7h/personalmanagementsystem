@@ -69,8 +69,32 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 		$scope.register = function(email, password){
 			$scope.authObj.$createUser(email, password).then(function(){
-
 				$scope.auth(email, password);
+				var checkRef = $firebase(authRef);
+				var checkData = checkRef.$asObject();
+					checkData[$scope.authData.uid] = {
+						backgrounds: {
+							welcome: 'http://hivewallpaper.com/wallpaper/2014/12/pablo-picasso-cubism-paintings-9-widescreen-wallpaper.jpg'
+						},
+						life: {
+							task: {
+								welcome1: {
+									name: 'Cr',
+									details: 'Create a task on the admin side'
+								},
+								welcome2: {
+									name: 'Welcome to your app',
+									details: 'Create a task on the admin side'
+								},
+								welcome3: {
+									name: 'Welcome to your app',
+									details: 'Create a task on the admin side'
+								}
+							}
+						}
+					};
+					console.log(checkData);
+					checkData.$save();
 			});
 		};
 		// $scope.auth('i@o.io','o');
