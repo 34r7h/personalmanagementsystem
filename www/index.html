@@ -85,8 +85,19 @@
     </ul>
 </div>
 <div ng-if="!authData.uid">
-    <br/>
-    <form name="login" class="column large-4 push-2" ng-submit="auth(login.email, login.password)"
+    <div class="columns large-12">
+    <b class="columns small-6" ng-click="show.about = !show.about">...
+        <p ng-show="show.about">
+            This app is intended to help you track daily activities. It is in a very early alpha stage. Feedback sent to
+            <a href="mailto:irth.03+personalmanagement@gmail.com">irth</a>
+        </p>
+    </b>
+    <div class="columns small-6 panel">
+        <h2 class="text-right">I'm an app to keep you on track</h2>
+        <p class="text-right">Please register or sign-in to get started.</p>
+    </div>
+
+    <form name="login" class="column large-5 push-1" ng-submit="auth(login.email, login.password)"
           ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
         <h1>Login</h1>
         <input ng-model="login.email" type="email" placeholder="Email"/>
@@ -94,7 +105,7 @@
         <button type="submit">Login</button>
     </form>
 
-    <form name="reg" class="column large-4 pull-1" ng-submit="register(reg.email, reg.password)"
+    <form name="reg" class="column large-5 pull-1" ng-submit="register(reg.email, reg.password)"
           ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
         <h1>Register</h1>
         <input ng-model="reg.email" type="email" placeholder="Email"/>
@@ -148,7 +159,7 @@
         <div class="large-9 columns">
             <div ng-repeat="life in lifestyle" class="row">
                 <div style="{{beGone[life]}}">
-                    <h1 class="">{{life | uppercase}}</h1>
+                    <h1 class="right">{{life | uppercase}}</h1>
 
                     <form class="small-12 columns panel current" id="{{life}}"
                           ng-submit="$parent.api.add[life](new[life]); new[life]={};">
