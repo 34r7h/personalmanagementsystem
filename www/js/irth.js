@@ -103,7 +103,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 						// To iterate the key/value pairs of the object, use angular.forEach()
 						$scope.backgroundsImg = $scope.syncBackgroundsArray[randomNum].$value
 					} else {
-						$scope.backgroundsImg = 'http://download.1wallpaper.net/20150318/3d-globes-earth-bright-lights-1920x1080.jpg';
+						$scope.backgroundsImg = 'http://beautyartpics.com/wp-content/uploads/2015/03/sky-railway-hd-image.jpg';
 					}
 
 				});
