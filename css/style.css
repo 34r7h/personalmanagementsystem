@@ -14,7 +14,9 @@ body {
 
 .panel {color: darkslateblue!important; font-size: 1.2em!important; background:rgba(235,245,255,.383838)!important; border:darkslateblue!important;border-radius:.13em!important; height:100%!important;}
 
-
+.red {
+    color: indianred;
+}
 
 textarea, input, select {color: darkslateblue!important; font-size: 1.1em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
 
