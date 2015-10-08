@@ -92,71 +92,92 @@
 </div>
 <div ng-if="!authData.uid">
 
-    <div class="columns large-12">
-        <b class="columns small-4" ng-click="show.about = !show.about">...
-            <p ng-show="show.about">
-                This app is intended to help you track daily activities. It is in a very early alpha stage. Feedback sent to
-                <a href="mailto:irth.03+personalmanagement@gmail.com">irth</a>
-            </p>
-        </b>
-        <div class="columns small-8 panel">
+    <div class="column large-12">
+        <div class="column small-12 panel">
             <h2 class="text-center">I'm an app to keep you on track</h2>
-            <p class="text-center">Please register or log in to get started.</p>
+            <p class="text-center" ng-click="show.about = !show.about">Please register or log in to get started
+                <span><b>...</b>
+                <span ng-show="show.about">
+                    This app is intended to help you track daily activities. It is in a very early alpha stage. Feedback sent to
+                    <a href="mailto:irth.03+personalmanagement@gmail.com">irth</a>
+                </span>
+            </span></p>
+
         </div>
     </div>
 
-    <div class="row"><form name="reg" class="column medium-5 panel" ng-submit="register(reg.email, reg.password)"
-          ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
-        <h1>Register</h1>
-        <input ng-model="reg.email" type="email" placeholder="Email"/>
-        <input ng-model="reg.password" type="password" placeholder="password"/>
-        <button class="info" type="submit">Register</button>
-    </form>
+    <div class="row" style="display:flex;">
+        <form style="flex: 1 1 auto" name="reg" class="column medium-4" ng-submit="register(reg.email, reg.password)"
+              ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
+            <h1>Register</h1>
+            <input ng-model="reg.email" type="email" placeholder="Email"/>
+            <input ng-model="reg.password" type="password" placeholder="password"/>
+            <button class="info" type="submit">Register</button>
+        </form>
 
 
-    <form name="login" class="column medium-6 panel" ng-submit="auth(login.email, login.password)"
-          ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
-        <h1>Log in</h1>
-        <input ng-model="login.email" type="email" placeholder="Email"/>
-        <input ng-model="login.password" type="password" placeholder="password"/>
-        <button class="success" type="submit">Log in</button>
-    </form></div>
+        <form style="flex: 3 1 auto" name="login" class="column medium-4 panel" ng-submit="auth(login.email, login.password)"
+              ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
+            <h1>Log in</h1>
+            <input ng-model="login.email" type="email" placeholder="Email"/>
+            <input ng-model="login.password" type="password" placeholder="password"/>
+            <button class="success" type="submit">Log in</button>
+        </form>
+
+        <!--<div ng-init="socPro = ['facebook', 'google', 'github', 'twitter']">
+            <div ng-repeat="pro in socPro">
+                <button ng-click="oAuth(pro)">{{pro}}</button>
+            </div>
+        </div>-->
+    </div>
 </div>
 
 <div class="row" ng-show="!show.agenda && authData.uid">
     <div class="row" ng-if="!showCurrent">
-        <div class="large-12 columns current" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
-            <h1>Focus</h1>
-            <textarea ng-model="yesterday.goals" style="font-size:2em!important" ng-style="{minHeight:(yesterday.goals.length*2.6)+'px'}"></textarea>
+        <h4><p class="right panel clearfix">Agenda</p>
+        </h4>
+        <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
+            <h3>
+                <b>Daily Objectives:</b>
+                <span>A running list of daily focus for easy journal entry</span>
+            </h3>
+            <textarea class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:2em!important" ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', minWidth: 33 +'vw'}"></textarea>
             <a
-                    class="button success columns large-12"
-                    ng-click="new.day.recap = yesterday.goals;hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete the
+                    class="button success columns small-12 medium-3"
+                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px'}"
+                    ng-click="new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete the
                 Day</a>
         </div>
-        <div class="large-12 columns current">
-            <h1 class="large-12">Next Actions <a class="right button info" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a>
-            </h1>
+        <div class="large-12 columns panel">
+            <div class="clearfix"><h3 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h3>
+            <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a></div>
 
-            <div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task">
+            <div style="display: flex; overflow: scroll; max-width:100%"><div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" style="flex: 2 2 auto;">
                 <div>
                     <div class="panel">
-                        <h3>{{task.name}}</h3>
-                        <textarea ng-show="task.description" ng-model="task.description"
-                                  ng-style="{height:(task.description.length*2)+'px'}"></textarea>
-                        <textarea ng-show="task.details" ng-model="task.details"
-                                  ng-style="{minHeight:(task.details.length*1.2)+'px'}"></textarea>
+                        <h5>{{task.name}}</h5>
+                        <!--<textarea ng-show="task.description" ng-model="task.description"
+                                  ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
+                        <textarea
+                                ng-show="task.details"
+                                ng-model="task.details"
+                                ng-style="{height:(task.details.length*1.2)+'px', maxHeight:'90px'}">
+
+                        </textarea>
                         <a
                                 class="button large-12 columns alert"
-                                ng-click="completeTask(key); new.action.name = task.name; new.action.tags = task.tags; new.action.details = (task.description || task.details ); hideAll(); beGone['action'] = ''; show.agenda = !show.agenda">Action Accomplished
+                                ng-click="completeTask(key); new.action.name = task.name; new.action.tags = task.tags; new.action.details = (task.description || task.details ); hideAll(); beGone['action'] = ''; show.agenda = true">Action Accomplished
                         </a>
                     </div>
                 </div>
-            </div>
+            </div></div>
+
         </div>
     </div>
 </div>
 <div ng-show="show.agenda && authData.uid" class="row">
-    <div class="columns">
+    <h4><p class="right panel clearfix">Post / Edit</p>
+        <div class="columns">
         <div class="large-3 column">
             <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class=" button-group radius even-2 sticky">
                 <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
@@ -402,7 +423,7 @@
 
 
 </div>
-<script>
+<!--<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -411,7 +432,7 @@
     ga('create', 'UA-68563493-1', 'auto');
     ga('send', 'pageview');
 
-</script>
+</script>-->
 </body>
 </html>
 

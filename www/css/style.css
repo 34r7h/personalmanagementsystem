@@ -18,7 +18,7 @@ body {
     color: indianred;
 }
 
-textarea, input, select {color: darkslateblue!important; font-size: 1.1em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
+textarea, input, select {color: rgba(2,5,13,.95)!important; font-size: .9em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
 
 .past textarea, .past input, .past select {color: darkslateblue!important; font-size: 1.1em!important; background:rgba(235,245,255,.696969)!important; border:none!important;border-radius:.13em!important}
 
