@@ -27,13 +27,9 @@
 <top-bar>
     <ul class="title-area">
         <li class="name">
-                <img style="width:auto; height:45px" src="images/icon.png" alt=""/>
-            <a href ng-show="authData.uid" class="button success" ng-click="show.agenda = false">Agenda</a>
-            <a href ng-show="authData.uid" class="button info" ng-click="show.agenda = true">Post / Edit</a>
+                <img ng-click="show.settings = false" style="width:auto; height:45px" src="images/icon.png" alt=""/>
         </li>
-        <li>
 
-        </li>
         <li toggle-top-bar class="menu-icon"><a href="#" ng-click="show.agenda = !show.agenda">Menu</a></li>
     </ul>
 
@@ -41,11 +37,18 @@
         <!-- Left Nav Section -->
 <ul class="left">
     <li ng-if="authObj.$getAuth().password.email">
-        <a href>{{ authObj.$getAuth().password.email }}</a>
+        <a href ng-click="show.settings = false">{{ authObj.$getAuth().password.email }}</a>
     </li>
 </ul>
         <!-- Right Nav Section -->
         <ul class="right">
+            <li>
+                <a href ng-show="authData.uid" class="button success" ng-click="show.settings = false; show.agenda = false">Agenda</a>
+            </li>
+            <li>
+                <a href ng-show="authData.uid" class="button info" ng-click="show.settings = false; show.agenda = true">Post / Edit</a>
+            </li>
+
             <li>
                 <a href="mailto:irth.03+personal-management@gmail.com" class="button danger">Feedback</a>
             </li>
@@ -68,17 +71,21 @@
     </top-bar-section>
 </top-bar>
 <br/>
-<div class="settings" ng-if="show.settings">
-    <div style="width:80%; margin: 1% 5%"><input ng-model="newUrl" placeholder="Paste image url here"
-                                                 style="color:white; background:rgba(0,0,0,.38);">
-        <button ng-click="api.add['backgrounds'](newUrl); newUrl=''; backgroundsImg=syncBackgroundsObject[(syncBackgroundsObject.length-1)].$value">
+<div class="settings " ng-if="show.settings">
+    <div class="row panel">
+        <h1 class="">Background Images</h1>
+        <div class="column small-12 medium-6">
+        <input id="newUrl" type="url" ng-model="newUrl" placeholder="Paste image url here"
+                                                 style="color:white; background:rgba(0,0,0,.38);"></div>
+        <div class="column small-12 medium-6"><button class="button success column small-12" ng-click="api.add['backgrounds'](newUrl); newUrl=''; backgroundsImg=syncBackgroundsObject[(syncBackgroundsObject.length-1)].$value">
             Add Image
-        </button>
+        </button></div>
     </div>
-    <ul>
-        <li ng-repeat="(key,img) in syncBackgroundsObject" style="list-style-decoration:none">
-            <img ng-src="{{img}}" height="30px" width="auto">
-            <a href ng-click="$parent.removeBackgrounds(key)">(X) {{key}}</a>
+    <ul class="row panel">
+        <li class="column small-12 medium-4 large-3" ng-repeat="(key,img) in syncBackgroundsObject" style="list-style:none">
+            <div class="panel"><img ng-src="{{img}}" height="30px" width="auto">
+                <a class="black small" ng-click="$parent.removeBackgrounds(key)">Remove Image</a>
+            </div>
         </li>
     </ul>
 </div>
@@ -148,8 +155,8 @@
     </div>
 </div>
 <div ng-show="show.agenda && authData.uid" class="row">
-    <div class="row">
-        <div class="large-3 columns">
+    <div class="columns">
+        <div class="large-3 column">
             <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class=" button-group radius even-2 sticky">
                 <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
                     ng-click="hideAll(); beGone[link] = ''">
@@ -157,7 +164,7 @@
                 </li>
             </ul>
         </div>
-        <div class="large-9 columns">
+        <div class="large-9 column">
             <div ng-repeat="life in lifestyle" class="row">
                 <div style="{{beGone[life]}}">
                     <h1 class="text-right">{{life | uppercase}}</h1>
