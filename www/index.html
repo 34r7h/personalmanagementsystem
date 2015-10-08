@@ -110,16 +110,16 @@
         <h1>Register</h1>
         <input ng-model="reg.email" type="email" placeholder="Email"/>
         <input ng-model="reg.password" type="password" placeholder="password"/>
-        <button type="submit">Register</button>
+        <button class="info" type="submit">Register</button>
     </form>
 
 
     <form name="login" class="column medium-6 panel" ng-submit="auth(login.email, login.password)"
           ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
-        <h1>Login</h1>
+        <h1>Log in</h1>
         <input ng-model="login.email" type="email" placeholder="Email"/>
         <input ng-model="login.password" type="password" placeholder="password"/>
-        <button type="submit">Log in</button>
+        <button class="success" type="submit">Log in</button>
     </form></div>
 </div>
 
