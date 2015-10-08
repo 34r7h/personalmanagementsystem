@@ -27,28 +27,23 @@
 <top-bar>
     <ul class="title-area">
         <li class="name">
-            <b href="#" ng-click="show.agenda = !show.agenda">
-                <img class="" src="images/icon.png" alt=""/>
-            </b>
+                <img style="width:auto; height:45px" src="images/icon.png" alt=""/>
+            <a href ng-show="authData.uid" class="button success" ng-click="show.agenda = false">Agenda</a>
+            <a href ng-show="authData.uid" class="button info" ng-click="show.agenda = true">Post / Edit</a>
+        </li>
+        <li>
+
         </li>
         <li toggle-top-bar class="menu-icon"><a href="#" ng-click="show.agenda = !show.agenda">Menu</a></li>
     </ul>
 
     <top-bar-section>
         <!-- Left Nav Section -->
-        <ul class="title-area">
-            <li class="name" ng-click="show.agenda = !show.agenda"><h1 ng-if="authObj.$getAuth().password.email">
-                <a>{{ authObj.$getAuth().password.email }}</a>
-            </h1></li>
-            <li class="active" ng-show="authData.uid">
-                <a class="button success" ng-click="show.agenda = false">Agenda View</a>
-            </li>
-            <li class="" ng-show="authData.uid">
-                <a class="button info" ng-click="show.agenda = true">New / Edit Entries</a>
-            </li>
-
-
-        </ul>
+<ul class="left">
+    <li ng-if="authObj.$getAuth().password.email">
+        <a href>{{ authObj.$getAuth().password.email }}</a>
+    </li>
+</ul>
         <!-- Right Nav Section -->
         <ul class="right">
             <li>
