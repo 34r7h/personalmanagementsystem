@@ -15,6 +15,9 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			zIndex: 10000,
 			background: 'rgba(23,43,12, .62)'
 		};
+		$scope.dimensions = {minWidth: $window.innerWidth + 'px', minHeight: $window.innerHeight + 'px'};
+
+
 		$scope.show = {note: {big: true}};
 		$scope.showLinks = {mind: true, body: true, spirit: true};
 		$scope.life = [];
@@ -31,6 +34,17 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		$scope.location = $location;
 
 
+		$scope.oAuth = function (provider) {
+			$scope.authObj.$authWithOAuthPopup(provider).then(function (authData) {
+				$scope.authData = authData;
+				console.log("Logged in as:", $scope.authData.uid);
+				$scope.getData();
+			}).catch(function (error) {
+				console.error("Authentication failed:", error);
+
+			});
+		};
+
 		$scope.auth = function (email, password) {
 			$scope.authObj.$authWithPassword({
 				email: email,
@@ -40,26 +54,26 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				console.log("Logged in as:", authData.uid);
 
 				/*var checkRef = $firebase(authRef);
-				var checkData = checkRef.$asObject();
-				if (!checkData[$scope.authData.uid]) {
-					checkData[$scope.authData.uid] = {
-						backgrounds: {
-							welcome: 'http://hivewallpaper.com/wallpaper/2014/12/pablo-picasso-cubism-paintings-9-widescreen-wallpaper.jpg'
-						},
-						life:{
-							task:{
-								welcome: {
-									name: 'Welcome',
-									details: 'create tasks'
-								}
-							}
-						}
+				 var checkData = checkRef.$asObject();
+				 if (!checkData[$scope.authData.uid]) {
+				 checkData[$scope.authData.uid] = {
+				 backgrounds: {
+				 welcome: 'http://hivewallpaper.com/wallpaper/2014/12/pablo-picasso-cubism-paintings-9-widescreen-wallpaper.jpg'
+				 },
+				 life:{
+				 task:{
+				 welcome: {
+				 name: 'Welcome',
+				 details: 'create tasks'
+				 }
+				 }
+				 }
 
-					};
-					console.log(checkData);
-					checkData.$save();
-				};
-				*/
+				 };
+				 console.log(checkData);
+				 checkData.$save();
+				 };
+				 */
 				$scope.getData();
 
 			}).catch(function (error) {
@@ -67,20 +81,19 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			});
 		};
 
-		$scope.register = function(email, password){
-			$scope.authObj.$createUser(email, password).then(function(){
+		$scope.register = function (email, password) {
+			$scope.authObj.$createUser(email, password).then(function () {
 				$scope.auth(email, password);
 			});
 		};
-		// $scope.auth('i@o.io','o');
-		$scope.dimensions = {minWidth: $window.innerWidth + 'px', minHeight: $window.innerHeight + 'px'};
-		
+		// $scope.auth('email@?.??','password');
+
 
 		$scope.getData = function () {
 			angular.forEach($scope.lifestyle, function (life) {
 				$scope.new[life] = {};
 				$scope.beGone[life] = 'display:none';
-				console.log('$scope.authObj.$getAuth().uid',$scope.authObj.$getAuth().uid);
+				console.log('$scope.authObj.$getAuth().uid', $scope.authObj.$getAuth().uid);
 				ref[life] = $scope.authObj.$getAuth() ?
 					new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
 					console.log('not signed in');
@@ -98,12 +111,12 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				$scope.syncBackgroundsArray = backgroundsSync.$asArray();
 				// to take an action after the data loads, use the $loaded() promise
 				$scope.syncBackgroundsArray.$loaded().then(function () {
-					if($scope.syncBackgroundsArray.length > 0){
+					if ($scope.syncBackgroundsArray.length > 0) {
 						var randomNum = Math.floor(Math.random() * $scope.syncBackgroundsArray.length);
 						// To iterate the key/value pairs of the object, use angular.forEach()
 						$scope.backgroundsImg = $scope.syncBackgroundsArray[randomNum].$value
 					} else {
-						$scope.backgroundsImg = 'http://beautyartpics.com/wp-content/uploads/2015/03/sky-railway-hd-image.jpg';
+						$scope.backgroundsImg = 'images/tracks.jpg';
 					}
 
 				});
@@ -160,9 +173,9 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			var timestamp = Date.now();
 			sync.task.$update(id, {done: false, undone: timestamp});
 		};
-		$scope.reload = function() {
+		$scope.reload = function () {
 			$window.location.reload();
-		}
+		};
 
 		/**
 		 // Local storage start ($window.TEMPORARY can be switched with $window.PERMANENT)
