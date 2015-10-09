@@ -176,17 +176,17 @@
     </div>
 </div>
 <div ng-show="show.agenda && authData.uid" class="row">
-    <h4><p class="right panel clearfix">Post / Edit</p>
+    <h4><p class="right panel clearfix">Post / Edit</p></h4>
         <div class="columns">
-        <div class="large-3 column">
-            <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class=" button-group radius even-2 sticky">
-                <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
-                    ng-click="hideAll(); beGone[link] = ''">
-                    <a class="button large alert" href="">{{link}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="large-9 column">
+            <div class="large-4 small-12 column">
+                <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class="column large-12 small-6 button-group radius even-2 sticky">
+                    <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
+                        ng-click="hideAll(); beGone[link] = ''">
+                        <a class="button large alert" href="">{{link}}</a>
+                    </li>
+                </ul>
+            </div>
+        <div class="large-8 column">
             <div ng-repeat="life in lifestyle" class="row">
                 <div style="{{beGone[life]}}">
                     <h1 class="text-right">{{life | uppercase}}</h1>
@@ -387,26 +387,27 @@
 
 <div ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
      ng-show="hide.note">
-    <dl class="sub-nav ">
-        <dt>Notes:</dt>
-        <dd class="active">
-            <a href="" class=" secondary" ng-click="hide.note = !hide.note">
-                <span ng-show="hide.note">Hide</span>
-                <span ng-show="!hide.note">Note</span>
+    <div style="height:51px">
+        <span class="active" style="display:flex; height:45px">
+            <a style="flex: 1 0 auto; height: 45px" class="alert button small-2 columns" ng-click="hide.note = !hide.note">
+                <span ng-show="hide.note">Hide Notes</span>
+                <!--<span ng-show="!hide.note">Note</span>-->
             </a>
-        </dd>
-        <dd><a href="" class=" success" ng-show="hide.note"
-               ng-click="api.add['note']({note:'New Note'}); showNote = Object.key(note[note.length])">New Note</a>
-        </dd>
+            <a style="flex: 1 0 auto;  height:45px" class="button info small-2  columns" ng-show="hide.note"
+               ng-click="api.add['note']({note:'New Note'}); showNote = Object.key(note[note.length])">
+                Add Note
+            </a>
+            <input style="flex: 1 0 auto;  height:45px" type="search" ng-model="searchNote" class="small-3 columns" placeholder="Search through notes"/>
+        </span>
 
-    </dl>
+    </div>
 
 
     <div class="small-4 columns text-right" style="overflow:scroll; height:100%">
-        <a ng-click="$parent.showNote = key" class="button information columns small-12 large-12"
-           style="max-height:40px; overflow:hidden" ng-repeat="(key,note) in note" ng-show="note.note.length > 0">
-            <div ng-init="$parent.$parent.showNote = key" ng-if="$first"></div>
-            {{note.note}}
+        <a ng-click="$parent.showNote = note.$id" class="button info row text-justify"
+           style="max-height:40px; overflow:hidden; margin:0" ng-repeat="note in syncArray.note | filter:searchNote" ng-show="note.note.length > 0">
+            <div ng-init="$parent.$parent.showNote = note.$id" ng-if="$first"></div>
+            {{note.note | limitTo:24}}...
         </a>
         <br/>
         <hr/>
@@ -416,8 +417,8 @@
 
 </div>
 
-<div ng-style="{position:'fixed', bottom:0, left: 0, zIndex:100001}" ng-show="authData.uid">
-    <a ng-show="!hide.note" class="button secondary" ng-click="hide.note = !hide.note">
+<div ng-style="{position:'fixed', bottom:-20+'px', left: 0, zIndex:100001}" ng-show="authData.uid">
+    <a ng-show="!hide.note" class="button alert" ng-click="hide.note = !hide.note">
         <span>Note</span>
     </a>
 
