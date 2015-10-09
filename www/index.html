@@ -137,19 +137,21 @@
         <h4><p class="right panel clearfix">Agenda</p>
         </h4>
         <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
-            <h3>
+            <h5>
                 <b>Daily Objectives:</b>
                 <span>A running list of daily focus for easy journal entry</span>
-            </h3>
-            <textarea class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:2em!important" ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', minWidth: 33 +'vw'}"></textarea>
+            </h5>
+            <textarea class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:1.3em!important" ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', minWidth: 33 +'vw'}"></textarea>
             <a
                     class="button success columns small-12 medium-3"
-                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px'}"
-                    ng-click="new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">Complete the
-                Day</a>
+                    style="flex-direction: column; align-content: center; display: flex"
+                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', fontSize:1.4+'em'}"
+                    ng-click="new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">
+                <span style="align-content: center">Complete the Day</span>
+            </a>
         </div>
         <div class="large-12 columns panel">
-            <div class="clearfix"><h3 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h3>
+            <div class="clearfix"><h5 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h5>
             <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a></div>
 
             <div style="display: flex; overflow: scroll; max-width:100%"><div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" style="flex: 2 2 auto;">
@@ -419,7 +421,7 @@
 
 <div ng-style="{position:'fixed', bottom:-20+'px', left: 0, zIndex:100001}" ng-show="authData.uid">
     <a ng-show="!hide.note" class="button alert" ng-click="hide.note = !hide.note">
-        <span>Note</span>
+        <span>Open Notes</span>
     </a>
 
 
