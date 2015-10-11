@@ -21,8 +21,8 @@
 <script src="js/irth.js"></script>
 
 
-<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="stockBg = 'http://beautyartpics.com/wp-content/uploads/2015/03/sky-railway-hd-image.jpg'"
-      style="background: url('{{backgroundsImg || stockBg}}') center center no-repeat fixed; background-size: cover;"
+<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="backgroundsImg = 'images/tracks.jpg'"
+      style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
       ng-style="dimensions">
 
 <top-bar>
@@ -78,14 +78,17 @@
         <div class="column small-12 medium-6">
         <input id="newUrl" type="url" ng-model="newUrl" placeholder="Paste image url here"
                                                  style="color:white; background:rgba(0,0,0,.38);"></div>
-        <div class="column small-12 medium-6"><button class="button success column small-12" ng-click="api.add['backgrounds'](newUrl); newUrl=''; backgroundsImg=syncBackgroundsObject[(syncBackgroundsObject.length-1)].$value">
+        <div class="column small-12 medium-6">
+            <button class="button success column small-12" ng-click="api.add['backgrounds'](newUrl); $parent.backgroundsImg=newUrl; newUrl=''; ">
             Add Image
-        </button></div>
+            </button>
+        </div>
     </div>
     <ul class="row panel">
         <li class="column small-12 medium-4 large-3" ng-repeat="(key,img) in syncBackgroundsObject" style="list-style:none">
             <div class="panel"><img ng-src="{{img}}" height="30px" width="auto">
                 <a class="black small" ng-click="$parent.removeBackgrounds(key)">Remove Image</a>
+                <a class="button info" ng-click="$parent.$parent.backgroundsImg = img">Set as background</a>
             </div>
         </li>
     </ul>
