@@ -4,6 +4,18 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		var dbURL = 'https://yourlife.firebaseio.com/users',
 			ref = {}, backgroundsRef = {}, sync = {}, backgroundsSync = {}, bind = {}, authRef = new Firebase(dbURL);
 		$scope.lifestyle = ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'];
+
+		$scope.lifestyleDescription = {
+			action: 'These are things you do',
+			event: 'These are things that happen',
+			fuel: 'Fuels are anything that you feed yourself',
+			train: 'Training is exercise and/or education',
+			day: 'Treat the day section as your journal',
+			task: 'Tasks are created and updated here',
+			fear: 'Express your negative feelings and emotions',
+			love: 'Give thanks and praise. You\'re really quite lucky :)'
+		};
+
 		$scope.nav = {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']};
 		$scope.style = {};
 		$scope.style.note = {
