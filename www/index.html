@@ -137,8 +137,7 @@
 
 <div class="row" ng-show="!show.agenda && authData.uid">
     <div class="row" ng-if="!showCurrent">
-        <h4><p class="right panel clearfix">Agenda</p>
-        </h4>
+
         <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
             <h5>
                 <b>Daily Objectives:</b>
@@ -157,22 +156,28 @@
             <div class="clearfix"><h5 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h5>
             <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a></div>
 
-            <div style="display: flex; overflow: scroll; max-width:100%"><div class="large-4 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" style="flex: 2 2 auto;">
+            <div style="display: flex; overflow: scroll; max-width:100%"><div class="large-3 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" style="flex: 1 0 400px;">
                 <div>
                     <div class="panel">
-                        <h5>{{task.name}}</h5>
+                        <h3>{{task.name}}</h3>
                         <!--<textarea ng-show="task.description" ng-model="task.description"
                                   ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
                         <textarea
                                 ng-show="task.details"
                                 ng-model="task.details"
-                                ng-style="{height:(task.details.length*1.2)+'px', maxHeight:'90px'}">
+                                ng-style="{fontSize:'.8em!important', height:'135px', maxHeight:'100%', maxWidth:'100%'}">
 
                         </textarea>
                         <a
-                                class="button large-12 columns alert"
-                                ng-click="completeTask(key); new.action.name = task.name; new.action.tags = task.tags; new.action.details = (task.description || task.details ); hideAll(); beGone['action'] = ''; show.agenda = true">Action Accomplished
+                                class="button large-12 column alert"
+                                ng-focus=""
+                                ng-click="completeTask(key); new[(entrySelection || 'action')].name = task.name; new[(entrySelection || 'action')].tags = task.tags; new[(entrySelection || 'action')].details = (task.description || task.details ); hideAll(); beGone[(entrySelection || 'action')] = ''; show.agenda = true">TASK -> {{(entrySelection | uppercase) || 'ACTION'}}
                         </a>
+
+                        <select class="small" ng-model="entrySelection" name="entry-select" id="entry-select">
+                            <option value="" disabled selected>Change Entry</option>
+                            <option ng-show="selection==='action' || selection==='train'"  ng-model="selection" ng-repeat="selection in $parent.lifestyle" value="{{selection}}">{{selection}}</option>
+                        </select>
                     </div>
                 </div>
             </div></div>
@@ -181,7 +186,6 @@
     </div>
 </div>
 <div ng-show="show.agenda && authData.uid" class="row">
-    <h4><p class="right panel clearfix">Post / Edit</p></h4>
         <div class="columns">
             <div class="large-4 small-12 column">
                 <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class="column large-12 small-6 button-group radius even-2 sticky">
@@ -195,18 +199,29 @@
             <div ng-repeat="life in lifestyle" class="row">
                 <div style="{{beGone[life]}}">
                     <h1 class="text-right">{{life | uppercase}}</h1>
-
-                    <form class="small-12 columns panel current" id="{{life}}"
+                    <form class="small-12 column panel current" id="{{life}}"
                           ng-submit="$parent.api.add[life](new[life]); new[life]={};">
+                        <h5><b>{{lifestyleDescription[life]}}</b></h5>
 
                         <div class="row" ng-if="life !== 'day' && life !== 'event'">
-                            <div class="large-4 columns"><input type="text" ng-model="new[life].name"
-                                                                placeholder="{{life}} name" x-webkit-speech="true"/>
+                            <div class="large-8 column">
+                                <h3>
+                                    <input
+
+                                        type="text"
+                                        ng-model="new[life].name"
+                                        placeholder="{{life}} name"
+                                        x-webkit-speech="true"/>
+                                </h3>
                             </div>
-                            <div class="large-8 columns">
-                                <textarea type="text" ng-model="new[life].details"
-                                          placeholder="{{life}} details"
-                                          ng-style="{minHeight:(new[life].details.length*0.6)+'px'}"></textarea>
+                            <div class="large-12 column">
+                                <textarea
+                                        type="text"
+                                        ng-model="new[life].details"
+                                        placeholder="{{life}} details"
+                                        ng-style="{minHeight:(new[life].details.length*0.6)+'px'}">
+
+                                </textarea>
 
                             </div>
 
@@ -232,39 +247,35 @@
 
                         <div ng-if="life === 'fuel'" class="row">
 
-                            <table name="fuel" class="large-12 columns"
+                            <div name="fuel" class="panel"
                                    ng-init="nutrition.types = ['good carbs', 'bad carbs', 'protein', 'fibre', 'fats']; nutrition.amounts = [1,2,3,4,5]">
-                                <thead>
-                                <tr>
+                                <div style="display:flex;" ng-repeat="type in nutrition.types">
+                                    <div  class="text-right" style="flex: 0 3 200px">
+                                        <b>{{type}}: </b>
+                                    </div>
+                                    <div style="flex: 3 0 auto">
+                                        <input type="range" min="0" max="100" ng-model="new[life].nutrition[type]" ng-init="new[life].nutrition[type]=0"/>
+                                    </div>
+                                    <hr ng-hide="$last" />
 
-                                    <td colspan="10" class="text-right">Enter amounts 1 being small 5 being grand</td>
-                                </tr>
-                                </thead>
-                                <tr ng-repeat="type in nutrition.types">
-                                    <td>
-                                        <b>{{type}}</b>
-                                    </td>
-                                    <td ng-repeat="amount in nutrition.amounts">
-                                        <label for="{{$parent.type+amount}}"><b>{{amount}}</b></label>
-                                        <input id="{{$parent.type+amount}}" type="radio"
-                                               ng-model="new[life].nutrition[type]" value="{{amount}}"/>
-                                    </td>
-                                </tr>
-                            </table>
+                                </div>
+                            </div>
 
                         </div>
 
                         <div ng-if="life === 'train'" class="row">
-                            <table class="large-12 columns"
-                                   ng-init="mode.types = ['cardio', 'strength', 'form', 'flex']; mode.amounts = [1,2,3,4,5]">
-                                <thead>
-                                <tr>
-                                    <td colspan="10" class="text-right">Enter intensity levels 1 being not much and 5
-                                        being demigod mode.
-                                    </td>
-                                </tr>
-                                </thead>
-                                <tr ng-repeat="type in mode.types">
+                            <div class="panel"
+                                   ng-init="mode.types = ['cardio', 'strength', 'form', 'flex', 'mental', 'spiritual']; mode.amounts = [1,2,3,4,5]">
+                                <div style="display:flex;" ng-repeat="type in mode.types">
+                                    <div  class="text-right" style="flex: 0 3 200px">
+                                        <b>{{type}}: </b>
+                                    </div>
+                                    <div style="flex: 3 0 auto">
+                                        <input type="range" min="0" max="100" ng-model="new[life].mode[type]" ng-init="new[life].mode[type]=0"/>
+                                    </div>
+                                    <hr ng-hide="$last" />
+                                </div>
+                                <!--<tr ng-repeat="type in mode.types">
                                     <td><b>{{type}}</b></td>
                                     <td ng-repeat="amount in mode.amounts" style="text-align: center">
                                         <label for="{{$parent.type + amount}}"><b>{{amount}}</b></label>
@@ -272,35 +283,34 @@
                                                ng-model="$parent.$parent.$parent.new[life].mode[type]"
                                                value="{{amount}}"/>
                                     </td>
-                                </tr>
-                            </table>
+                                </tr>-->
+                            </div>
                         </div>
+
                         <div class="row" ng-init="new[life].time = 0"
                              ng-if="life !== 'day' && life !== 'event' && life !== 'fuel' && life !== 'task' && life !== 'note' && life !== 'love' && life !== 'fear'">
-                            <div class="large-3 columns">
+                            <div class="large-3 column">
                                 <input type="number" ng-model="new[life].minutes" placeholder="Minutes"
-                                       ng-change="new[life].time = ((new[life].hours * 60) + new[life].minutes);"/>
-                            </div>
-                            <div class="large-3 columns">
-                                <input type="number" ng-model="new[life].hours" placeholder="Hours"
-                                       ng-change="new[life].time = ((new[life].hours * 60) + new[life].minutes);">
+                                       ng-change="new[life].time = new[life].minutes;"/>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="large-8 columns">
-                    <textarea
-                            type="text"
-                            ng-model="new[life].tags"
-                            placeholder="Tags">
-                    </textarea>
+                            <div class="large-8 column">
+                                <textarea
+                                        type="text"
+                                        ng-model="new[life].tags"
+                                        placeholder="Tags separate by '#' or ', '">
+                                </textarea>
                             </div>
-                            <div class="large-4 columns">
-                                <select
-                                        ng-init="ratings = ['5', '4', '3', '2', '1']"
-                                        ng-model="new[life].quality"
-                                        ng-options="rating for rating in ratings | uppercase">
-                                    <option value="">Rate this {{life | uppercase}}</option>
-                                </select>
+                            <div class="large-4 column">
+                                <label for="quality">Rate this {{life | uppercase}}
+                                    <input
+                                            id="quality"
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            ng-model="new[life].quality"/>
+                                </label>
                                 <button class="button large alert expand" type="submit">Post new {{life}}</button>
                             </div>
                         </div>
