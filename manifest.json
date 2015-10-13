@@ -6,8 +6,7 @@
     "newtab": "index.html"
   },
   "description": "I'm an app to keep you on track",
-  // "omnibox": {"keyword":"pop"},
-  "version": "0.6.1",
+  "version": "0.6.2",
 
   "browser_action": {
     "default_icon": "icon.png",

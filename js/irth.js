@@ -18,16 +18,26 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 		$scope.nav = {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']};
 		$scope.style = {};
+		$scope.backgroundsImg = 'images/tracks.jpg'
+		$scope.dimensions = {
+			minWidth: $window.innerWidth + 'px',
+			minHeight: $window.innerHeight + 'px',
+			background: 'url(' + $scope.backgroundsImg + ') center center no-repeat fixed',
+			backgroundSize: 'cover'
+	};
+
 		$scope.style.note = {
 			position: 'fixed',
 			bottom: 0,
 			left: 0,
-			width: $window.innerWidth + 'px',
-			height: ( $window.innerHeight / 2 ) + 'px',
+			minWidth: $window.innerWidth + 'px',
+			minHeight: ( $window.innerHeight / 2 ) + 'px',
+			width: '100%',
+			height: '50%',
 			zIndex: 10000,
-			background: 'rgba(23,43,12, .62)'
+			background: 'rgba(23,43,12, .62)',
+			display:'flex'
 		};
-		$scope.dimensions = {minWidth: $window.innerWidth + 'px', minHeight: $window.innerHeight + 'px'};
 
 
 		$scope.show = {note: {big: true}};

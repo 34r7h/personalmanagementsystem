@@ -141,13 +141,13 @@
         <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
             <h5>
                 <b>Daily Objectives:</b>
-                <span>A running list of daily focus for easy journal entry</span>
+                <span>Keep track of your daily goals to stay focused.</span>
             </h5>
-            <textarea class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:1.3em!important" ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', minWidth: 33 +'vw'}"></textarea>
+            <textarea class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:1.3em!important" ng-style="{minHeight: 135+'px',height:(yesterday.goals.length*1.6)+'px', minWidth: 33 +'vw'}"></textarea>
             <a
                     class="button success columns small-12 medium-3"
                     style="flex-direction: column; align-content: center; display: flex"
-                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*2.6)+'px', fontSize:1.4+'em'}"
+                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*1.6)+'px', fontSize:1.4+'em'}"
                     ng-click="new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">
                 <span style="align-content: center">Complete the Day</span>
             </a>
@@ -203,7 +203,7 @@
                           ng-submit="$parent.api.add[life](new[life]); new[life]={};">
                         <h5><b>{{lifestyleDescription[life]}}</b></h5>
 
-                        <div class="row" ng-if="life !== 'day' && life !== 'event'">
+                        <div class="row" ng-if="life !== 'day'">
                             <div class="large-8 column">
                                 <h3>
                                     <input
@@ -214,7 +214,7 @@
                                         x-webkit-speech="true"/>
                                 </h3>
                             </div>
-                            <div class="large-12 column">
+                            <div class="large-12 column" ng-show="life !== 'event'">
                                 <textarea
                                         type="text"
                                         ng-model="new[life].details"
@@ -237,7 +237,7 @@
 
                             <br/>
 
-                            <div class="large-12 columns"><textarea class="large-12 columns" type="text"
+                            <div ng-if="life !== 'event'" class="large-12 columns"><textarea class="large-12 columns" type="text"
                                                                     ng-model="$parent.new[life].goals"
                                                                     placeholder="Next {{life}}'s goals"
                                                                     ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
@@ -401,36 +401,45 @@
 </div>
 
 <div ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
-     ng-show="hide.note">
-    <div style="height:51px">
-        <span class="active" style="display:flex; height:45px">
-            <a style="flex: 1 0 auto; height: 45px" class="alert button small-2 columns" ng-click="hide.note = !hide.note">
-                <span ng-show="hide.note">Hide Notes</span>
+     ng-if="hide.note">
+
+    <div style="
+    display: flex;
+    flex: 1 0 100%;
+    position: absolute;
+    bottom: 58px;
+    width: 100%;
+    height:100%;
+    max-height: 78%;
+    ">
+
+        <div class="small-4 column text-right" style="overflow:scroll; flex: 1 1 auto; align-self: flex-start;align-items: stretch;height: 100%;">
+            <a ng-click="$parent.showNote = note.$id" class="button info row text-justify"
+               style="max-height:45px; overflow:hidden; margin:0" ng-repeat="note in syncArray.note | filter:searchNote" ng-show="note.note.length > 0">
+                <div ng-init="$parent.$parent.showNote = note.$id" ng-if="$first"></div>
+                {{note.note | limitTo:24}}...
+            </a>
+        </div>
+
+        <textarea class="small-8 column" ng-model="note[showNote].note" style="flex: 3 0 auto; height: 100%;"></textarea>
+    </div>
+
+    <div style="height:45px;  flex: 0 0 100%; align-self: flex-end">
+        <span class="active" style="display:flex;">
+            <a style="flex: 0 1 auto; height: 45px" class="alert button small-2 columns" ng-click="hide.note = !hide.note">
+                <span ng-show="hide.note">Hide</span>
                 <!--<span ng-show="!hide.note">Note</span>-->
             </a>
-            <a style="flex: 1 0 auto;  height:45px" class="button info small-2  columns" ng-show="hide.note"
+            <a style="flex: 2 0 auto;  height:45px" class="button info small-2  columns" ng-show="hide.note"
                ng-click="api.add['note']({note:'New Note'}); showNote = Object.key(note[note.length])">
-                Add Note
+                New
             </a>
             <input style="flex: 1 0 auto;  height:45px" type="search" ng-model="searchNote" class="small-3 columns" placeholder="Search through notes"/>
         </span>
 
     </div>
-
-
-    <div class="small-4 columns text-right" style="overflow:scroll; height:100%">
-        <a ng-click="$parent.showNote = note.$id" class="button info row text-justify"
-           style="max-height:40px; overflow:hidden; margin:0" ng-repeat="note in syncArray.note | filter:searchNote" ng-show="note.note.length > 0">
-            <div ng-init="$parent.$parent.showNote = note.$id" ng-if="$first"></div>
-            {{note.note | limitTo:24}}...
-        </a>
-        <br/>
-        <hr/>
-    </div>
-
-    <textarea class="small-8 columns" ng-model="note[showNote].note" style="height:100%"></textarea>
-
 </div>
+
 
 <div ng-style="{position:'fixed', bottom:-20+'px', left: 0, zIndex:100001}" ng-show="authData.uid">
     <a ng-show="!hide.note" class="button alert" ng-click="hide.note = !hide.note">
