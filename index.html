@@ -412,8 +412,9 @@
     height:100%;
     max-height: 78%;
     ">
-
         <div class="small-4 column text-right" style="overflow:scroll; flex: 1 1 auto; align-self: flex-start;align-items: stretch;height: 100%;">
+            <input style="height:45px" type="search" ng-model="searchNote" class="small-6 column" placeholder="Search"/>
+
             <a ng-click="$parent.showNote = note.$id" class="button info row text-justify"
                style="max-height:45px; overflow:hidden; margin:0" ng-repeat="note in syncArray.note | filter:searchNote" ng-show="note.note.length > 0">
                 <div ng-init="$parent.$parent.showNote = note.$id" ng-if="$first"></div>
@@ -424,17 +425,16 @@
         <textarea class="small-8 column" ng-model="note[showNote].note" style="flex: 3 0 auto; height: 100%;"></textarea>
     </div>
 
-    <div style="height:45px;  flex: 0 0 100%; align-self: flex-end">
+    <div style="height:45px;  flex: 0 0 100%; align-self: flex-end; width:100%; position:absolute; bottom:0">
         <span class="active" style="display:flex;">
-            <a style="flex: 0 1 auto; height: 45px" class="alert button small-2 columns" ng-click="hide.note = !hide.note">
+            <a style="flex: 0 1 auto; height: 45px" class="alert button small-2 column" ng-click="hide.note = !hide.note">
                 <span ng-show="hide.note">Hide</span>
                 <!--<span ng-show="!hide.note">Note</span>-->
             </a>
-            <a style="flex: 2 0 auto;  height:45px" class="button info small-2  columns" ng-show="hide.note"
+            <a style="flex: 2 0 auto;  height:45px" class="button info small-2 column" ng-show="hide.note"
                ng-click="api.add['note']({note:'New Note'}); showNote = Object.key(note[note.length])">
                 New
             </a>
-            <input style="flex: 1 0 auto;  height:45px" type="search" ng-model="searchNote" class="small-3 columns" placeholder="Search through notes"/>
         </span>
 
     </div>
