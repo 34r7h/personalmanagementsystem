@@ -263,7 +263,16 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		return function (val) {
 			return $sce.trustAsResourceUrl(val);
 		};
-	}]);
+	}]).directive('autofocus', ['$document', function($document) {
+		return {
+			link: function($scope, $element, attrs) {
+				setTimeout(function() {
+					$element[0].focus();
+				}, 200);
+			}
+		};
+	}])
+;
 /*
  .filter('searchResults', function($firebase){
  return function(entries, search) {
