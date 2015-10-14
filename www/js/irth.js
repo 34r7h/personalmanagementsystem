@@ -199,9 +199,9 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			console.log($scope.localArray, $scope.localObject);*/
 		};
 		$scope.authObj.$getAuth() ? ($scope.authData = $scope.authObj.$getAuth(), $scope.getData()) : console.log('no data');
-		// Prepare localStorage
+		/*// Prepare localStorage
 		$scope.wut = JSON.parse(localStorage.getItem('$scope.localObject'));
-		console.log($scope.wut);
+		console.log($scope.wut);*/
 
 
 		// API
@@ -228,8 +228,6 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			console.log('removing', type + ": " + id);
 			sync[type].$remove(id);
 		};
-		(sync.note && !sync.note.undefined) ? null : $scope.removeEntry('note', 'undefined');
-
 
 
 		$scope.copy = function (entry) {
