@@ -228,7 +228,8 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			console.log('removing', type + ": " + id);
 			sync[type].$remove(id);
 		};
-		sync.note.undefined ? $scope.removeEntry('note', 'undefined') : null;
+		(sync.note && !sync.note.undefined) ? null : $scope.removeEntry('note', 'undefined');
+
 
 
 		$scope.copy = function (entry) {
