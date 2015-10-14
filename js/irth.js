@@ -160,9 +160,10 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				sync[life] = $firebase(ref[life]);
 				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function(data){
 					console.log('syncObject data', data);
-					var localData = JSON.stringify(data);
+					// local storage attempt
+					/*var localData = JSON.stringify(data);
 					localStorage.setItem(life, localData);
-					console.log('please be local', localStorage.getItem('localObject['+life+']'))
+					console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
 				});
 				bind[life] = sync[life].$asObject();
 				$scope.syncArray[life] = sync[life].$asArray();
@@ -190,10 +191,12 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 
 			$scope.beGone.action = '';
-			localStorage.setItem('localArray', $scope.syncArray.toString());
+
+			//local storage attempt
+			/*localStorage.setItem('localArray', $scope.syncArray.toString());
 			$scope.localArray = localStorage.getItem('localArray');
 			$scope.localObject = localStorage.getItem('localObject');
-			console.log($scope.localArray, $scope.localObject);
+			console.log($scope.localArray, $scope.localObject);*/
 		};
 		$scope.authObj.$getAuth() ? ($scope.authData = $scope.authObj.$getAuth(), $scope.getData()) : console.log('no data');
 		// Prepare localStorage
