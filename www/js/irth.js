@@ -159,7 +159,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					console.log('not signed in');
 				sync[life] = $firebase(ref[life]);
 				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function(data){
-					console.log('syncObject data', data);
+					// console.log('syncObject data', data);
 					// local storage attempt
 					/*var localData = JSON.stringify(data);
 					localStorage.setItem(life, localData);
