@@ -5,9 +5,8 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
-  "description": "Tracking daily activities from the browser.",
-  "omnibox": {"keyword":"pop"},
-  "version": "0.6",
+  "description": "I'm an app to keep you on track",
+  "version": "0.6.3",
 
   "browser_action": {
     "default_icon": "icon.png",

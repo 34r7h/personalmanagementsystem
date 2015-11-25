@@ -11,7 +11,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.ionic.keyboard": "1.0.4"
+    "com.ionic.keyboard": "1.0.4",
+    "cordova-plugin-crosswalk-webview": "1.3.1"
 }
 // BOTTOM OF METADATA
 });

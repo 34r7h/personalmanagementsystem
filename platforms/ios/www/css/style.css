@@ -2,6 +2,9 @@
     font-family: "Helvetica", Arial, sans-serif;
 }
 h2 {margin: 0}
+html {
+
+}
 body {
     min-width:360px;
     background: rgba(245,246,227,.38);
@@ -11,9 +14,11 @@ body {
 
 .panel {color: darkslateblue!important; font-size: 1.2em!important; background:rgba(235,245,255,.383838)!important; border:darkslateblue!important;border-radius:.13em!important; height:100%!important;}
 
+.red {
+    color: indianred;
+}
 
-
-textarea, input, select {color: darkslateblue!important; font-size: 1.1em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
+textarea, input, select {color: rgba(2,5,13,.95)!important; font-size: .9em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
 
 .past textarea, .past input, .past select {color: darkslateblue!important; font-size: 1.1em!important; background:rgba(235,245,255,.696969)!important; border:none!important;border-radius:.13em!important}
 
@@ -64,6 +69,7 @@ select {float:left; margin: 2em}*/
 .multichoice {background: rgba(248,253,230, .62); float: right; margin: 1em; padding: 2em; border-radius: 1em}
 .posts {width:32%; float:left; background: rgba(255,255,255, .8); margin:.6%}
 .posts input[type=text] { max-width: 90%; font-size: 1.2em; }
+input[type=range] { width: 100%; font-size: 1.2em; }
 button  {font-size: 1em; background:rgba(10,22,15, .4); color: rgba(238,251,227, .8); border-radius: 4em; min-height:3em; min-width:3em}
 button.submit {width:100%;}
 /*.new input, .new textarea {

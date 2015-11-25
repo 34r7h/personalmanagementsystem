@@ -20,6 +20,9 @@
     "installed_plugins": {
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.ionicframework.yourlife621378"
         }
     },
     "dependent_plugins": {}

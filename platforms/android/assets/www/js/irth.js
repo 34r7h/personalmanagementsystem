@@ -18,7 +18,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 		$scope.nav = {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']};
 		$scope.style = {};
-		$scope.backgroundsImg = 'images/tracks.jpg'
+		$scope.backgroundsImg = 'images/tracks.jpg';
 		$scope.dimensions = {
 			minWidth: $window.innerWidth + 'px',
 			minHeight: $window.innerHeight + 'px',
@@ -102,13 +102,51 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				console.error("Authentication failed:", error);
 			});
 		};
+		// $scope.auth('email@?.??','password');
+
 
 		$scope.register = function (email, password) {
 			$scope.authObj.$createUser(email, password).then(function () {
 				$scope.auth(email, password);
 			});
 		};
-		// $scope.auth('email@?.??','password');
+
+
+		// Prepare indexedDb
+		/*var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
+			IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
+			dbVersion = 1;
+		console.log('indexedDB', indexedDB);
+		var request = indexedDB.open("elephantFiles", dbVersion);
+		console.log('indexedDb request', request);
+		request.onsuccess = function (event) {
+			console.log("Success creating/accessing IndexedDB database");
+			var db = request.result;
+			db.onerror = function (event) {
+				console.log("Error creating/accessing IndexedDB database");
+			};
+			// Interim solution for Google Chrome to create an objectStore. Will be deprecated
+			if (db.setVersion) {
+				if (db.version != dbVersion) {
+					var setVersion = db.setVersion(dbVersion);
+					setVersion.onsuccess = function () {
+						createObjectStore(db);
+						getImageFile();
+					};
+				}
+				else {
+					getImageFile();
+				}
+			}
+			else {
+				getImageFile();
+			}
+		};
+
+// For future use. Currently only in latest Firefox versions
+		request.onupgradeneeded = function (event) {
+			createObjectStore(event.target.result);
+		};*/
 
 
 		$scope.getData = function () {
@@ -120,7 +158,13 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
 					console.log('not signed in');
 				sync[life] = $firebase(ref[life]);
-				$scope.syncObject[life] = sync[life].$asObject();
+				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function(data){
+					// console.log('syncObject data', data);
+					// local storage attempt
+					/*var localData = JSON.stringify(data);
+					localStorage.setItem(life, localData);
+					console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
+				});
 				bind[life] = sync[life].$asObject();
 				$scope.syncArray[life] = sync[life].$asArray();
 				$scope.bindObject[life] = bind[life].$bindTo($scope, life.toString());
@@ -148,8 +192,17 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 			$scope.beGone.action = '';
 
+			//local storage attempt
+			/*localStorage.setItem('localArray', $scope.syncArray.toString());
+			$scope.localArray = localStorage.getItem('localArray');
+			$scope.localObject = localStorage.getItem('localObject');
+			console.log($scope.localArray, $scope.localObject);*/
 		};
 		$scope.authObj.$getAuth() ? ($scope.authData = $scope.authObj.$getAuth(), $scope.getData()) : console.log('no data');
+		/*// Prepare localStorage
+		$scope.wut = JSON.parse(localStorage.getItem('$scope.localObject'));
+		console.log($scope.wut);*/
+
 
 		// API
 
@@ -175,6 +228,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			console.log('removing', type + ": " + id);
 			sync[type].$remove(id);
 		};
+
 
 		$scope.copy = function (entry) {
 			return angular.copy(entry);
@@ -213,7 +267,16 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		return function (val) {
 			return $sce.trustAsResourceUrl(val);
 		};
-	}]);
+	}]).directive('autofocus', ['$document', function($document) {
+		return {
+			link: function($scope, $element, attrs) {
+				setTimeout(function() {
+					$element[0].focus();
+				}, 200);
+			}
+		};
+	}])
+;
 /*
  .filter('searchResults', function($firebase){
  return function(entries, search) {
