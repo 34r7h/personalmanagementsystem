@@ -1,6 +1,15 @@
 * {
     font-family: "Helvetica", Arial, sans-serif;
 }
+
+::selection {
+    background: rgba(255,255,255,.9); /* WebKit/Blink Browsers */
+    color: rgba(0,0,0,.9);
+}
+::-moz-selection {
+    background: rgba(255,255,255,.9); /* WebKit/Blink Browsers */
+    color: rgba(0,0,0,.9);}
+
 h2 {margin: 0}
 html {
 
@@ -11,12 +20,24 @@ body {
 }
 .current {background: rgba(236,247,254,.38) !important; height:100%}
 .past {background: rgba(236,247,254,.21) !important; height:100%}
+.blur {filter: blur(5px);-webkit-filter: blur(5px);}
+.sepia
+{
+    filter: sepia(60%);
+    -webkit-filter: sepia(60%);
+    -moz-filter: sepia(60%);
+    -o-filter: sepia(60%);
+    -ms-filter: sepia(60%);
+}
 
 .panel {color: darkslateblue!important; font-size: 1.2em!important; background:rgba(235,245,255,.383838)!important; border:darkslateblue!important;border-radius:.13em!important; height:100%!important;}
 
 .red {
     color: indianred;
 }
+.white {color: rgba(241, 240, 249, .95)}
+.pad-right {padding-right:1em !important;}
+.pad-left {padding-left:1em !important;}
 
 textarea, input, select {color: rgba(2,5,13,.95)!important; font-size: .9em!important; background:rgba(235,245,255,.818181)!important; border:none!important;border-radius:.13em!important}
 

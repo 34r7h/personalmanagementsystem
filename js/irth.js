@@ -1,31 +1,19 @@
 'use strict';
 angular.module('irth', ['firebase', 'mm.foundation'])
-	.controller('ctrl', function ($scope, $firebase, $firebaseAuth, $location, $window, $timeout) {
+	.controller('ctrl', function ($scope, Ui, $firebase, $firebaseAuth, $location, $window, $timeout) {
 		var dbURL = 'https://yourlife.firebaseio.com/users',
 			ref = {}, backgroundsRef = {}, sync = {}, backgroundsSync = {}, bind = {}, authRef = new Firebase(dbURL);
 		$scope.lifestyle = ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'];
-
-		$scope.lifestyleDescription = {
-			action: 'These are things you do',
-			event: 'These are things that happen',
-			fuel: 'Fuels are anything that you feed yourself',
-			train: 'Training is exercise and/or education',
-			day: 'Treat the day section as your journal',
-			task: 'Tasks are created and updated here',
-			fear: 'Express your negative feelings and emotions',
-			love: 'Give thanks and praise. You\'re really quite lucky :)'
-		};
-
+		$scope.ui = Ui;
 		$scope.nav = {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']};
 		$scope.style = {};
-		$scope.backgroundsImg = 'images/tracks.jpg'
+		$scope.backgroundsImg = 'images/tracks.jpg';
 		$scope.dimensions = {
 			minWidth: $window.innerWidth + 'px',
 			minHeight: $window.innerHeight + 'px',
 			background: 'url(' + $scope.backgroundsImg + ') center center no-repeat fixed',
 			backgroundSize: 'cover'
 	};
-
 		$scope.style.note = {
 			position: 'fixed',
 			bottom: 0,
@@ -38,7 +26,6 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			background: 'rgba(23,43,12, .62)',
 			display:'flex'
 		};
-
 
 		$scope.show = {note: {big: true}};
 		$scope.showLinks = {mind: true, body: true, spirit: true};
@@ -263,6 +250,27 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		 console.log('filesystem',fs);
 		 **/
 	})
+		.factory('Ui', function () {
+			return {
+				lifestyleDescriptions: {
+					action: 'These are things you do',
+					event: 'These are things that happen',
+					fuel: 'Fuels are anything that you feed yourself',
+					train: 'Training is exercise and/or education',
+					day: 'Treat the day section as your journal',
+					task: 'Tasks are created and updated here',
+					fear: 'Express your negative feelings and emotions',
+					love: 'Give thanks and praise. You\'re really quite lucky :)'
+				},
+				lifestyleDescription : 'These are things you do',
+				life : 'actions',
+				currentLife: function (life) {
+					console.log('logging life', life);
+					this.life = life;
+					this.lifestyleDescription = this.lifestyleDescriptions[life];
+				}
+			}
+		})
 	.filter('trustAsResourceUrl', ['$sce', function ($sce) {
 		return function (val) {
 			return $sce.trustAsResourceUrl(val);
