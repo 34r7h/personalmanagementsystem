@@ -1,10 +1,13 @@
 'use strict';
 angular.module('irth', ['firebase', 'mm.foundation'])
-	.controller('ctrl', function ($scope, Ui, $firebase, $firebaseAuth, $location, $window, $timeout) {
+	.controller('ctrl', function ($scope, Ui, Data, $firebase, $firebaseAuth, $location, $window, $timeout) {
+
 		var dbURL = 'https://yourlife.firebaseio.com/users',
 			ref = {}, backgroundsRef = {}, sync = {}, backgroundsSync = {}, bind = {}, authRef = new Firebase(dbURL);
 		$scope.lifestyle = ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'];
 		$scope.ui = Ui;
+		$scope.data = Data;
+
 		$scope.nav = {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']};
 		$scope.style = {};
 		$scope.backgroundsImg = 'images/tracks.jpg';
@@ -13,7 +16,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			minHeight: $window.innerHeight + 'px',
 			background: 'url(' + $scope.backgroundsImg + ') center center no-repeat fixed',
 			backgroundSize: 'cover'
-	};
+		};
 		$scope.style.note = {
 			position: 'fixed',
 			bottom: 0,
@@ -24,9 +27,8 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			height: '50%',
 			zIndex: 10000,
 			background: 'rgba(23,43,12, .62)',
-			display:'flex'
+			display: 'flex'
 		};
-
 		$scope.show = {note: {big: true}};
 		$scope.showLinks = {mind: true, body: true, spirit: true};
 		$scope.life = [];
@@ -61,7 +63,6 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			}).then(function (authData) {
 				$scope.authData = authData;
 				console.log("Logged in as:", authData.uid);
-
 				/*var checkRef = $firebase(authRef);
 				 var checkData = checkRef.$asObject();
 				 if (!checkData[$scope.authData.uid]) {
@@ -101,43 +102,44 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 		// Prepare indexedDb
 		/*var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
-			IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
-			dbVersion = 1;
-		console.log('indexedDB', indexedDB);
-		var request = indexedDB.open("elephantFiles", dbVersion);
-		console.log('indexedDb request', request);
-		request.onsuccess = function (event) {
-			console.log("Success creating/accessing IndexedDB database");
-			var db = request.result;
-			db.onerror = function (event) {
-				console.log("Error creating/accessing IndexedDB database");
-			};
-			// Interim solution for Google Chrome to create an objectStore. Will be deprecated
-			if (db.setVersion) {
-				if (db.version != dbVersion) {
-					var setVersion = db.setVersion(dbVersion);
-					setVersion.onsuccess = function () {
-						createObjectStore(db);
-						getImageFile();
-					};
-				}
-				else {
-					getImageFile();
-				}
-			}
-			else {
-				getImageFile();
-			}
-		};
+		 IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
+		 dbVersion = 1;
+		 console.log('indexedDB', indexedDB);
+		 var request = indexedDB.open("elephantFiles", dbVersion);
+		 console.log('indexedDb request', request);
+		 request.onsuccess = function (event) {
+		 console.log("Success creating/accessing IndexedDB database");
+		 var db = request.result;
+		 db.onerror = function (event) {
+		 console.log("Error creating/accessing IndexedDB database");
+		 };
+		 // Interim solution for Google Chrome to create an objectStore. Will be deprecated
+		 if (db.setVersion) {
+		 if (db.version != dbVersion) {
+		 var setVersion = db.setVersion(dbVersion);
+		 setVersion.onsuccess = function () {
+		 createObjectStore(db);
+		 getImageFile();
+		 };
+		 }
+		 else {
+		 getImageFile();
+		 }
+		 }
+		 else {
+		 getImageFile();
+		 }
+		 };
 
-// For future use. Currently only in latest Firefox versions
-		request.onupgradeneeded = function (event) {
-			createObjectStore(event.target.result);
-		};*/
+		 // For future use. Currently only in latest Firefox versions
+		 request.onupgradeneeded = function (event) {
+		 createObjectStore(event.target.result);
+		 };*/
 
 
 		$scope.getData = function () {
 			angular.forEach($scope.lifestyle, function (life) {
+
 				$scope.new[life] = {};
 				$scope.beGone[life] = 'display:none';
 				console.log('$scope.authObj.$getAuth().uid', $scope.authObj.$getAuth().uid);
@@ -145,12 +147,12 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
 					console.log('not signed in');
 				sync[life] = $firebase(ref[life]);
-				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function(data){
+				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function (data) {
 					// console.log('syncObject data', data);
 					// local storage attempt
 					/*var localData = JSON.stringify(data);
-					localStorage.setItem(life, localData);
-					console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
+					 localStorage.setItem(life, localData);
+					 console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
 				});
 				bind[life] = sync[life].$asObject();
 				$scope.syncArray[life] = sync[life].$asArray();
@@ -181,14 +183,14 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 
 			//local storage attempt
 			/*localStorage.setItem('localArray', $scope.syncArray.toString());
-			$scope.localArray = localStorage.getItem('localArray');
-			$scope.localObject = localStorage.getItem('localObject');
-			console.log($scope.localArray, $scope.localObject);*/
+			 $scope.localArray = localStorage.getItem('localArray');
+			 $scope.localObject = localStorage.getItem('localObject');
+			 console.log($scope.localArray, $scope.localObject);*/
 		};
 		$scope.authObj.$getAuth() ? ($scope.authData = $scope.authObj.$getAuth(), $scope.getData()) : console.log('no data');
 		/*// Prepare localStorage
-		$scope.wut = JSON.parse(localStorage.getItem('$scope.localObject'));
-		console.log($scope.wut);*/
+		 $scope.wut = JSON.parse(localStorage.getItem('$scope.localObject'));
+		 console.log($scope.wut);*/
 
 
 		// API
@@ -204,6 +206,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				sync[section].$push(submission);
 			};
 		});
+
 		$scope.api.add['backgrounds'] = function (url) {
 			backgroundsSync.$push(url);
 		};
@@ -250,8 +253,10 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		 console.log('filesystem',fs);
 		 **/
 	})
-		.factory('Ui', function () {
-			return {
+	.factory('Data', function ($location, $firebase, $firebaseAuth, $window, Ui) {
+		return {
+			constants: {
+				lifestyle: ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'],
 				lifestyleDescriptions: {
 					action: 'These are things you do',
 					event: 'These are things that happen',
@@ -262,28 +267,83 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					fear: 'Express your negative feelings and emotions',
 					love: 'Give thanks and praise. You\'re really quite lucky :)'
 				},
-				lifestyleDescription : 'These are things you do',
-				life : 'actions',
-				currentLife: function (life) {
-					console.log('logging life', life);
-					this.life = life;
-					this.lifestyleDescription = this.lifestyleDescriptions[life];
-				}
+				nav: {ALPHA: ['action', 'task'], BETA: ['fuel', 'train'], PHI: ['day', 'event'], OMEGA: ['fear', 'love']}
+			},
+			localStorage: $window.localStorage,
+			firebase: function () {
+				var dbURL = 'https://yourlife.firebaseio.com/users',
+					authRef = new Firebase(dbURL);
+			},
+			getData: function () {
+				var sync = {}, ref = {}, newObj = {};
+
+				angular.forEach($scope.lifestyle, function (life) {
+
+					newObj[life] = {};
+					Ui.beGone[life] = 'display:none';
+					console.log('$scope.authObj.$getAuth().uid', $scope.authObj.$getAuth().uid);
+					ref[life] = $scope.authObj.$getAuth() ?
+						new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
+						console.log('not signed in');
+					sync[life] = $firebase(ref[life]);
+					$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function (data) {
+						// console.log('syncObject data', data);
+						// local storage attempt
+						/*var localData = JSON.stringify(data);
+						 localStorage.setItem(life, localData);
+						 console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
+					});
+					bind[life] = sync[life].$asObject();
+					$scope.syncArray[life] = sync[life].$asArray();
+					$scope.bindObject[life] = bind[life].$bindTo($scope, life.toString());
+				});
+
+			}
+		}
+	})
+		.factory('Api', function (Data) {
+			return {
+				init: (function () {
+
+					angular.forEach(Data.constants.lifestyle, function (section) {
+						// Loop through the lifestyle array
+						// and create a method on api.add for each section
+
+						this.add[section] = function (submission) {
+							console.log('adding', submission);
+							var time = Date.now();
+							submission.created = time;
+							console.log('sync', sync);
+							sync[section].$push(submission);
+						};
+					});
+				})()
 			}
 		})
+	.factory('Ui', function () {
+		return {
+			lifestyleDescription: 'These are things you do',
+			life: 'actions',
+			currentLife: function (life) {
+				console.log('logging life', life);
+				this.life = life;
+				this.lifestyleDescription = this.lifestyleDescriptions[life];
+			}
+		}
+	})
 	.filter('trustAsResourceUrl', ['$sce', function ($sce) {
 		return function (val) {
 			return $sce.trustAsResourceUrl(val);
 		};
-	}]).directive('autofocus', ['$document', function($document) {
-		return {
-			link: function($scope, $element, attrs) {
-				setTimeout(function() {
-					$element[0].focus();
-				}, 200);
-			}
-		};
-	}])
+	}]).directive('autofocus', ['$document', function ($document) {
+	return {
+		link: function ($scope, $element, attrs) {
+			setTimeout(function () {
+				$element[0].focus();
+			}, 200);
+		}
+	};
+}])
 ;
 /*
  .filter('searchResults', function($firebase){
