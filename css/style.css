@@ -23,11 +23,11 @@ body {
 .blur {filter: blur(5px);-webkit-filter: blur(5px);}
 .sepia
 {
-    filter: sepia(60%);
-    -webkit-filter: sepia(60%);
-    -moz-filter: sepia(60%);
-    -o-filter: sepia(60%);
-    -ms-filter: sepia(60%);
+    filter: sepia(60%) saturate(60%) contrast(95%) ;
+    -webkit-filter: sepia(60%) saturate(60%) contrast(95%) ;
+    -moz-filter: sepia(60%) saturate(60%) contrast(95%) ;
+    -o-filter: sepia(60%) saturate(60%) contrast(95%) ;
+    -ms-filter: sepia(60%) saturate(60%) contrast(95%) ;
 }
 
 .panel {color: darkslateblue!important; font-size: 1.2em!important; background:rgba(235,245,255,.383838)!important; border:darkslateblue!important;border-radius:.13em!important; height:100%!important;}

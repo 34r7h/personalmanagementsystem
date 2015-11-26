@@ -253,7 +253,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		 console.log('filesystem',fs);
 		 **/
 	})
-	.factory('Data', function ($location, $firebase, $firebaseAuth, $window, Ui) {
+	.factory('Data', function ($location, $firebase, $firebaseAuth, $window) {
 		return {
 			constants: {
 				lifestyle: ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'],
@@ -280,7 +280,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				angular.forEach($scope.lifestyle, function (life) {
 
 					newObj[life] = {};
-					Ui.beGone[life] = 'display:none';
+					// Ui.beGone[life] = 'display:none';
 					console.log('$scope.authObj.$getAuth().uid', $scope.authObj.$getAuth().uid);
 					ref[life] = $scope.authObj.$getAuth() ?
 						new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
@@ -301,35 +301,37 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			}
 		}
 	})
-		.factory('Api', function (Data) {
-			return {
-				init: (function () {
-
-					angular.forEach(Data.constants.lifestyle, function (section) {
-						// Loop through the lifestyle array
-						// and create a method on api.add for each section
-
-						this.add[section] = function (submission) {
-							console.log('adding', submission);
-							var time = Date.now();
-							submission.created = time;
-							console.log('sync', sync);
-							sync[section].$push(submission);
-						};
-					});
-				})()
-			}
-		})
-	.factory('Ui', function () {
+	.factory('Api', function (Data) {
 		return {
+			init: (function () {
+
+				angular.forEach(Data.constants.lifestyle, function (section) {
+					// Loop through the lifestyle array
+					// and create a method on api.add for each section
+
+					this.add[section] = function (submission) {
+						console.log('adding', submission);
+						var time = Date.now();
+						submission.created = time;
+						console.log('sync', sync);
+						sync[section].$push(submission);
+					};
+				});
+			})()
+		}
+	})
+	.factory('Ui', function (Data) {
+		var ui =
+		{
 			lifestyleDescription: 'These are things you do',
 			life: 'actions',
 			currentLife: function (life) {
 				console.log('logging life', life);
-				this.life = life;
-				this.lifestyleDescription = this.lifestyleDescriptions[life];
+				ui.life = life;
+				ui.lifestyleDescription = Data.constants.lifestyleDescriptions[life];
 			}
-		}
+		};
+		return ui
 	})
 	.filter('trustAsResourceUrl', ['$sce', function ($sce) {
 		return function (val) {
@@ -345,6 +347,8 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 	};
 }])
 ;
+console.log(window.localStorage);
+
 /*
  .filter('searchResults', function($firebase){
  return function(entries, search) {

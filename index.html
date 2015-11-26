@@ -28,7 +28,9 @@
     <ul class="title-area">
         <li class="name white">
                 <span><img ng-click="show.settings = false" style="width:auto; height:45px" src="images/icon.png" alt=""/></span>
+
             <span class="pad-left" ng-if="show.agenda">{{ui.life | uppercase}}</span>
+            <span class="pad-left" ng-if="!show.agenda">Daily Agenda</span>
         </li>
         <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
     </ul>
