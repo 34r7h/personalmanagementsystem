@@ -41,11 +41,11 @@ body {
 }
 
 .sepia {
-    filter: sepia(60%) saturate(60%) contrast(145%);
-    -webkit-filter: sepia(60%) saturate(60%) contrast(145%);
-    -moz-filter: sepia(60%) saturate(60%) contrast(145%);
-    -o-filter: sepia(60%) saturate(60%) contrast(145%);
-    -ms-filter: sepia(60%) saturate(60%) contrast(145%);
+    filter: sepia(60%) saturate(60%) contrast(105%);
+    -webkit-filter: sepia(60%) saturate(60%) contrast(105%);
+    -moz-filter: sepia(60%) saturate(60%) contrast(105%);
+    -o-filter: sepia(60%) saturate(60%) contrast(105%);
+    -ms-filter: sepia(60%) saturate(60%) contrast(105%);
 }
 
 .panel {
