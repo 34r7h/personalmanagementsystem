@@ -154,10 +154,15 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					 localStorage.setItem(life, localData);
 					 console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
 				});
+
 				bind[life] = sync[life].$asObject();
 				$scope.syncArray[life] = sync[life].$asArray();
 				$scope.bindObject[life] = bind[life].$bindTo($scope, life.toString());
 			});
+			if (!$scope.syncArray['day'][0]) {
+				$scope.syncArray['day'].push({goals:'Welcome'});
+				console.log($scope.syncArray['day']);
+			}
 
 			$scope.backgroundsImg = (function () {
 				backgroundsRef = new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/backgrounds');
