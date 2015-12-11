@@ -1,12 +1,12 @@
 <!doctype html>
-<html ng-app="irth"  class="sepia">
+<html ng-app="irth" class="sepia">
 
 <head>
 
     <title>Life</title>
     <meta http-equiv='Content-Language' content='en'/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <meta name="google-site-verification" content="CDpJG3_u2n4y9OhYevskX6raVSFo1uTeTY2iyLwt6Zo" />
+    <meta name="google-site-verification" content="CDpJG3_u2n4y9OhYevskX6raVSFo1uTeTY2iyLwt6Zo"/>
 
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/foundation.css"/>
@@ -21,13 +21,15 @@
 <script src="js/irth.js"></script>
 
 
-<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="backgroundsImg = 'images/tracks.jpg'" style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
+<body ng-model-options="{debounce:500}" ng-controller="ctrl" ng-init="backgroundsImg = 'images/tracks.jpg'"
+      style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
       ng-style="dimensions">
 
 <top-bar>
     <ul class="title-area">
         <li class="name white">
-                <span><img ng-click="show.settings = false" style="width:auto; height:45px" src="images/icon.png" alt=""/></span>
+            <span><img ng-click="show.settings = false" style="width:auto; height:45px" src="images/icon.png"
+                       alt=""/></span>
 
             <span class="pad-left" ng-if="show.agenda">{{ui.life | uppercase}}</span>
             <span class="pad-left" ng-if="!show.agenda">Daily Agenda</span>
@@ -37,21 +39,24 @@
 
     <top-bar-section>
         <!-- Left Nav Section -->
-<ul class="left">
+        <ul class="left">
 
 
-</ul>
+        </ul>
         <!-- Right Nav Section -->
         <ul class="right">
             <li>
-                <a href ng-show="authData.uid && show.agenda" class="button success" ng-click="show.settings = false; show.agenda = false">Agenda</a>
+                <a href ng-show="authData.uid && show.agenda" class="button success"
+                   ng-click="show.settings = false; show.agenda = false">Agenda</a>
             </li>
             <li>
-                <a href ng-show="authData.uid && !show.agenda" class="button info" ng-click="show.settings = false; show.agenda = true">Post / Edit</a>
+                <a href ng-show="authData.uid && !show.agenda" class="button info"
+                   ng-click="show.settings = false; show.agenda = true">Post / Edit</a>
             </li>
 
             <li>
-                <a href="mailto:irth.03+personal-management@gmail.com" target="_blank" class="button danger">Feedback</a>
+                <a href="mailto:irth.03+personal-management@gmail.com" target="_blank"
+                   class="button danger">Feedback</a>
             </li>
             <li has-dropdown ng-show="authData.uid">
                 <a href="">Account</a>
@@ -77,20 +82,24 @@
     </top-bar-section>
 </top-bar>
 <br/>
+
 <div class="settings " ng-if="show.settings">
     <div class="row panel">
         <h1 class="">Background Images</h1>
+
         <div class="column small-12 medium-6">
-        <input id="newUrl" type="url" ng-model="newUrl" placeholder="Paste image url here"
-                                                 style="color:white; background:rgba(0,0,0,.38);"></div>
+            <input id="newUrl" type="url" ng-model="newUrl" placeholder="Paste image url here"
+                   style="color:white; background:rgba(0,0,0,.38);"></div>
         <div class="column small-12 medium-6">
-            <button class="button success column small-12" ng-click="api.add['backgrounds'](newUrl); $parent.backgroundsImg=newUrl; newUrl=''; ">
-            Add Image
+            <button class="button success column small-12"
+                    ng-click="api.add['backgrounds'](newUrl); $parent.backgroundsImg=newUrl; newUrl=''; ">
+                Add Image
             </button>
         </div>
     </div>
     <ul class="row panel">
-        <li class="column small-12 medium-4 large-3" ng-repeat="(key,img) in syncBackgroundsObject" style="list-style:none">
+        <li class="column small-12 medium-4 large-3" ng-repeat="(key,img) in syncBackgroundsObject"
+            style="list-style:none">
             <div class="panel"><img ng-src="{{img}}" height="30px" width="auto">
                 <a class="black small" ng-click="$parent.removeBackgrounds(key)">Remove Image</a>
                 <a class="button info" ng-click="$parent.$parent.backgroundsImg = img">Set as background</a>
@@ -103,6 +112,7 @@
     <div class="column large-12">
         <div class="column small-12 panel">
             <h2 class="text-center">I'm an app to keep you on track</h2>
+
             <p class="text-center" ng-click="show.about = !show.about">Please register or log in to get started
                 <span><b>...</b>
                 <span ng-show="show.about">
@@ -124,7 +134,8 @@
         </form>
 
 
-        <form style="flex: 3 1 auto" name="login" class="column medium-4 panel" ng-submit="auth(login.email, login.password)"
+        <form style="flex: 3 1 auto" name="login" class="column medium-4 panel"
+              ng-submit="auth(login.email, login.password)"
               ng-show="location.$$absUrl !== '' && !authObj.$getAuth()">
             <h1>Log in</h1>
             <input ng-model="login.email" type="email" placeholder="Email"/>
@@ -143,12 +154,15 @@
 <div class="row" ng-show="!show.agenda && authData.uid">
     <div class="row" ng-if="!showCurrent">
 
-        <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last" ng-repeat="yesterday in $parent.day | limitTo:-1 ">
+        <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last"
+             ng-repeat="yesterday in $parent.day | limitTo:-1 ">
             <h5>
                 <b>Daily Objectives:</b>
                 <span>Keep track of your daily goals to stay focused.</span>
             </h5>
-            <textarea  ng-class="{blur: $root.private}" class="column small-12 medium-9" ng-model="yesterday.goals" style="font-size:1.3em!important" ng-style="{minHeight: 135+'px',height:(yesterday.goals.length*1.6)+'px', minWidth: 33 +'vw'}"></textarea>
+            <textarea ng-class="{blur: $root.private}" class="column small-12 medium-9" ng-model="yesterday.goals"
+                      style="font-size:1.3em!important"
+                      ng-style="{minHeight: 135+'px',height:(yesterday.goals.length*1.6)+'px', minWidth: 33 +'vw'}"></textarea>
             <a
                     class="button success columns small-12 medium-3"
                     style="flex-direction: column; align-content: center; display: flex"
@@ -159,47 +173,55 @@
         </div>
         <div class="large-12 columns panel">
             <div class="clearfix"><h5 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h5>
-            <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or renew a task</a></div>
+                <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or
+                    renew a task</a></div>
 
-            <div style="display: flex; overflow: scroll; max-width:100%"  ng-class="{blur: $root.private}"><div class="large-3 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" style="flex: 1 0 400px;">
-                <div>
-                    <div class="panel">
-                        <h3>{{task.name}}</h3>
-                        <!--<textarea ng-show="task.description" ng-model="task.description"
-                                  ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
+            <div style="display: flex; overflow: scroll; max-width:100%" ng-class="{blur: $root.private}">
+                <div class="large-3 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task"
+                     style="flex: 1 0 400px;">
+                    <div>
+                        <div class="panel">
+                            <h3>{{task.name}}</h3>
+                            <!--<textarea ng-show="task.description" ng-model="task.description"
+                                      ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
                         <textarea
                                 ng-show="task.details"
                                 ng-model="task.details"
                                 ng-style="{fontSize:'.8em!important', height:'135px', maxHeight:'100%', maxWidth:'100%'}">
 
                         </textarea>
-                        <a
-                                class="button large-12 column alert"
-                                ng-focus=""
-                                ng-click="completeTask(key); new[(entrySelection || 'action')].name = task.name; new[(entrySelection || 'action')].tags = task.tags; new[(entrySelection || 'action')].details = (task.description || task.details ); hideAll(); beGone[(entrySelection || 'action')] = ''; show.agenda = true">TASK -> {{(entrySelection | uppercase) || 'ACTION'}}
-                        </a>
+                            <a
+                                    class="button large-12 column alert"
+                                    ng-focus=""
+                                    ng-click="completeTask(key); new[(entrySelection || 'action')].name = task.name; new[(entrySelection || 'action')].tags = task.tags; new[(entrySelection || 'action')].details = (task.description || task.details ); hideAll(); beGone[(entrySelection || 'action')] = ''; show.agenda = true">TASK
+                                -> {{(entrySelection | uppercase) || 'ACTION'}}
+                            </a>
 
-                        <select class="small" ng-model="entrySelection" name="entry-select" id="entry-select">
-                            <option value="" disabled selected>Change Entry</option>
-                            <option ng-show="selection==='action' || selection==='train'"  ng-model="selection" ng-repeat="selection in $parent.lifestyle" value="{{selection}}">{{selection}}</option>
-                        </select>
+                            <select class="small" ng-model="entrySelection" name="entry-select" id="entry-select">
+                                <option value="" disabled selected>Change Entry</option>
+                                <option ng-show="selection==='action' || selection==='train'" ng-model="selection"
+                                        ng-repeat="selection in $parent.lifestyle" value="{{selection}}">{{selection}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div></div>
+            </div>
 
         </div>
     </div>
 </div>
 <div ng-show="show.agenda && authData.uid" class="row">
-        <div class="columns">
-            <div class="large-4 small-12 column">
-                <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu" class="column large-12 small-6 button-group radius even-2 sticky">
-                    <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
-                        ng-click="hideAll(); beGone[link] = ''; ui.currentLife(link)" >
-                        <a class="button large alert" href="">{{link}}</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="columns">
+        <div class="large-4 small-12 column">
+            <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu"
+                class="column large-12 small-6 button-group radius even-2 sticky">
+                <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
+                    ng-click="hideAll(); beGone[link] = ''; ui.currentLife(link)">
+                    <a class="button large alert" href="">{{link}}</a>
+                </li>
+            </ul>
+        </div>
         <div class="large-8 column" ng-class="{blur: $root.private}">
             <div ng-repeat="life in lifestyle" class="row">
                 <div style="{{beGone[life]}}">
@@ -212,10 +234,10 @@
                                 <h3>
                                     <input
 
-                                        type="text"
-                                        ng-model="new[life].name"
-                                        placeholder="Name this {{life}}"
-                                        x-webkit-speech="true"/>
+                                            type="text"
+                                            ng-model="new[life].name"
+                                            placeholder="Name this {{life}}"
+                                            x-webkit-speech="true"/>
                                 </h3>
                             </div>
                             <div class="large-12 column" ng-show="life !== 'event'">
@@ -241,10 +263,11 @@
 
                             <br/>
 
-                            <div ng-if="life !== 'event'" class="large-12 columns"><textarea class="large-12 columns" type="text"
-                                                                    ng-model="$parent.new[life].goals"
-                                                                    placeholder="Next {{life}}'s goals"
-                                                                    ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
+                            <div ng-if="life !== 'event'" class="large-12 columns"><textarea class="large-12 columns"
+                                                                                             type="text"
+                                                                                             ng-model="$parent.new[life].goals"
+                                                                                             placeholder="Next {{life}}'s goals"
+                                                                                             ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
                             </div>
                             <br/>
                         </div>
@@ -252,15 +275,16 @@
                         <div ng-if="life === 'fuel'" class="row">
 
                             <div name="fuel" class="panel"
-                                   ng-init="nutrition.types = ['good carbs', 'bad carbs', 'protein', 'fibre', 'fats']; nutrition.amounts = [1,2,3,4,5]">
+                                 ng-init="nutrition.types = ['good carbs', 'bad carbs', 'protein', 'fibre', 'fats']; nutrition.amounts = [1,2,3,4,5]">
                                 <div style="display:flex;" ng-repeat="type in nutrition.types">
-                                    <div  class="text-right" style="flex: 0 3 200px">
+                                    <div class="text-right" style="flex: 0 3 200px">
                                         <b>{{type}}: </b>
                                     </div>
                                     <div style="flex: 3 0 auto">
-                                        <input type="range" min="0" max="100" ng-model="new[life].nutrition[type]" ng-init="new[life].nutrition[type]=0"/>
+                                        <input type="range" min="0" max="100" ng-model="new[life].nutrition[type]"
+                                               ng-init="new[life].nutrition[type]=0"/>
                                     </div>
-                                    <hr ng-hide="$last" />
+                                    <hr ng-hide="$last"/>
 
                                 </div>
                             </div>
@@ -269,15 +293,16 @@
 
                         <div ng-if="life === 'train'" class="row">
                             <div class="panel"
-                                   ng-init="mode.types = ['cardio', 'strength', 'form', 'flex', 'mental', 'spiritual']; mode.amounts = [1,2,3,4,5]">
+                                 ng-init="mode.types = ['cardio', 'strength', 'form', 'flex', 'mental', 'spiritual']; mode.amounts = [1,2,3,4,5]">
                                 <div style="display:flex;" ng-repeat="type in mode.types">
-                                    <div  class="text-right" style="flex: 0 3 200px">
+                                    <div class="text-right" style="flex: 0 3 200px">
                                         <b>{{type}}: </b>
                                     </div>
                                     <div style="flex: 3 0 auto">
-                                        <input type="range" min="0" max="100" ng-model="new[life].mode[type]" ng-init="new[life].mode[type]=0"/>
+                                        <input type="range" min="0" max="100" ng-model="new[life].mode[type]"
+                                               ng-init="new[life].mode[type]=0"/>
                                     </div>
-                                    <hr ng-hide="$last" />
+                                    <hr ng-hide="$last"/>
                                 </div>
                                 <!--<tr ng-repeat="type in mode.types">
                                     <td><b>{{type}}</b></td>
@@ -319,7 +344,8 @@
                             </div>
                         </div>
                     </form>
-                    <a class="large info button exhttps://irthos.github.io/personalmanagementsystem/pand" ng-click="pastEntries = !pastEntries">Show all {{life}}s</a>
+                    <a class="large info button exhttps://irthos.github.io/personalmanagementsystem/pand"
+                       ng-click="pastEntries = !pastEntries">Show all {{life}}s</a>
 
                     <div ng-if="pastEntries" class="large-4 columns" ng-repeat="(key, entry) in $parent[life] ">
                         <div class="panel past">
@@ -329,7 +355,7 @@
                             <input ng-if="entry.name" type="text" ng-model="entry.name"
                                    ng-click="showFullEntry = !showFullEntry"/>
                             <hr/>
-                            <div ng-if="showFullEntry" >
+                            <div ng-if="showFullEntry">
                                 <code ng-if="entry.time">{{entry.time}} minutes </code>
 
                                 <div ng-if="entry.details">
@@ -404,44 +430,58 @@
     </div>
 </div>
 
-<div  ng-class="{blur: $root.private}" ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
+<div ng-class="{blur: $root.private}"
+     ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
      ng-if="hide.note">
-
     <div style="
     display: flex;
-    flex: 1 0 100%;
     position: absolute;
     bottom: 58px;
     width: 100%;
     height:100%;
     max-height: 78%;
     ">
-        <div
-                class="small-4 column text-right"
-                style="overflow:scroll; flex: 1 1 auto; align-self: flex-start;align-items: stretch;height: 100%;">
-
+        <div style="
+        display: flex;
+        flex: 1 0 38%;
+        bottom: 58px;
+        flex-direction: column;
+        width: 100%;
+        height:100%;
+        max-height: 78%;">
             <input
-                    style="height:45px"
+                    style="max-height:45px; flex: 0 0 45px; width: 97.5%; margin-bottom: 0;"
                     type="search"
                     ng-model="searchNote"
                     class="small-6 column"
-                    placeholder="Search"/>
+                    placeholder="Search Notes"/>
 
-            <a
-                    ng-click="$parent.showNote = note.$id"
-                    class="button info row text-justify"
-                    style="max-height:45px; overflow:hidden; margin:0"
-                    ng-repeat="note in syncArray.note | filter:searchNote"
-                    ng-show="note.note.length > 0">
-                <div
-                        ng-init="$parent.$parent.showNote = note.$id"
-                        ng-if="$last">
-                </div>
-                {{note.note}}...
-            </a>
+            <div
+                    class=""
+                    style="
+                display: flex;
+                overflow:scroll;
+                flex-direction: column-reverse;
+                align-items: stretch;
+                min-height: 100%;
+                width: 95%;">
+                <a
+                        ng-click="$parent.showNote = note.$id"
+                        class="button info row text-justify"
+                        style="max-height:45px; overflow:hidden; margin:0"
+                        ng-repeat="note in syncArray.note | filter:searchNote"
+                        ng-show="note.note.length > 0">
+                    <div
+                            ng-init="$parent.$parent.showNote = note.$id"
+                            ng-if="$last">
+                    </div>
+                    {{note.note}}...
+                </a>
+            </div>
         </div>
 
-        <textarea class="small-8 column" ng-model="note[showNote].note" style="flex: 3 0 auto; height: 100%;" autofocus></textarea>
+        <textarea class="small-8 column" ng-model="note[showNote].note" style="flex: 3 0 auto; height: 100%;"
+                  autofocus></textarea>
     </div>
 
     <div style="height:45px;  flex: 0 0 100%; align-self: flex-end; width:100%; position:absolute; bottom:0">
