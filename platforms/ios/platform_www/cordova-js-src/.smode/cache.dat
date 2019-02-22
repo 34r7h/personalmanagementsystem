@@ -1,0 +1,14 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "exec.js", lastModificationTime = 1438980214000, size = 12363}, 
+    {
+      fileName = "platform.js", 
+      lastModificationTime = 1438980214000, 
+      size = 943
+    }
+  }
+}

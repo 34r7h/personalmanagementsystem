@@ -1,0 +1,26 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396373000, 
+  files = 
+  {
+    {fileName = "classes", modified = True}, 
+    {fileName = "dexedLibs"}, 
+    {fileName = "res"}, 
+    {fileName = "rsLibs"}, 
+    {fileName = "rsObj"}, 
+    {fileName = "AndroidManifest.cordova.xml", lastModificationTime = 1444976166000, size = 1112}, 
+    {
+      fileName = "AndroidManifest.xml.d", 
+      lastModificationTime = 1444976166000, 
+      size = 200
+    }, 
+    {fileName = "build.prop", lastModificationTime = 1444976166000, size = 179}, 
+    {
+      fileName = "classes.jar", 
+      lastModificationTime = 1444361748000, 
+      size = 342539
+    }, 
+    {fileName = "proguard.txt", lastModificationTime = 1444976166000}
+  }
+}

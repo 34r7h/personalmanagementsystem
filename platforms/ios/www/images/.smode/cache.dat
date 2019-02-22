@@ -1,0 +1,22 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396380000, 
+  files = 
+  {
+    {
+      fileName = "icon.png", 
+      lastModificationTime = 1445310522000, 
+      size = 2981, 
+      resolution = {width = 72, height = 72}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "tracks.jpg", 
+      lastModificationTime = 1445310522000, 
+      size = 109044, 
+      resolution = {width = 1920, height = 1080}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

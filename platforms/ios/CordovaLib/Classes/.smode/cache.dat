@@ -1,0 +1,153 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "CDV.h", lastModificationTime = 1438980212000, size = 1302}, 
+    {
+      fileName = "CDVAvailability.h", 
+      lastModificationTime = 1438980212000, 
+      size = 2960
+    }, 
+    {fileName = "CDVAvailabilityDeprecated.h", lastModificationTime = 1438980212000, size = 1668}, 
+    {
+      fileName = "CDVCommandDelegate.h", 
+      lastModificationTime = 1438980212000, 
+      size = 2006
+    }, 
+    {fileName = "CDVCommandDelegateImpl.h", lastModificationTime = 1438980212000, size = 1250}, 
+    {
+      fileName = "CDVCommandDelegateImpl.m", 
+      lastModificationTime = 1438980212000, 
+      size = 6086
+    }, 
+    {fileName = "CDVCommandQueue.h", lastModificationTime = 1438980212000, size = 1283}, 
+    {
+      fileName = "CDVCommandQueue.m", 
+      lastModificationTime = 1438980212000, 
+      size = 7928
+    }, 
+    {fileName = "CDVConfigParser.h", lastModificationTime = 1438980212000, size = 1227}, 
+    {
+      fileName = "CDVConfigParser.m", 
+      lastModificationTime = 1438980212000, 
+      size = 3775
+    }, 
+    {fileName = "CDVDebug.h", lastModificationTime = 1438980212000, size = 1025}, 
+    {
+      fileName = "CDVHandleOpenURL.h", 
+      lastModificationTime = 1438980212000, 
+      size = 935
+    }, 
+    {fileName = "CDVHandleOpenURL.m", lastModificationTime = 1438980212000, size = 2500}, 
+    {
+      fileName = "CDVInvokedUrlCommand.h", 
+      lastModificationTime = 1438980212000, 
+      size = 2022
+    }, 
+    {fileName = "CDVInvokedUrlCommand.m", lastModificationTime = 1438980212000, size = 3562}, 
+    {
+      fileName = "CDVJSON.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1285
+    }, 
+    {fileName = "CDVJSON.m", lastModificationTime = 1438980212000, size = 1207}, 
+    {
+      fileName = "CDVJSON_private.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1043
+    }, 
+    {fileName = "CDVJSON_private.m", lastModificationTime = 1438980212000, size = 2916}, 
+    {
+      fileName = "CDVLocalStorage.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1743
+    }, 
+    {fileName = "CDVLocalStorage.m", lastModificationTime = 1438980212000, size = 20083}, 
+    {
+      fileName = "CDVPlugin.h", 
+      lastModificationTime = 1438980212000, 
+      size = 2560
+    }, 
+    {fileName = "CDVPlugin.m", lastModificationTime = 1438980212000, size = 5948}, 
+    {
+      fileName = "CDVPluginResult.h", 
+      lastModificationTime = 1438980212000, 
+      size = 3507
+    }, 
+    {fileName = "CDVPluginResult.m", lastModificationTime = 1438980212000, size = 6906}, 
+    {
+      fileName = "CDVScreenOrientationDelegate.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1032
+    }, 
+    {fileName = "CDVShared.h", lastModificationTime = 1438980212000, size = 915}, 
+    {
+      fileName = "CDVTimer.h", 
+      lastModificationTime = 1438980212000, 
+      size = 909
+    }, 
+    {fileName = "CDVTimer.m", lastModificationTime = 1438980212000, size = 2722}, 
+    {
+      fileName = "CDVURLProtocol.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1052
+    }, 
+    {fileName = "CDVURLProtocol.m", lastModificationTime = 1438980212000, size = 9209}, 
+    {
+      fileName = "CDVUserAgentUtil.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1057
+    }, 
+    {fileName = "CDVUserAgentUtil.m", lastModificationTime = 1438980212000, size = 4961}, 
+    {
+      fileName = "CDVViewController.h", 
+      lastModificationTime = 1438980212000, 
+      size = 3123
+    }, 
+    {fileName = "CDVViewController.m", lastModificationTime = 1438980212000, size = 38913}, 
+    {
+      fileName = "CDVWebViewDelegate.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1481
+    }, 
+    {fileName = "CDVWebViewDelegate.m", lastModificationTime = 1438980212000, size = 14927}, 
+    {
+      fileName = "CDVWhitelist.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1204
+    }, 
+    {fileName = "CDVWhitelist.m", lastModificationTime = 1438980212000, size = 10709}, 
+    {
+      fileName = "NSArray+Comparisons.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1017
+    }, 
+    {fileName = "NSArray+Comparisons.m", lastModificationTime = 1438980212000, size = 1298}, 
+    {
+      fileName = "NSData+Base64.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1676
+    }, 
+    {fileName = "NSData+Base64.m", lastModificationTime = 1438980212000, size = 9744}, 
+    {
+      fileName = "NSDictionary+Extensions.h", 
+      lastModificationTime = 1438980212000, 
+      size = 2092
+    }, 
+    {fileName = "NSDictionary+Extensions.m", lastModificationTime = 1438980212000, size = 4185}, 
+    {
+      fileName = "NSMutableArray+QueueAdditions.h", 
+      lastModificationTime = 1438980212000, 
+      size = 928
+    }, 
+    {fileName = "NSMutableArray+QueueAdditions.m", lastModificationTime = 1438980212000, size = 1412}, 
+    {
+      fileName = "UIDevice+Extensions.h", 
+      lastModificationTime = 1438980212000, 
+      size = 1241
+    }, 
+    {fileName = "UIDevice+Extensions.m", lastModificationTime = 1438980212000, size = 1568}
+  }
+}

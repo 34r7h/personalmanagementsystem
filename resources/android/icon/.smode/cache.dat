@@ -1,0 +1,50 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396381000, 
+  files = 
+  {
+    {
+      fileName = "drawable-hdpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 2981, 
+      resolution = {width = 72, height = 72}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-ldpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 1552, 
+      resolution = {width = 36, height = 36}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-mdpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 2003, 
+      resolution = {width = 48, height = 48}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-xhdpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 4098, 
+      resolution = {width = 96, height = 96}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-xxhdpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 6308, 
+      resolution = {width = 144, height = 144}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-xxxhdpi-icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 8712, 
+      resolution = {width = 192, height = 192}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

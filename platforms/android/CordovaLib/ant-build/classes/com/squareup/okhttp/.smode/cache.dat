@@ -1,0 +1,135 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "internal"}, 
+    {fileName = "Address.class", lastModificationTime = 1438981498000, size = 3329}, 
+    {
+      fileName = "Connection.class", 
+      lastModificationTime = 1438981498000, 
+      size = 9543
+    }, 
+    {fileName = "ConnectionPool$1.class", lastModificationTime = 1438981500000, size = 2538}, 
+    {
+      fileName = "ConnectionPool$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 650
+    }, 
+    {fileName = "ConnectionPool.class", lastModificationTime = 1438981500000, size = 6965}, 
+    {
+      fileName = "Dispatcher$RealResponseBody.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1457
+    }, 
+    {fileName = "Dispatcher.class", lastModificationTime = 1438981500000, size = 2915}, 
+    {
+      fileName = "Failure$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 212
+    }, 
+    {fileName = "Failure$Builder.class", lastModificationTime = 1438981500000, size = 1303}, 
+    {
+      fileName = "Failure.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1231
+    }, 
+    {fileName = "HttpResponseCache$1.class", lastModificationTime = 1438981500000, size = 2433}, 
+    {
+      fileName = "HttpResponseCache$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1046
+    }, 
+    {fileName = "HttpResponseCache$3.class", lastModificationTime = 1438981500000, size = 833}, 
+    {
+      fileName = "HttpResponseCache$CacheRequestImpl$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2012
+    }, 
+    {fileName = "HttpResponseCache$CacheRequestImpl.class", lastModificationTime = 1438981500000, size = 2150}, 
+    {
+      fileName = "HttpResponseCache$Entry.class", 
+      lastModificationTime = 1438981500000, 
+      size = 8443
+    }, 
+    {fileName = "HttpResponseCache$EntryCacheResponse.class", lastModificationTime = 1438981500000, size = 1808}, 
+    {
+      fileName = "HttpResponseCache$EntrySecureCacheResponse.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3237
+    }, 
+    {fileName = "HttpResponseCache.class", lastModificationTime = 1438981500000, size = 9921}, 
+    {
+      fileName = "Job.class", 
+      lastModificationTime = 1438981500000, 
+      size = 8622
+    }, 
+    {fileName = "MediaType.class", lastModificationTime = 1438981500000, size = 3176}, 
+    {
+      fileName = "OkAuthenticator$Challenge.class", 
+      lastModificationTime = 1438981498000, 
+      size = 1279
+    }, 
+    {fileName = "OkAuthenticator$Credential.class", lastModificationTime = 1438981498000, size = 1748}, 
+    {
+      fileName = "OkAuthenticator.class", 
+      lastModificationTime = 1438981498000, 
+      size = 682
+    }, 
+    {fileName = "OkHttpClient$1.class", lastModificationTime = 1438981500000, size = 1394}, 
+    {
+      fileName = "OkHttpClient.class", 
+      lastModificationTime = 1438981500000, 
+      size = 9240
+    }, 
+    {fileName = "OkResponseCache.class", lastModificationTime = 1438981500000, size = 773}, 
+    {
+      fileName = "Request$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 212
+    }, 
+    {fileName = "Request$Body$1.class", lastModificationTime = 1438981500000, size = 1112}, 
+    {
+      fileName = "Request$Body$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1669
+    }, 
+    {fileName = "Request$Body.class", lastModificationTime = 1438981500000, size = 2314}, 
+    {
+      fileName = "Request$Builder.class", 
+      lastModificationTime = 1438981500000, 
+      size = 4187
+    }, 
+    {fileName = "Request.class", lastModificationTime = 1438981500000, size = 3633}, 
+    {
+      fileName = "Response$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 215
+    }, 
+    {fileName = "Response$Body.class", lastModificationTime = 1438981500000, size = 2397}, 
+    {
+      fileName = "Response$Builder.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3083
+    }, 
+    {fileName = "Response$Receiver.class", lastModificationTime = 1438981500000, size = 362}, 
+    {
+      fileName = "Response.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3357
+    }, 
+    {fileName = "ResponseSource.class", lastModificationTime = 1438981500000, size = 1201}, 
+    {
+      fileName = "Route.class", 
+      lastModificationTime = 1438981498000, 
+      size = 1915
+    }, 
+    {fileName = "RouteDatabase.class", lastModificationTime = 1438981500000, size = 1331}, 
+    {
+      fileName = "TunnelRequest.class", 
+      lastModificationTime = 1438981498000, 
+      size = 1654
+    }
+  }
+}

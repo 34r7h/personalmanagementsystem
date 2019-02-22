@@ -1,0 +1,49 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396360000, 
+  files = 
+  {
+    {fileName = "classes"}, 
+    {fileName = "dexedLibs"}, 
+    {fileName = "res", modified = True}, 
+    {fileName = "rsLibs"}, 
+    {fileName = "rsObj"}, 
+    {fileName = "AndroidManifest.cordova.xml", lastModificationTime = 1444976166000, size = 1269}, 
+    {
+      fileName = "AndroidManifest.xml.d", 
+      lastModificationTime = 1444976166000, 
+      size = 178
+    }, 
+    {fileName = "build.prop", lastModificationTime = 1444976176000, size = 179}, 
+    {
+      fileName = "classes.dex", 
+      lastModificationTime = 1444976170000, 
+      size = 403640
+    }, 
+    {fileName = "classes.dex.d", lastModificationTime = 1444976170000, size = 1606}, 
+    {
+      fileName = "CordovaApp-debug-unaligned.apk", 
+      lastModificationTime = 1444976176000, 
+      size = 1618218
+    }, 
+    {fileName = "CordovaApp-debug-unaligned.apk.d", lastModificationTime = 1444976176000, size = 375}, 
+    {
+      fileName = "CordovaApp-debug.apk", 
+      lastModificationTime = 1444976176000, 
+      size = 1618264
+    }, 
+    {fileName = "CordovaApp.ap_", lastModificationTime = 1444976176000, size = 1461228}, 
+    {
+      fileName = "CordovaApp.ap_.d", 
+      lastModificationTime = 1444976176000, 
+      size = 9217
+    }, 
+    {fileName = "proguard.txt", lastModificationTime = 1444976168000, size = 115}, 
+    {
+      fileName = "R.txt", 
+      lastModificationTime = 1444976168000, 
+      size = 189
+    }
+  }
+}

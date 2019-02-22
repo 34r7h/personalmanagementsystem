@@ -1,0 +1,230 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "App$1.class", lastModificationTime = 1438981500000, size = 843}, 
+    {
+      fileName = "App$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 691
+    }, 
+    {fileName = "App$3.class", lastModificationTime = 1438981500000, size = 680}, 
+    {
+      fileName = "App$4.class", 
+      lastModificationTime = 1438981500000, 
+      size = 691
+    }, 
+    {fileName = "App$5.class", lastModificationTime = 1438981500000, size = 1755}, 
+    {
+      fileName = "App.class", 
+      lastModificationTime = 1438981500000, 
+      size = 6374
+    }, 
+    {fileName = "AuthenticationToken.class", lastModificationTime = 1438981500000, size = 776}, 
+    {
+      fileName = "BuildConfig.class", 
+      lastModificationTime = 1438981500000, 
+      size = 345
+    }, 
+    {fileName = "CallbackContext.class", lastModificationTime = 1438981500000, size = 3216}, 
+    {
+      fileName = "Config.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2668
+    }, 
+    {fileName = "ConfigXmlParser.class", lastModificationTime = 1438981500000, size = 5852}, 
+    {
+      fileName = "CordovaActivity$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1008
+    }, 
+    {fileName = "CordovaActivity$2.class", lastModificationTime = 1438981500000, size = 1049}, 
+    {
+      fileName = "CordovaActivity$3.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1416
+    }, 
+    {fileName = "CordovaActivity$4$1.class", lastModificationTime = 1438981500000, size = 1063}, 
+    {
+      fileName = "CordovaActivity$4.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1971
+    }, 
+    {fileName = "CordovaActivity$5$1.class", lastModificationTime = 1438981500000, size = 782}, 
+    {
+      fileName = "CordovaActivity$5.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2770
+    }, 
+    {fileName = "CordovaActivity.class", lastModificationTime = 1438981500000, size = 21487}, 
+    {
+      fileName = "CordovaArgs.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2561
+    }, 
+    {fileName = "CordovaBridge.class", lastModificationTime = 1438981500000, size = 5124}, 
+    {
+      fileName = "CordovaChromeClient$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1110
+    }, 
+    {fileName = "CordovaChromeClient$2.class", lastModificationTime = 1438981500000, size = 1089}, 
+    {
+      fileName = "CordovaChromeClient$3.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1189
+    }, 
+    {fileName = "CordovaChromeClient$4.class", lastModificationTime = 1438981500000, size = 1112}, 
+    {
+      fileName = "CordovaChromeClient$5.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1111
+    }, 
+    {fileName = "CordovaChromeClient$6.class", lastModificationTime = 1438981500000, size = 1091}, 
+    {
+      fileName = "CordovaChromeClient$7.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1190
+    }, 
+    {fileName = "CordovaChromeClient$8.class", lastModificationTime = 1438981500000, size = 1441}, 
+    {
+      fileName = "CordovaChromeClient$9.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1149
+    }, 
+    {fileName = "CordovaChromeClient.class", lastModificationTime = 1438981500000, size = 10293}, 
+    {
+      fileName = "CordovaInterface.class", 
+      lastModificationTime = 1438981500000, 
+      size = 501
+    }, 
+    {fileName = "CordovaPlugin.class", lastModificationTime = 1438981500000, size = 3427}, 
+    {
+      fileName = "CordovaPreferences.class", 
+      lastModificationTime = 1438981500000, 
+      size = 5602
+    }, 
+    {fileName = "CordovaResourceApi$OpenForReadResult.class", lastModificationTime = 1438981500000, size = 905}, 
+    {
+      fileName = "CordovaResourceApi.class", 
+      lastModificationTime = 1438981500000, 
+      size = 11534
+    }, 
+    {fileName = "CordovaUriHelper.class", lastModificationTime = 1438981500000, size = 2841}, 
+    {
+      fileName = "CordovaWebView$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 941
+    }, 
+    {fileName = "CordovaWebView$2.class", lastModificationTime = 1438981500000, size = 1282}, 
+    {
+      fileName = "CordovaWebView$3.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1469
+    }, 
+    {fileName = "CordovaWebView$4.class", lastModificationTime = 1438981500000, size = 1268}, 
+    {
+      fileName = "CordovaWebView$ActivityResult.class", 
+      lastModificationTime = 1438981500000, 
+      size = 757
+    }, 
+    {fileName = "CordovaWebView$Level16Apis.class", lastModificationTime = 1438981500000, size = 759}, 
+    {
+      fileName = "CordovaWebView.class", 
+      lastModificationTime = 1438981500000, 
+      size = 24482
+    }, 
+    {fileName = "CordovaWebViewClient$1$1.class", lastModificationTime = 1438981500000, size = 984}, 
+    {
+      fileName = "CordovaWebViewClient$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1260
+    }, 
+    {fileName = "CordovaWebViewClient.class", lastModificationTime = 1438981500000, size = 7367}, 
+    {
+      fileName = "DirectoryManager.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2643
+    }, 
+    {fileName = "DroidGap.class", lastModificationTime = 1438981500000, size = 389}, 
+    {
+      fileName = "ExifHelper.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3465
+    }, 
+    {fileName = "ExposedJsApi.class", lastModificationTime = 1438981500000, size = 1362}, 
+    {
+      fileName = "FileHelper.class", 
+      lastModificationTime = 1438981500000, 
+      size = 4098
+    }, 
+    {fileName = "IceCreamCordovaWebViewClient.class", lastModificationTime = 1438981500000, size = 3878}, 
+    {
+      fileName = "JSONUtils.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1079
+    }, 
+    {fileName = "LinearLayoutSoftKeyboardDetect.class", lastModificationTime = 1438981500000, size = 2210}, 
+    {
+      fileName = "LOG.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3248
+    }, 
+    {fileName = "NativeToJsMessageQueue$1.class", lastModificationTime = 1438981500000, size = 255}, 
+    {
+      fileName = "NativeToJsMessageQueue$BridgeMode.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1089
+    }, 
+    {fileName = "NativeToJsMessageQueue$JsMessage.class", lastModificationTime = 1438981500000, size = 3122}, 
+    {
+      fileName = "NativeToJsMessageQueue$LoadUrlBridgeMode$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1426
+    }, 
+    {fileName = "NativeToJsMessageQueue$LoadUrlBridgeMode.class", lastModificationTime = 1438981500000, size = 1562}, 
+    {
+      fileName = "NativeToJsMessageQueue$OnlineEventsBridgeMode$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1496
+    }, 
+    {fileName = "NativeToJsMessageQueue$OnlineEventsBridgeMode$2.class", lastModificationTime = 1438981500000, size = 1266}, 
+    {
+      fileName = "NativeToJsMessageQueue$OnlineEventsBridgeMode.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2433
+    }, 
+    {fileName = "NativeToJsMessageQueue$PollingBridgeMode.class", lastModificationTime = 1438981500000, size = 1041}, 
+    {
+      fileName = "NativeToJsMessageQueue$PrivateApiBridgeMode.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3053
+    }, 
+    {fileName = "NativeToJsMessageQueue.class", lastModificationTime = 1438981500000, size = 7772}, 
+    {
+      fileName = "PluginEntry.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1899
+    }, 
+    {fileName = "PluginManager.class", lastModificationTime = 1438981500000, size = 9886}, 
+    {
+      fileName = "PluginResult$Status.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1657
+    }, 
+    {fileName = "PluginResult.class", lastModificationTime = 1438981500000, size = 4933}, 
+    {
+      fileName = "ScrollEvent.class", 
+      lastModificationTime = 1438981500000, 
+      size = 835
+    }, 
+    {fileName = "Whitelist$URLPattern.class", lastModificationTime = 1438981500000, size = 2995}, 
+    {
+      fileName = "Whitelist.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2831
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396361000, 
+  files = 
+  {
+    {
+      fileName = "screen.png", 
+      lastModificationTime = 1444976170000, 
+      size = 45509, 
+      resolution = {width = 1280, height = 720}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

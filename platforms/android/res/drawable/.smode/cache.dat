@@ -1,0 +1,15 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396376000, 
+  files = 
+  {
+    {
+      fileName = "icon.png", 
+      lastModificationTime = 1439619154000, 
+      size = 4098, 
+      resolution = {width = 96, height = 96}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

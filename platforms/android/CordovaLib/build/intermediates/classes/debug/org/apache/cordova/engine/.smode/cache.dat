@@ -1,0 +1,45 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "SystemCookieManager.class", lastModificationTime = 1445309520000, size = 1646}, 
+    {
+      fileName = "SystemExposedJsApi.class", 
+      lastModificationTime = 1445309520000, 
+      size = 1433
+    }, 
+    {fileName = "SystemWebChromeClient$1.class", lastModificationTime = 1445309520000, size = 1195}, 
+    {
+      fileName = "SystemWebChromeClient$2.class", 
+      lastModificationTime = 1445309520000, 
+      size = 1197
+    }, 
+    {fileName = "SystemWebChromeClient$3.class", lastModificationTime = 1445309520000, size = 1263}, 
+    {
+      fileName = "SystemWebChromeClient$4.class", 
+      lastModificationTime = 1445309520000, 
+      size = 1669
+    }, 
+    {fileName = "SystemWebChromeClient$5.class", lastModificationTime = 1445309520000, size = 1775}, 
+    {
+      fileName = "SystemWebChromeClient.class", 
+      lastModificationTime = 1445309520000, 
+      size = 10444
+    }, 
+    {fileName = "SystemWebView.class", lastModificationTime = 1445309520000, size = 2658}, 
+    {
+      fileName = "SystemWebViewClient.class", 
+      lastModificationTime = 1445309520000, 
+      size = 9504
+    }, 
+    {fileName = "SystemWebViewEngine$1.class", lastModificationTime = 1445309520000, size = 1834}, 
+    {
+      fileName = "SystemWebViewEngine$2.class", 
+      lastModificationTime = 1445309520000, 
+      size = 1043
+    }, 
+    {fileName = "SystemWebViewEngine.class", lastModificationTime = 1445309520000, size = 11306}
+  }
+}

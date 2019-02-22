@@ -1,0 +1,21 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973968000, 
+  files = 
+  {
+    {fileName = "json_reader.o", lastModificationTime = 1438980210000, size = 389836}, 
+    {
+      fileName = "json_value.o", 
+      lastModificationTime = 1438980210000, 
+      size = 526036
+    }, 
+    {fileName = "json_writer.o", lastModificationTime = 1438980210000, size = 471916}, 
+    {
+      fileName = "plugin.o", 
+      lastModificationTime = 1438980210000, 
+      size = 400112
+    }, 
+    {fileName = "tokenizer.o", lastModificationTime = 1438980210000, size = 145048}
+  }
+}

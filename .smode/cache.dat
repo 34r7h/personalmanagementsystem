@@ -1,0 +1,44 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396357000, 
+  files = 
+  {
+    {fileName = "hooks"}, 
+    {fileName = "platforms", modified = True}, 
+    {fileName = "plugins"}, 
+    {fileName = "resources", modified = True}, 
+    {fileName = "scss"}, 
+    {fileName = "www", modified = True}, 
+    {fileName = "bower.json", lastModificationTime = 1438980174000, size = 118}, 
+    {
+      fileName = "config.xml", 
+      lastModificationTime = 1445310744000, 
+      size = 5310
+    }, 
+    {fileName = "gulpfile.js", lastModificationTime = 1438980174000, size = 1388}, 
+    {
+      fileName = "ionic.project", 
+      lastModificationTime = 1438980214000
+    }, 
+    {fileName = "key.pem", lastModificationTime = 1417934738000, size = 1708}, 
+    {
+      fileName = "package.json", 
+      lastModificationTime = 1445310672000, 
+      size = 578
+    }, 
+    {fileName = "www 2.zip", lastModificationTime = 1444377434000, size = 844367}, 
+    {
+      fileName = "www 3.zip", 
+      lastModificationTime = 1444623914000, 
+      size = 844681
+    }, 
+    {fileName = "www 4.zip", lastModificationTime = 1444984482000, size = 845551}, 
+    {
+      fileName = "www 5.zip", 
+      lastModificationTime = 1445982280000, 
+      size = 2956144
+    }, 
+    {fileName = "www.zip", lastModificationTime = 1444270702000, size = 735693}
+  }
+}

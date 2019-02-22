@@ -1,0 +1,39 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "list-devices", lastModificationTime = 1438980212000, size = 2446}, 
+    {
+      fileName = "list-emulator-images", 
+      lastModificationTime = 1438980212000, 
+      size = 1902
+    }, 
+    {fileName = "list-started-emulators", lastModificationTime = 1438980212000, size = 1752}, 
+    {
+      fileName = "start-emulator", 
+      lastModificationTime = 1438980212000, 
+      size = 1037
+    }, 
+    {fileName = "build.js", lastModificationTime = 1438980212000, size = 6025}, 
+    {
+      fileName = "check_reqs.js", 
+      lastModificationTime = 1438980212000, 
+      size = 3971
+    }, 
+    {fileName = "clean.js", lastModificationTime = 1438980212000, size = 1746}, 
+    {
+      fileName = "copy-www-build-step.sh", 
+      lastModificationTime = 1438980212000, 
+      size = 2665
+    }, 
+    {fileName = "run.js", lastModificationTime = 1438980212000, size = 7046}, 
+    {
+      fileName = "spawn.js", 
+      lastModificationTime = 1438980212000, 
+      size = 1885
+    }, 
+    {fileName = "versions.js", lastModificationTime = 1438980212000, size = 6005}
+  }
+}

@@ -1,0 +1,12 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "compileDebugJava"}, 
+    {fileName = "compileReleaseJava"}, 
+    {fileName = "packageDebugJar"}, 
+    {fileName = "packageReleaseJar"}
+  }
+}

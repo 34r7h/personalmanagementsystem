@@ -1,0 +1,17 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "aidl"}, 
+    {fileName = "assets"}, 
+    {fileName = "res"}, 
+    {fileName = "AndroidManifest.xml", lastModificationTime = 1445309516000, size = 1120}, 
+    {
+      fileName = "classes.jar", 
+      lastModificationTime = 1445309520000, 
+      size = 119104
+    }
+  }
+}

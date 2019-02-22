@@ -1,0 +1,59 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "lib"}, 
+    {fileName = "node_modules"}, 
+    {fileName = "apple_ios_version", lastModificationTime = 1438980212000, size = 990}, 
+    {
+      fileName = "apple_osx_version", 
+      lastModificationTime = 1438980212000, 
+      size = 986
+    }, 
+    {fileName = "apple_xcode_version", lastModificationTime = 1438980212000, size = 1038}, 
+    {
+      fileName = "build", 
+      lastModificationTime = 1438980212000, 
+      size = 1312
+    }, 
+    {fileName = "check_reqs", lastModificationTime = 1438980212000, size = 1213}, 
+    {
+      fileName = "clean", 
+      lastModificationTime = 1438980212000, 
+      size = 1070
+    }, 
+    {fileName = "log", lastModificationTime = 1438980212000, size = 890}, 
+    {
+      fileName = "run", 
+      lastModificationTime = 1438980212000, 
+      size = 1304
+    }, 
+    {fileName = "version", lastModificationTime = 1438980212000, size = 1014}, 
+    {
+      fileName = "build-debug.xcconfig", 
+      lastModificationTime = 1438980212000, 
+      size = 896
+    }, 
+    {fileName = "build-release.xcconfig", lastModificationTime = 1438980212000, size = 996}, 
+    {
+      fileName = "build.xcconfig", 
+      lastModificationTime = 1438980212000, 
+      size = 1507
+    }, 
+    {fileName = "clean.bat", lastModificationTime = 1438980212000, size = 1010}, 
+    {
+      fileName = "console.log", 
+      lastModificationTime = 1438991826000, 
+      size = 2292
+    }, 
+    {fileName = "defaults.xml", lastModificationTime = 1438980212000, size = 1869}, 
+    {
+      fileName = "run.bat", 
+      lastModificationTime = 1438980212000, 
+      size = 1007
+    }, 
+    {fileName = "version.bat", lastModificationTime = 1438980212000, size = 992}
+  }
+}

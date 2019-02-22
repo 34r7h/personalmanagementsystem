@@ -1,0 +1,32 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "autolink.h", lastModificationTime = 1438980210000, size = 438}, 
+    {
+      fileName = "config.h", 
+      lastModificationTime = 1438980210000, 
+      size = 1536
+    }, 
+    {fileName = "features.h", lastModificationTime = 1438980210000, size = 1290}, 
+    {
+      fileName = "forwards.h", 
+      lastModificationTime = 1438980210000, 
+      size = 735
+    }, 
+    {fileName = "json.h", lastModificationTime = 1438980210000, size = 200}, 
+    {
+      fileName = "reader.h", 
+      lastModificationTime = 1438980210000, 
+      size = 6486
+    }, 
+    {fileName = "value.h", lastModificationTime = 1438980210000, size = 33960}, 
+    {
+      fileName = "writer.h", 
+      lastModificationTime = 1438980210000, 
+      size = 6188
+    }
+  }
+}

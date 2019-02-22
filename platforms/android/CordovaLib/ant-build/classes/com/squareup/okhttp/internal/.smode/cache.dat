@@ -1,0 +1,78 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "http"}, 
+    {fileName = "spdy"}, 
+    {fileName = "tls"}, 
+    {fileName = "AbstractOutputStream.class", lastModificationTime = 1438981500000, size = 793}, 
+    {
+      fileName = "Base64.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2649
+    }, 
+    {fileName = "DiskLruCache$1.class", lastModificationTime = 1438981500000, size = 1322}, 
+    {
+      fileName = "DiskLruCache$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 574
+    }, 
+    {fileName = "DiskLruCache$Editor$FaultHidingOutputStream.class", lastModificationTime = 1438981500000, size = 1942}, 
+    {
+      fileName = "DiskLruCache$Editor.class", 
+      lastModificationTime = 1438981500000, 
+      size = 4964
+    }, 
+    {fileName = "DiskLruCache$Entry.class", lastModificationTime = 1438981500000, size = 4472}, 
+    {
+      fileName = "DiskLruCache$Snapshot.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2381
+    }, 
+    {fileName = "DiskLruCache.class", lastModificationTime = 1438981500000, size = 16730}, 
+    {
+      fileName = "Dns$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 652
+    }, 
+    {fileName = "Dns.class", lastModificationTime = 1438981500000, size = 492}, 
+    {
+      fileName = "FaultRecoveringOutputStream.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2434
+    }, 
+    {fileName = "NamedRunnable.class", lastModificationTime = 1438981500000, size = 954}, 
+    {
+      fileName = "Platform$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 233
+    }, 
+    {fileName = "Platform$Android23.class", lastModificationTime = 1438981500000, size = 2840}, 
+    {
+      fileName = "Platform$Android41.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2635
+    }, 
+    {fileName = "Platform$JdkWithJettyNpnPlatform.class", lastModificationTime = 1438981500000, size = 3757}, 
+    {
+      fileName = "Platform$JettyNpnProvider.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2439
+    }, 
+    {fileName = "Platform.class", lastModificationTime = 1438981500000, size = 6516}, 
+    {
+      fileName = "StrictLineReader$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1242
+    }, 
+    {fileName = "StrictLineReader.class", lastModificationTime = 1438981500000, size = 3300}, 
+    {
+      fileName = "Util$1.class", 
+      lastModificationTime = 1438981498000, 
+      size = 935
+    }, 
+    {fileName = "Util.class", lastModificationTime = 1438981498000, size = 9229}
+  }
+}

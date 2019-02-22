@@ -1,0 +1,23 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396380000, 
+  files = 
+  {
+    {fileName = "Classes"}, 
+    {fileName = "Plugins"}, 
+    {fileName = "Resources", modified = True}, 
+    {fileName = "config.xml", lastModificationTime = 1445310522000, size = 3979}, 
+    {
+      fileName = "main.m", 
+      lastModificationTime = 1438980212000, 
+      size = 1118
+    }, 
+    {fileName = "yourLife-Info.plist", lastModificationTime = 1445310522000, size = 5529}, 
+    {
+      fileName = "yourLife-Prefix.pch", 
+      lastModificationTime = 1438980212000, 
+      size = 967
+    }
+  }
+}

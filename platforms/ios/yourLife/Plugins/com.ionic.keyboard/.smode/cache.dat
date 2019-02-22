@@ -1,0 +1,20 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "IonicKeyboard.h", lastModificationTime = 1438980214000, size = 330}, 
+    {
+      fileName = "IonicKeyboard.m", 
+      lastModificationTime = 1438980214000, 
+      size = 5083
+    }, 
+    {fileName = "UIWebViewExtension.h", lastModificationTime = 1438980214000, size = 168}, 
+    {
+      fileName = "UIWebViewExtension.m", 
+      lastModificationTime = 1438980214000, 
+      size = 3475
+    }
+  }
+}

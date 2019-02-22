@@ -1,0 +1,111 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "ErrorCode.class", lastModificationTime = 1438981500000, size = 2693}, 
+    {
+      fileName = "FrameReader$Handler.class", 
+      lastModificationTime = 1438981498000, 
+      size = 799
+    }, 
+    {fileName = "FrameReader.class", lastModificationTime = 1438981498000, size = 438}, 
+    {
+      fileName = "FrameWriter.class", 
+      lastModificationTime = 1438981498000, 
+      size = 955
+    }, 
+    {fileName = "HeadersMode.class", lastModificationTime = 1438981500000, size = 1608}, 
+    {
+      fileName = "Hpack$HeaderEntry.class", 
+      lastModificationTime = 1438981500000, 
+      size = 929
+    }, 
+    {fileName = "Hpack$Reader.class", lastModificationTime = 1438981500000, size = 5906}, 
+    {
+      fileName = "Hpack$Writer.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1681
+    }, 
+    {fileName = "Hpack.class", lastModificationTime = 1438981500000, size = 3116}, 
+    {
+      fileName = "Http20Draft06$Reader.class", 
+      lastModificationTime = 1438981500000, 
+      size = 7293
+    }, 
+    {fileName = "Http20Draft06$Writer.class", lastModificationTime = 1438981500000, size = 4656}, 
+    {
+      fileName = "Http20Draft06.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2075
+    }, 
+    {fileName = "IncomingStreamHandler$1.class", lastModificationTime = 1438981498000, size = 974}, 
+    {
+      fileName = "IncomingStreamHandler.class", 
+      lastModificationTime = 1438981498000, 
+      size = 586
+    }, 
+    {fileName = "NameValueBlockReader$1.class", lastModificationTime = 1438981500000, size = 1495}, 
+    {
+      fileName = "NameValueBlockReader$2.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1094
+    }, 
+    {fileName = "NameValueBlockReader$FillableInflaterInputStream.class", lastModificationTime = 1438981500000, size = 816}, 
+    {
+      fileName = "NameValueBlockReader.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3557
+    }, 
+    {fileName = "Ping.class", lastModificationTime = 1438981498000, size = 1433}, 
+    {
+      fileName = "Settings.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3491
+    }, 
+    {fileName = "Spdy3$Reader.class", lastModificationTime = 1438981500000, size = 7039}, 
+    {
+      fileName = "Spdy3$Writer.class", 
+      lastModificationTime = 1438981500000, 
+      size = 6507
+    }, 
+    {fileName = "Spdy3.class", lastModificationTime = 1438981500000, size = 3656}, 
+    {
+      fileName = "SpdyConnection$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1233
+    }, 
+    {fileName = "SpdyConnection$2.class", lastModificationTime = 1438981500000, size = 1111}, 
+    {
+      fileName = "SpdyConnection$3.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1396
+    }, 
+    {fileName = "SpdyConnection$Builder.class", lastModificationTime = 1438981500000, size = 3526}, 
+    {
+      fileName = "SpdyConnection$Reader$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1703
+    }, 
+    {fileName = "SpdyConnection$Reader.class", lastModificationTime = 1438981500000, size = 8667}, 
+    {
+      fileName = "SpdyConnection.class", 
+      lastModificationTime = 1438981500000, 
+      size = 14356
+    }, 
+    {fileName = "SpdyStream$1.class", lastModificationTime = 1438981498000, size = 249}, 
+    {
+      fileName = "SpdyStream$SpdyDataInputStream.class", 
+      lastModificationTime = 1438981498000, 
+      size = 5723
+    }, 
+    {fileName = "SpdyStream$SpdyDataOutputStream.class", lastModificationTime = 1438981498000, size = 4927}, 
+    {
+      fileName = "SpdyStream.class", 
+      lastModificationTime = 1438981498000, 
+      size = 10328
+    }, 
+    {fileName = "Variant.class", lastModificationTime = 1438981498000, size = 654}
+  }
+}

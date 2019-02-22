@@ -1,0 +1,28 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973968000, 
+  files = 
+  {
+    {fileName = "hooks"}, 
+    {fileName = "platforms"}, 
+    {fileName = "LICENSE", lastModificationTime = 1445310736000, size = 13106}, 
+    {
+      fileName = "NOTICE", 
+      lastModificationTime = 1445310736000, 
+      size = 259
+    }, 
+    {fileName = "package.json", lastModificationTime = 1445310736000, size = 869}, 
+    {
+      fileName = "PlatformScriptsWorkflow.md", 
+      lastModificationTime = 1445310736000, 
+      size = 949
+    }, 
+    {fileName = "plugin.xml", lastModificationTime = 1445310736000, size = 2561}, 
+    {
+      fileName = "README.md", 
+      lastModificationTime = 1445310736000, 
+      size = 5160
+    }
+  }
+}

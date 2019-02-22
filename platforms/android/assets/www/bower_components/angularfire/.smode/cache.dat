@@ -1,0 +1,16 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973948000, 
+  files = 
+  {
+    {fileName = "dist"}, 
+    {fileName = "LICENSE", lastModificationTime = 1445311004000, size = 1075}, 
+    {
+      fileName = "bower.json", 
+      lastModificationTime = 1445311004000, 
+      size = 880
+    }, 
+    {fileName = "README.md", lastModificationTime = 1445311004000, size = 4634}
+  }
+}

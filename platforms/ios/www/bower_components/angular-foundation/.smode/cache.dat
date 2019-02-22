@@ -1,0 +1,21 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "bower.json", lastModificationTime = 1445310522000, size = 211}, 
+    {
+      fileName = "mm-foundation-tpls.js", 
+      lastModificationTime = 1445310522000, 
+      size = 119325
+    }, 
+    {fileName = "mm-foundation-tpls.min.js", lastModificationTime = 1445310522000, size = 49920}, 
+    {
+      fileName = "mm-foundation.js", 
+      lastModificationTime = 1445310522000, 
+      size = 109005
+    }, 
+    {fileName = "mm-foundation.min.js", lastModificationTime = 1445310522000, size = 41522}
+  }
+}

@@ -1,0 +1,27 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396381000, 
+  files = 
+  {
+    {fileName = "bower_components"}, 
+    {fileName = "css"}, 
+    {fileName = "images", modified = True}, 
+    {fileName = "js"}, 
+    {fileName = "firebase.json", lastModificationTime = 1421127308000, size = 137}, 
+    {
+      fileName = "icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 2981, 
+      resolution = {width = 72, height = 72}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {fileName = "index.html", lastModificationTime = 1487616610000, size = 25813}, 
+    {
+      fileName = "manifest.json", 
+      lastModificationTime = 1445982140000, 
+      size = 623
+    }, 
+    {fileName = "README.md", lastModificationTime = 1420934366000, size = 20}
+  }
+}

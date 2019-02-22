@@ -1,0 +1,14 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1448575216000, 
+  files = 
+  {
+    {fileName = "foundation.css", lastModificationTime = 1438633460000, size = 202909}, 
+    {
+      fileName = "style.css", 
+      lastModificationTime = 1485334165000, 
+      size = 4800
+    }
+  }
+}

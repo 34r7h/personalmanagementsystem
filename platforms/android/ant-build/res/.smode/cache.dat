@@ -1,0 +1,27 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396361000, 
+  files = 
+  {
+    {fileName = "drawable", modified = True}, 
+    {fileName = "drawable-hdpi", modified = True}, 
+    {fileName = "drawable-land-hdpi", modified = True}, 
+    {fileName = "drawable-land-ldpi", modified = True}, 
+    {fileName = "drawable-land-mdpi", modified = True}, 
+    {fileName = "drawable-land-xhdpi", modified = True}, 
+    {fileName = "drawable-land-xxhdpi", modified = True}, 
+    {fileName = "drawable-land-xxxhdpi", modified = True}, 
+    {fileName = "drawable-ldpi", modified = True}, 
+    {fileName = "drawable-mdpi", modified = True}, 
+    {fileName = "drawable-port-hdpi", modified = True}, 
+    {fileName = "drawable-port-ldpi", modified = True}, 
+    {fileName = "drawable-port-mdpi", modified = True}, 
+    {fileName = "drawable-port-xhdpi", modified = True}, 
+    {fileName = "drawable-port-xxhdpi", modified = True}, 
+    {fileName = "drawable-port-xxxhdpi", modified = True}, 
+    {fileName = "drawable-xhdpi", modified = True}, 
+    {fileName = "drawable-xxhdpi", modified = True}, 
+    {fileName = "drawable-xxxhdpi", modified = True}
+  }
+}

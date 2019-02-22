@@ -1,0 +1,11 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396360000, 
+  files = 
+  {
+    {fileName = "android", modified = True}, 
+    {fileName = "ios", modified = True}, 
+    {fileName = "platforms.json", lastModificationTime = 1445309402000, size = 46}
+  }
+}

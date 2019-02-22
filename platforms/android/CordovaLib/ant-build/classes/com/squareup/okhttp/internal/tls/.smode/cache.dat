@@ -1,0 +1,14 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "DistinguishedNameParser.class", lastModificationTime = 1438981500000, size = 5095}, 
+    {
+      fileName = "OkHostnameVerifier.class", 
+      lastModificationTime = 1438981500000, 
+      size = 5075
+    }
+  }
+}

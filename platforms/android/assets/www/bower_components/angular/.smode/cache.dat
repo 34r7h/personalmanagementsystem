@@ -1,0 +1,32 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973948000, 
+  files = 
+  {
+    {fileName = "angular-csp.css", lastModificationTime = 1445311004000, size = 263}, 
+    {
+      fileName = "angular.js", 
+      lastModificationTime = 1445311004000, 
+      size = 948508
+    }, 
+    {fileName = "angular.min.js", lastModificationTime = 1445311004000, size = 125282}, 
+    {
+      fileName = "angular.min.js.gzip", 
+      lastModificationTime = 1445311004000, 
+      size = 45897
+    }, 
+    {fileName = "angular.min.js.map", lastModificationTime = 1445311004000, size = 347189}, 
+    {
+      fileName = "bower.json", 
+      lastModificationTime = 1445311004000, 
+      size = 113
+    }, 
+    {fileName = "package.json", lastModificationTime = 1445311004000, size = 574}, 
+    {
+      fileName = "README.md", 
+      lastModificationTime = 1445311004000, 
+      size = 2144
+    }
+  }
+}

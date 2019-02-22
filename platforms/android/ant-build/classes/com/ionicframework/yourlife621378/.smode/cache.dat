@@ -1,0 +1,27 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973948000, 
+  files = 
+  {
+    {fileName = "BuildConfig.class", lastModificationTime = 1438981502000, size = 375}, 
+    {
+      fileName = "CordovaApp.class", 
+      lastModificationTime = 1444976168000, 
+      size = 630
+    }, 
+    {fileName = "R$attr.class", lastModificationTime = 1444976168000, size = 385}, 
+    {
+      fileName = "R$drawable.class", 
+      lastModificationTime = 1444976168000, 
+      size = 475
+    }, 
+    {fileName = "R$string.class", lastModificationTime = 1444976168000, size = 517}, 
+    {
+      fileName = "R$xml.class", 
+      lastModificationTime = 1444976168000, 
+      size = 432
+    }, 
+    {fileName = "R.class", lastModificationTime = 1444976168000, size = 577}
+  }
+}

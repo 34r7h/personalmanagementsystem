@@ -1,0 +1,26 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973968000, 
+  files = 
+  {
+    {fileName = "keyboard_js.cpp", lastModificationTime = 1438980210000, size = 3250}, 
+    {
+      fileName = "keyboard_js.hpp", 
+      lastModificationTime = 1438980210000, 
+      size = 1186
+    }, 
+    {fileName = "keyboard_ndk.cpp", lastModificationTime = 1438980210000, size = 4168}, 
+    {
+      fileName = "keyboard_ndk.hpp", 
+      lastModificationTime = 1438980210000, 
+      size = 1621
+    }, 
+    {fileName = "Logger.cpp", lastModificationTime = 1438980210000, size = 3015}, 
+    {
+      fileName = "Logger.hpp", 
+      lastModificationTime = 1438980210000, 
+      size = 1405
+    }
+  }
+}

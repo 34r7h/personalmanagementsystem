@@ -1,0 +1,20 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "CallKeyboard.o", lastModificationTime = 1438980210000, size = 5988}, 
+    {
+      fileName = "keyboard_js.o", 
+      lastModificationTime = 1438980210000, 
+      size = 17352
+    }, 
+    {fileName = "keyboard_ndk.o", lastModificationTime = 1438980210000, size = 95672}, 
+    {
+      fileName = "Logger.o", 
+      lastModificationTime = 1438980210000, 
+      size = 5192
+    }
+  }
+}

@@ -1,0 +1,36 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396381000, 
+  files = 
+  {
+    {
+      fileName = "icon.png", 
+      lastModificationTime = 1438981472000, 
+      size = 2981, 
+      resolution = {width = 72, height = 72}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "scannabis-logo.psd", 
+      lastModificationTime = 1450863463000, 
+      size = 970193, 
+      resolution = {width = 990, height = 166}, 
+      pixelFormat = {colorSpace = "rgba", flags = 4}
+    }, 
+    {
+      fileName = "scannabis-logo1.psd", 
+      lastModificationTime = 1450865471000, 
+      size = 906122, 
+      resolution = {width = 950, height = 128}, 
+      pixelFormat = {colorSpace = "rgb", flags = 4}
+    }, 
+    {
+      fileName = "tracks.jpg", 
+      lastModificationTime = 1444336666000, 
+      size = 109044, 
+      resolution = {width = 1920, height = 1080}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "json"}, 
+    {fileName = "json_batchallocator.h", lastModificationTime = 1438980210000, size = 3929}, 
+    {
+      fileName = "json_internalarray.inl", 
+      lastModificationTime = 1438980210000, 
+      size = 12669
+    }, 
+    {fileName = "json_internalmap.inl", lastModificationTime = 1438980210000, size = 16292}, 
+    {
+      fileName = "json_reader.cpp", 
+      lastModificationTime = 1438980210000, 
+      size = 21100
+    }, 
+    {fileName = "json_value.cpp", lastModificationTime = 1438980210000, size = 39212}, 
+    {
+      fileName = "json_valueiterator.inl", 
+      lastModificationTime = 1438980210000, 
+      size = 7367
+    }, 
+    {fileName = "json_writer.cpp", lastModificationTime = 1438980210000, size = 20314}, 
+    {
+      fileName = "plugin.cpp", 
+      lastModificationTime = 1438980210000, 
+      size = 7608
+    }, 
+    {fileName = "plugin.h", lastModificationTime = 1438980210000, size = 2513}, 
+    {
+      fileName = "tokenizer.cpp", 
+      lastModificationTime = 1438980210000, 
+      size = 6042
+    }, 
+    {fileName = "tokenizer.h", lastModificationTime = 1438980210000, size = 2004}
+  }
+}

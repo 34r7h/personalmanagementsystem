@@ -1,0 +1,110 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "AbstractHttpInputStream.class", lastModificationTime = 1438981500000, size = 1873}, 
+    {
+      fileName = "HeaderParser$CacheControlHandler.class", 
+      lastModificationTime = 1438981500000, 
+      size = 323
+    }, 
+    {fileName = "HeaderParser.class", lastModificationTime = 1438981500000, size = 2182}, 
+    {
+      fileName = "HttpAuthenticator$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3578
+    }, 
+    {fileName = "HttpAuthenticator.class", lastModificationTime = 1438981500000, size = 3718}, 
+    {
+      fileName = "HttpDate$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1128
+    }, 
+    {fileName = "HttpDate.class", lastModificationTime = 1438981500000, size = 2204}, 
+    {
+      fileName = "HttpEngine$1.class", 
+      lastModificationTime = 1438981498000, 
+      size = 1349
+    }, 
+    {fileName = "HttpEngine.class", lastModificationTime = 1438981498000, size = 16481}, 
+    {
+      fileName = "HttpsEngine.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2567
+    }, 
+    {fileName = "HttpsURLConnectionImpl$1.class", lastModificationTime = 1438981500000, size = 285}, 
+    {
+      fileName = "HttpsURLConnectionImpl$HttpUrlConnectionDelegate.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1894
+    }, 
+    {fileName = "HttpsURLConnectionImpl.class", lastModificationTime = 1438981500000, size = 10545}, 
+    {
+      fileName = "HttpTransport$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 258
+    }, 
+    {fileName = "HttpTransport$ChunkedInputStream.class", lastModificationTime = 1438981500000, size = 3989}, 
+    {
+      fileName = "HttpTransport$ChunkedOutputStream.class", 
+      lastModificationTime = 1438981500000, 
+      size = 3069
+    }, 
+    {fileName = "HttpTransport$FixedLengthInputStream.class", lastModificationTime = 1438981500000, size = 2111}, 
+    {
+      fileName = "HttpTransport$FixedLengthOutputStream.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2068
+    }, 
+    {fileName = "HttpTransport.class", lastModificationTime = 1438981500000, size = 6941}, 
+    {
+      fileName = "HttpURLConnectionImpl$Retry.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1377
+    }, 
+    {fileName = "HttpURLConnectionImpl.class", lastModificationTime = 1438981500000, size = 14518}, 
+    {
+      fileName = "OkResponseCacheAdapter.class", 
+      lastModificationTime = 1438981500000, 
+      size = 2009
+    }, 
+    {fileName = "Policy.class", lastModificationTime = 1438981500000, size = 428}, 
+    {
+      fileName = "RawHeaders$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1025
+    }, 
+    {fileName = "RawHeaders.class", lastModificationTime = 1438981500000, size = 11668}, 
+    {
+      fileName = "RequestHeaders$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1577
+    }, 
+    {fileName = "RequestHeaders.class", lastModificationTime = 1438981500000, size = 8453}, 
+    {
+      fileName = "ResponseHeaders$1.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1645
+    }, 
+    {fileName = "ResponseHeaders.class", lastModificationTime = 1438981500000, size = 12473}, 
+    {
+      fileName = "RetryableOutputStream.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1938
+    }, 
+    {fileName = "RouteSelector.class", lastModificationTime = 1438981500000, size = 6924}, 
+    {
+      fileName = "SpdyTransport.class", 
+      lastModificationTime = 1438981500000, 
+      size = 5184
+    }, 
+    {fileName = "Transport.class", lastModificationTime = 1438981500000, size = 671}, 
+    {
+      fileName = "UnknownLengthHttpInputStream.class", 
+      lastModificationTime = 1438981500000, 
+      size = 1631
+    }
+  }
+}

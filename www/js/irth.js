@@ -1,9 +1,21 @@
 'use strict';
+  // Initialize Firebase
 angular.module('irth', ['firebase', 'mm.foundation'])
-	.controller('ctrl', function ($scope, Ui, Data, $firebase, $firebaseAuth, $location, $window, $timeout) {
-
-		var dbURL = 'https://yourlife.firebaseio.com/users',
-			ref = {}, backgroundsRef = {}, sync = {}, backgroundsSync = {}, bind = {}, authRef = new Firebase(dbURL);
+  .config(function() {
+    var config = {
+      apiKey: "AIzaSyAfI_AIabMI-kPjX0AVW-YVoBqW5gJ0FE4",
+      authDomain: "yourlife.firebaseapp.com",
+      databaseURL: "https://yourlife.firebaseio.com",
+      projectId: "firebase-yourlife",
+      storageBucket: "firebase-yourlife.appspot.com",
+      messagingSenderId: "977647623049"
+    };
+    firebase.initializeApp(config);
+  })
+	.controller('ctrl', function ($scope, Ui, Data, $firebaseArray, $firebaseObject, $firebaseAuth, $location, $window, $timeout) {
+		$scope.chrome = $window.chrome ? true : false;
+		var dbURL = 'users',
+			ref = {}, backgroundsRef = {}, sync = {}, backgroundsSync = {}, bind = {};
 		$scope.lifestyle = ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'];
 		$scope.ui = Ui;
 		$scope.data = Data;
@@ -24,7 +36,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			minWidth: $window.innerWidth + 'px',
 			minHeight: ( $window.innerHeight / 2 ) + 'px',
 			width: '100%',
-			height: '50%',
+			height: '88vh',
 			zIndex: 10000,
 			background: 'rgba(23,43,12, .62)',
 			display: 'flex'
@@ -41,7 +53,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		$scope.new = {};
 		$scope.api = {add: {}};
 		$scope.login = {email: '', password: ''};
-		$scope.authObj = $firebaseAuth(authRef);
+		$scope.authObj = $firebaseAuth();
 		$scope.location = $location;
 
 
@@ -57,44 +69,20 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		};
 
 		$scope.auth = function (email, password) {
-			$scope.authObj.$authWithPassword({
-				email: email,
-				password: password
-			}).then(function (authData) {
+      console.log(email, password)
+			$scope.authObj.$signInWithEmailAndPassword(email, password).then(function (authData) {
 				$scope.authData = authData;
 				console.log("Logged in as:", authData.uid);
-				/*var checkRef = $firebase(authRef);
-				 var checkData = checkRef.$asObject();
-				 if (!checkData[$scope.authData.uid]) {
-				 checkData[$scope.authData.uid] = {
-				 backgrounds: {
-				 welcome: 'http://hivewallpaper.com/wallpaper/2014/12/pablo-picasso-cubism-paintings-9-widescreen-wallpaper.jpg'
-				 },
-				 life:{
-				 task:{
-				 welcome: {
-				 name: 'Welcome',
-				 details: 'create tasks'
-				 }
-				 }
-				 }
-
-				 };
-				 console.log(checkData);
-				 checkData.$save();
-				 };
-				 */
 				$scope.getData();
-
 			}).catch(function (error) {
 				console.error("Authentication failed:", error);
 			});
-		};
+    };
 		// $scope.auth('email@?.??','password');
 
 
 		$scope.register = function (email, password) {
-			$scope.authObj.$createUser(email, password).then(function () {
+			$scope.authObj.$createUserWithEmailAndPassword(email, password).then(function () {
 				$scope.auth(email, password);
 			});
 		};
@@ -143,11 +131,10 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 				$scope.new[life] = {};
 				$scope.beGone[life] = 'display:none';
 				console.log('$scope.authObj.$getAuth().uid', $scope.authObj.$getAuth().uid);
-				ref[life] = $scope.authObj.$getAuth() ?
-					new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
+				ref[life] = $scope.authObj.$getAuth() ? firebase.database().ref('users/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
 					console.log('not signed in');
-				sync[life] = $firebase(ref[life]);
-				$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function (data) {
+				sync[life] = $firebaseObject(ref[life]);
+				$scope.syncObject[life] = sync[life].$loaded().then(function (data) {
 					// console.log('syncObject data', data);
 					// local storage attempt
 					/*var localData = JSON.stringify(data);
@@ -155,8 +142,8 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					 console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
 				});
 
-				bind[life] = sync[life].$asObject();
-				$scope.syncArray[life] = sync[life].$asArray();
+				bind[life] = sync[life];
+				$scope.syncArray[life] = $firebaseArray(ref[life]);
 				$scope.bindObject[life] = bind[life].$bindTo($scope, life.toString());
 			});
 			if (!$scope.syncArray['day'][0]) {
@@ -165,10 +152,12 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			}
 
 			$scope.backgroundsImg = (function () {
-				backgroundsRef = new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/backgrounds');
-				backgroundsSync = $firebase(backgroundsRef);
-				$scope.syncBackgroundsObject = backgroundsSync.$asObject();
-				$scope.syncBackgroundsArray = backgroundsSync.$asArray();
+        backgroundsRef = firebase.database().ref(dbURL + '/' + $scope.authObj.$getAuth().uid + '/backgrounds');
+        console.log(dbURL, backgroundsRef)
+        // backgroundsRef = (dbURL + '/' + $scope.authObj.$getAuth().uid + '/backgrounds');
+				backgroundsSync = $firebaseObject(backgroundsRef);
+				$scope.syncBackgroundsObject = $firebaseObject(backgroundsRef);
+				$scope.syncBackgroundsArray = $firebaseArray(backgroundsRef);
 				// to take an action after the data loads, use the $loaded() promise
 				$scope.syncBackgroundsArray.$loaded().then(function () {
 					if ($scope.syncBackgroundsArray.length > 0) {
@@ -258,7 +247,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 		 console.log('filesystem',fs);
 		 **/
 	})
-	.factory('Data', function ($location, $firebase, $firebaseAuth, $window) {
+	.factory('Data', function ($location, $firebaseArray, $firebaseObject, $firebaseAuth, $window) {
 		return {
 			constants: {
 				lifestyle: ['action', 'event', 'fuel', 'train', 'day', 'task', 'note', 'fear', 'love'],
@@ -276,8 +265,8 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 			},
 			localStorage: $window.localStorage,
 			firebase: function () {
-				var dbURL = 'https://yourlife.firebaseio.com/users',
-					authRef = new Firebase(dbURL);
+				var dbURL = 'https://yourlife.firebaseio.com/users';
+					// authRef = new Firebase(dbURL);
 			},
 			getData: function () {
 				var sync = {}, ref = {}, newObj = {};
@@ -290,16 +279,16 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 					ref[life] = $scope.authObj.$getAuth() ?
 						new Firebase(dbURL + '/' + $scope.authObj.$getAuth().uid + '/life/' + life) :
 						console.log('not signed in');
-					sync[life] = $firebase(ref[life]);
-					$scope.syncObject[life] = sync[life].$asObject().$loaded().then(function (data) {
+					sync[life] = $firebaseObject(ref[life]);
+					$scope.syncObject[life] = sync[life].$loaded().then(function (data) {
 						// console.log('syncObject data', data);
 						// local storage attempt
 						/*var localData = JSON.stringify(data);
 						 localStorage.setItem(life, localData);
 						 console.log('please be local', localStorage.getItem('localObject['+life+']'))*/
 					});
-					bind[life] = sync[life].$asObject();
-					$scope.syncArray[life] = sync[life].$asArray();
+					bind[life] = sync[life];
+					$scope.syncArray[life] = $firebaseArray(ref[life]);
 					$scope.bindObject[life] = bind[life].$bindTo($scope, life.toString());
 				});
 
@@ -309,7 +298,7 @@ angular.module('irth', ['firebase', 'mm.foundation'])
 	.factory('Api', function (Data) {
 		return {
 			init: (function () {
-
+        
 				angular.forEach(Data.constants.lifestyle, function (section) {
 					// Loop through the lifestyle array
 					// and create a method on api.add for each section

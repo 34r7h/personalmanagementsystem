@@ -1,0 +1,20 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973967000, 
+  files = 
+  {
+    {fileName = "bower.json", lastModificationTime = 1445310522000, size = 443}, 
+    {
+      fileName = "firebase-debug.js", 
+      lastModificationTime = 1445310522000, 
+      size = 460928
+    }, 
+    {fileName = "firebase.js", lastModificationTime = 1445310522000, size = 125804}, 
+    {
+      fileName = "README.md", 
+      lastModificationTime = 1445310522000, 
+      size = 120
+    }
+  }
+}

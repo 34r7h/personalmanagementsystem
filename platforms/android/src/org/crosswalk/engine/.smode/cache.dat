@@ -1,0 +1,26 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "XWalkCordovaCookieManager.java", lastModificationTime = 1445310738000, size = 1688}, 
+    {
+      fileName = "XWalkCordovaResourceClient.java", 
+      lastModificationTime = 1445310738000, 
+      size = 5284
+    }, 
+    {fileName = "XWalkCordovaUiClient.java", lastModificationTime = 1445310738000, size = 7465}, 
+    {
+      fileName = "XWalkCordovaView.java", 
+      lastModificationTime = 1445310738000, 
+      size = 4118
+    }, 
+    {fileName = "XWalkExposedJsApi.java", lastModificationTime = 1445310738000, size = 2016}, 
+    {
+      fileName = "XWalkWebViewEngine.java", 
+      lastModificationTime = 1445310738000, 
+      size = 7162
+    }
+  }
+}

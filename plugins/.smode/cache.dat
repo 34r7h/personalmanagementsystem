@@ -1,0 +1,18 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973968000, 
+  files = 
+  {
+    {fileName = "com.ionic.keyboard"}, 
+    {fileName = "cordova-plugin-crosswalk-webview"}, 
+    {fileName = "cordova-plugin-whitelist"}, 
+    {fileName = "android.json", lastModificationTime = 1445311006000, size = 2628}, 
+    {
+      fileName = "fetch.json", 
+      lastModificationTime = 1445310736000, 
+      size = 613
+    }, 
+    {fileName = "ios.json", lastModificationTime = 1445310746000, size = 800}
+  }
+}

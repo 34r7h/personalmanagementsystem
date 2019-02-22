@@ -1,0 +1,52 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "lib"}, 
+    {fileName = "node_modules"}, 
+    {fileName = "android_sdk_version", lastModificationTime = 1445309400000, size = 1048}, 
+    {
+      fileName = "build", 
+      lastModificationTime = 1445309400000, 
+      size = 1347
+    }, 
+    {fileName = "check_reqs", lastModificationTime = 1445309400000, size = 1160}, 
+    {
+      fileName = "clean", 
+      lastModificationTime = 1445309400000, 
+      size = 1510
+    }, 
+    {fileName = "log", lastModificationTime = 1445309400000, size = 1225}, 
+    {
+      fileName = "run", 
+      lastModificationTime = 1445309400000, 
+      size = 1351
+    }, 
+    {fileName = "version", lastModificationTime = 1445309400000, size = 954}, 
+    {
+      fileName = "build.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1010
+    }, 
+    {fileName = "check_reqs.bat", lastModificationTime = 1445309400000, size = 1021}, 
+    {
+      fileName = "clean.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1010
+    }, 
+    {fileName = "defaults.xml", lastModificationTime = 1445309400000, size = 1038}, 
+    {
+      fileName = "log.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1006
+    }, 
+    {fileName = "run.bat", lastModificationTime = 1445309400000, size = 1006}, 
+    {
+      fileName = "version.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1015
+    }
+  }
+}

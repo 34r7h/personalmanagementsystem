@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="irth" class="sepia">
+<html ng-app="irth" class="sepia" ng-style="{maxWidth:'100%', overflow:'hidden', minHeight: '600px', minWidth:'400px'}">
 
 <head>
 
@@ -9,8 +9,8 @@
     <meta name="google-site-verification" content="CDpJG3_u2n4y9OhYevskX6raVSFo1uTeTY2iyLwt6Zo"/>
 
     <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/foundation.css"/>
-    <link rel="shortcut icon" href="favicon.ico">
+<!--     <link rel="stylesheet" href="css/foundation.css"/>
+ -->    <link rel="shortcut icon" href="favicon.ico">
 
 </head>
 
@@ -25,92 +25,47 @@
       style="background: url('{{backgroundsImg}}') center center no-repeat fixed; background-size: cover;"
       ng-style="dimensions">
 
-<top-bar>
-    <ul class="title-area">
-        <li class="name white">
-            <span><img ng-click="show.settings = false" style="width:auto; height:45px" src="images/icon.png"
-                       alt=""/></span>
+<div ng-style="{display:'flex', justifyContent:'space-around', alignItems:'center', width:'100%', background:'rgba(0,0,0,.5)', height:'10vh', position:'fixed', top:0, left:0, right:0, color:'white'}">
 
-            <span class="pad-left" ng-if="show.agenda">{{ui.life | uppercase}}</span>
-            <span class="pad-left" ng-if="!show.agenda">Daily Agenda</span>
-        </li>
-        <li toggle-top-bar class="menu-icon"><a href="#">Menu</a></li>
-    </ul>
+            <!-- <button ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">+ Task</button>
+            <button ng-click="show.agenda = true; hideAll(); beGone['entry'] = '';">+ Entry</button> -->
 
-    <top-bar-section>
-        <!-- Left Nav Section -->
-        <ul class="left">
+            <a ng-click="hideAll(); ui.showEntry = !ui.showEntry; beGone[nav] = ''; ui.currentLife(nav)" ng-repeat="(nav, navKey) in data.constants.lifestyleDescriptions">{{nav}}</a>
 
+            	<button ng-click="show.settings = !show.settings">Settings</button>
+            	<button ng-show="authObj.$getAuth()" class="" ng-click="authObj.$signOut(); reload()">Log out</button>
 
-        </ul>
-        <!-- Right Nav Section -->
-        <ul class="right">
-            <li>
-                <a href ng-show="authData.uid && show.agenda" class="button success"
-                   ng-click="show.settings = false; show.agenda = false">Agenda</a>
-            </li>
-            <li>
-                <a href ng-show="authData.uid && !show.agenda" class="button info"
-                   ng-click="show.settings = false; show.agenda = true">Post / Edit</a>
-            </li>
+</div>
 
-            <li>
-                <a href="mailto:irth.03+personal-management@gmail.com" target="_blank"
-                   class="button danger">Feedback</a>
-            </li>
-            <li has-dropdown ng-show="authData.uid">
-                <a href="">Account</a>
+<div class="settings"  style="padding:9vh; overflow:scroll" ng-if="show.settings">
 
-                <ul top-bar-dropdown>
-                    <li>
-                        <a ng-click="show.settings = !show.settings">Settings</a>
-                    </li>
-                    <li>
-                        <a ng-show="authObj.$getAuth()" class="alert" ng-click="authObj.$unauth(); reload()">Log out</a>
-                    </li>
-
-                </ul>
-            </li>
-        </ul>
-
-        <ul class="title-area right pad-right">
-            <li class="name white">
-                <span ng-if="show.agenda">{{ui.lifestyleDescription}}</span>
-            </li>
-        </ul>
-
-    </top-bar-section>
-</top-bar>
-<br/>
-
-<div class="settings " ng-if="show.settings">
-    <div class="row panel">
         <h1 class="">Background Images</h1>
 
-        <div class="column small-12 medium-6">
+        <div class="">
             <input id="newUrl" type="url" ng-model="newUrl" placeholder="Paste image url here"
                    style="color:white; background:rgba(0,0,0,.38);"></div>
-        <div class="column small-12 medium-6">
+        <div class="">
             <button class="button success column small-12"
                     ng-click="api.add['backgrounds'](newUrl); $parent.backgroundsImg=newUrl; newUrl=''; ">
                 Add Image
             </button>
         </div>
-    </div>
-    <ul class="row panel">
-        <li class="column small-12 medium-4 large-3" ng-repeat="(key,img) in syncBackgroundsObject"
+
+    <ul class="row panel" style="display:flex; flex-wrap:wrap; overflow:scroll; max-height:72vh">
+        <li style:"width:18vh; flex:1 1 auto; display:flex;" class="" ng-repeat="(key,img) in syncBackgroundsObject"
             style="list-style:none">
-            <div class="panel"><img ng-src="{{img}}" height="30px" width="auto">
-                <a class="black small" ng-click="$parent.removeBackgrounds(key)">Remove Image</a>
-                <a class="button info" ng-click="$parent.$parent.backgroundsImg = img">Set as background</a>
+            <div style="display:flex; flex-direction:column" class="panel">
+                <img ng-src="{{img}}" style="height:18vh; width:18vh;">
+                <a class="black small" ng-click="$parent.removeBackgrounds(key)">Remove</a>
+                <a class="button info" ng-click="$parent.$parent.backgroundsImg = img">Set</a>
             </div>
         </li>
     </ul>
 </div>
 <div ng-if="!authData.uid">
 
-    <div class="column large-12">
-        <div class="column small-12 panel">
+    <div >
+        <div >
             <h2 class="text-center">I'm an app to keep you on track</h2>
 
             <p class="text-center" ng-click="show.about = !show.about">Please register or log in to get started
@@ -151,89 +106,18 @@
     </div>
 </div>
 
-<div class="row" ng-show="!show.agenda && authData.uid">
-    <div class="row" ng-if="!showCurrent">
-
-        <div ng-style="{display: flex}" class="large-12 columns panel" ng-if="$last"
-             ng-repeat="yesterday in $parent.day | limitTo:-1 ">
-            <h5>
-                <b>Daily Objectives:</b>
-                <span>Keep track of your daily goals to stay focused.</span>
-            </h5>
-            <textarea ng-class="{blur: $root.private}" class="column small-12 medium-9" ng-model="yesterday.goals"
-                      style="font-size:1.3em!important"
-                      ng-style="{minHeight: 135+'px',height:(yesterday.goals.length*1.6)+'px', minWidth: 33 +'vw'}"></textarea>
-            <a
-                    class="button success columns small-12 medium-3"
-                    style="flex-direction: column; align-content: center; display: flex"
-                    ng-style="{minHeight: 90+'px',height:(yesterday.goals.length*1.6)+'px', fontSize:1.4+'em'}"
-                    ng-click="new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">
-                <span style="align-content: center">Complete the Day</span>
-            </a>
-        </div>
-        <div class="large-12 columns panel">
-            <div class="clearfix"><h5 class="left"><b>Next Actions:</b> A list of active tasks to become actions</h5>
-                <a class="button info right" ng-click="show.agenda = true; hideAll(); beGone['task'] = '';">Create or
-                    renew a task</a></div>
-
-            <div style="display: flex; overflow: scroll; max-width:100%" ng-class="{blur: $root.private}">
-                <div class="large-3 columns" ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task"
-                     style="flex: 1 0 400px;">
-                    <div>
-                        <div class="panel">
-                            <h3>{{task.name}}</h3>
-                            <!--<textarea ng-show="task.description" ng-model="task.description"
-                                      ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
-                        <textarea
-                                ng-show="task.details"
-                                ng-model="task.details"
-                                ng-style="{fontSize:'.8em!important', height:'135px', maxHeight:'100%', maxWidth:'100%'}">
-
-                        </textarea>
-                            <a
-                                    class="button large-12 column alert"
-                                    ng-focus=""
-                                    ng-click="completeTask(key); new[(entrySelection || 'action')].name = task.name; new[(entrySelection || 'action')].tags = task.tags; new[(entrySelection || 'action')].details = (task.description || task.details ); hideAll(); beGone[(entrySelection || 'action')] = ''; show.agenda = true">TASK
-                                -> {{(entrySelection | uppercase) || 'ACTION'}}
-                            </a>
-
-                            <select class="small" ng-model="entrySelection" name="entry-select" id="entry-select">
-                                <option value="" disabled selected>Change Entry</option>
-                                <option ng-show="selection==='action' || selection==='train'" ng-model="selection"
-                                        ng-repeat="selection in $parent.lifestyle" value="{{selection}}">{{selection}}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div ng-show="show.agenda && authData.uid" class="row">
-    <div class="columns">
-        <div class="large-4 small-12 column">
-            <ul ng-repeat="(key,linkGroup) in nav" ng-if="!showMenu"
-                class="column large-12 small-6 button-group radius even-2 sticky">
-                <li ng-show="!showLinks[$parent.key]" ng-repeat="link in linkGroup"
-                    ng-click="hideAll(); beGone[link] = ''; ui.currentLife(link)">
-                    <a class="button large alert" href="">{{link}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="large-8 column" ng-class="{blur: $root.private}">
+<div ng-show="authData.uid">
+    <div ng-if="!showCurrent" ng-style="{display:'flex', flexWrap:'wrap', maxHeight:'90vh', overflow:'scroll', padding:'9vh 0'}">
+        <div ng-if="ui.showEntry" class="" style="position: absolute; right:0; z-index: 999; background: rgba(0,0,0,.81);" ng-class="{blur: $root.private}">
             <div ng-repeat="life in lifestyle" class="row">
-                <div style="{{beGone[life]}}">
-                    <form class="small-12 column panel current" id="{{life}}"
-                          ng-submit="$parent.api.add[life](new[life]); new[life]={};">
+                <div style="padding:1px; height:90vh; display:flex; {{beGone[life]}}">
+                    <form class="small-12 column panel current" style="height:90vh; overflow: scroll; padding:1em;" id="{{life}}"
+                          ng-submit="$parent.api.add[life](new[life]); new[life]={}; ui.showEntry = false;">
                         <h5><b>{{lifestyleDescription[life]}}</b></h5>
-
                         <div class="row" ng-if="life !== 'day'">
                             <div class="large-8 column">
                                 <h3>
                                     <input
-
                                             type="text"
                                             ng-model="new[life].name"
                                             placeholder="Name this {{life}}"
@@ -246,11 +130,8 @@
                                         ng-model="new[life].details"
                                         placeholder="Enter {{life}} details"
                                         ng-style="{minHeight:(new[life].details.length*0.6)+'px'}">
-
                                 </textarea>
-
                             </div>
-
                         </div>
 
                         <div ng-if="life === 'day' || life === 'event' " class="row">
@@ -263,17 +144,16 @@
 
                             <br/>
 
-                            <div ng-if="life !== 'event'" class="large-12 columns"><textarea class="large-12 columns"
-                                                                                             type="text"
-                                                                                             ng-model="$parent.new[life].goals"
-                                                                                             placeholder="Next {{life}}'s goals"
-                                                                                             ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
+                            <div ng-if="life !== 'event'" class="large-12 columns">
+                                <textarea   class="large-12 columns"
+                                            type="text"
+                                             ng-model="$parent.new[life].goals"
+                                             placeholder="Next {{life}}'s goals"
+                                             ng-style="{minHeight:(new[life].goals.length*0.6)+'px'}"></textarea>
                             </div>
                             <br/>
                         </div>
-
                         <div ng-if="life === 'fuel'" class="row">
-
                             <div name="fuel" class="panel"
                                  ng-init="nutrition.types = ['good carbs', 'bad carbs', 'protein', 'fibre', 'fats']; nutrition.amounts = [1,2,3,4,5]">
                                 <div style="display:flex;" ng-repeat="type in nutrition.types">
@@ -288,9 +168,7 @@
 
                                 </div>
                             </div>
-
                         </div>
-
                         <div ng-if="life === 'train'" class="row">
                             <div class="panel"
                                  ng-init="mode.types = ['cardio', 'strength', 'form', 'flex', 'mental', 'spiritual']; mode.amounts = [1,2,3,4,5]">
@@ -343,11 +221,12 @@
                                 <button class="button large alert expand" type="submit">Post new {{life}}</button>
                             </div>
                         </div>
-                    </form>
-                    <a class="large info button exhttps://irthos.github.io/personalmanagementsystem/pand"
+                        <a style="color: white; padding: 1em" class="large info button exhttps://irthos.github.io/personalmanagementsystem/pand"
                        ng-click="pastEntries = !pastEntries">Show all {{life}}s</a>
+                    </form>
 
-                    <div ng-if="pastEntries" class="large-4 columns" ng-repeat="(key, entry) in $parent[life] ">
+                    <div ng-style="{display:'flex', overflow:'scroll', flexDirection:'column', maxHeight: '90vh'}">
+                        <div ng-if="pastEntries" ng-style="{marginBottom:'5px'}" ng-repeat="(key, entry) in $parent[life] ">
                         <div class="panel past">
 
                             <input ng-if="entry.title" type="text" ng-model="entry.title"
@@ -421,39 +300,91 @@
                                    ng-click="showFullEntry = !showFullEntry">Less</a>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
+        <div ng-style="{display:'flex', flex:1, width:'100%',  flexDirection:'column',  minHeight:'280px', minWidth:'280px', padding:'1vh', margin: '1vh', background:'rgba(255,255,255,.93)'}" class="" ng-if="$last"
+             ng-repeat="yesterday in $parent.day | limitTo:-1 ">
+          
+            <textarea ng-class="{blur: $root.private}" ng-model="yesterday.goals"
+                      ng-focus="bigText = true;"
+                      ng-blur="bigText = false;"
+                      ng-style="{fontWeight:'bold',flex:'4', height:'90%', width:'100%'}"></textarea>
+            <a ng-style="{background:'rgba(10,200,30, .8)', color:'white', padding:'2vh', display:'flex', justifyContent:'center', alignItems:'center', alignSelf:'flex-end'}"
+                    ng-click="ui.showEntry = true; new.day.recap = yesterday.goals; hideAll(); beGone['day'] = ''; show.agenda = !show.agenda">
+                LOG
+            </a>
+            <br>
+        </div>
+        <div ng-style="{flex:4, width:'100%', minWidth:'280px', padding:'1vh', margin: '1vh', background:'rgba(255,255,255,.93)'}">
+
+            <div ng-style="{display:'flex', flexWrap:'wrap', justifyContent:'space-around' }" ng-class="{blur: $root.private}">
+                <div ng-if="!task.done === true" ng-repeat="(key,task) in $parent.task" ng-style="{display:'flex', minWidth:'280px', flexDirection:'column', background:'rgba(255,255,255,.7)', margin:'0 0 3vh 0', border:'1px solid white', boxShadow:'darkgrey 2px 2px 18px 2px', flex:'1 1 45%'}">
+					<div ng-style="{display:'flex', justifyContent:'space-between', padding:'1vh'}">	
+                            <b ng-style="{}">{{task.name}}</b>
+                            <a ng-style="{ color:'white', background:'red', padding:'2vh', display:'flex', justifyContent:'center', alignItems:'center'}"
+                                    ng-click="ui.showEntry = true; completeTask(key); new[(entrySelection || 'action')].name = task.name; new[(entrySelection || 'action')].tags = task.tags; new[(entrySelection || 'action')].details = (task.description || task.details ); hideAll(); beGone[(entrySelection || 'action')] = ''; show.agenda = true">LOG
+                        </a>
+                        </div>
+                            <!--<textarea ng-show="task.description" ng-model="task.description"
+                                      ng-style="{minHeight:'90px', height:(task.description.length*2)+'px'}"></textarea>-->
+                     <div ng-style="{display:'flex', justifyContent:'space-around'}">
+                        <textarea
+
+                                ng-model="task.details"
+                                ng-focus="bigText = true;"
+                                ng-blur="bigText = false;"
+                                ng-style="{flex:4, minHeight:'20vh', maxHeight:'35vh', padding:'1vh'}">
+
+                        </textarea>
+                       
+</div>
+                            <!-- <select class="small" ng-model="entrySelection" name="entry-select" id="entry-select">
+                                <option value="" disabled selected>Change Entry</option>
+                                <option ng-show="selection==='action' || selection==='train'" ng-model="selection"
+                                        ng-repeat="selection in $parent.lifestyle" value="{{selection}}">{{selection}}
+                                </option>
+                            </select> -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div ng-show="show.agenda && authData.uid" class="row">
+    <div class="columns">
+        
+        
+
     </div>
 </div>
 
-<div ng-class="{blur: $root.private}"
-     ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note"
-     ng-if="hide.note">
+<div ng-class="{blur: $root.private}" ng-init="show.note.big = $parent.show.note.big; newNote={}; newNote.note = note.note;" ng-style="style.note" ng-if="hide.note">
     <div style="
     display: flex;
     position: absolute;
     bottom: 58px;
-    width: 100%;
-    height:100%;
-    max-height: 78%;
+    width: 100vw;
+    height:78vh;
     ">
         <div style="
         display: flex;
-        flex: 1 0 38%;
+        flex: 1 0 16%;
         bottom: 58px;
         flex-direction: column;
-        width: 100%;
+        width: {{editNotes ? '10%' : '37%'}};
         height:100%;
-        max-height: 78%;">
+        max-height: 78%; padding:0 3px">
             <input
-                    style="max-height:45px; flex: 0 0 45px; width: 97.5%; margin-bottom: 0;"
+                    style="max-height:30px; flex: 0 0 45px; width: 95%; margin: 3px 0; padding:3px"
                     type="search"
                     ng-model="searchNote"
-                    class="small-6 column"
+                    class=""
                     placeholder="Search Notes"/>
 
             <div
@@ -463,12 +394,12 @@
                 overflow:scroll;
                 flex-direction: column-reverse;
                 align-items: stretch;
-                min-height: 100%;
-                width: 95%;">
+                min-height: 72vh;
+                width: 100%; padding:3px 0 ">
                 <a
                         ng-click="$parent.showNote = note.$id"
-                        class="button info row text-justify"
-                        style="max-height:45px; overflow:hidden; margin:0"
+                        class=""
+                        style="min-height:9vh; overflow:hidden; margin:0; padding:3px; background:rgba(0,0,0,.2); color:rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.4);"
                         ng-repeat="note in syncArray.note | filter:searchNote"
                         ng-show="note.note.length > 0">
                     <div
@@ -480,7 +411,7 @@
             </div>
         </div>
 
-        <textarea class="small-8 column" ng-model="note[showNote].note" style="flex: 3 0 auto; height: 100%;"
+        <textarea ng-blur="editNotes = false;" ng-focus="editNotes = true;" ng-model="note[showNote].note" style="flex: 3 0 73%; height: 100%; padding:9px; margin:0 3px;"
                   autofocus></textarea>
     </div>
 
@@ -488,20 +419,20 @@
         <span
                 class="active"
                 style="display:flex;">
-            <a
-                    style="flex: 0 1 auto; height: 45px"
+            <button
+                    style="flex: 1 1 auto; height: 45px"
                     class="alert button small-2 column"
                     ng-click="hide.note = !hide.note">
                 <span ng-show="hide.note">Hide</span>
                 <!--<span ng-show="!hide.note">Note</span>-->
-            </a>
-            <a
-                    style="flex: 2 0 auto;  height:45px"
+            </button>
+            <button
+                    style="flex: 1 1 auto;  height:45px"
                     class="button info small-2 column"
                     ng-show="hide.note"
                     ng-click="api.add['note']({note:'New Note'}); showNote = Object.key($parent.note[$parent.note.length])">
                 New Note
-            </a>
+            </button>
         </span>
 
     </div>
@@ -509,20 +440,20 @@
 
 
 <div
-        ng-style="{position:'fixed', bottom:-20+'px', left: 0, zIndex:100001}"
+        ng-style="{position:'fixed', bottom:0, right: 0, zIndex:100001}"
         ng-show="authData.uid">
-    <a
+    <button
             ng-show="!hide.note"
             class="button alert"
             ng-click="hide.note = !hide.note">
         <span>Notes</span>
-    </a>
-    <a
+    </button>
+    <button
             ng-show="!hide.note"
             class=""
             ng-click="$parent.$root.private = !$parent.$root.private">
         <span>Private Mode</span>
-    </a>
+    </button>
 
 
 </div>

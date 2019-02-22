@@ -1,0 +1,15 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396377000, 
+  files = 
+  {
+    {fileName = "build", modified = True}, 
+    {fileName = "cordova"}, 
+    {fileName = "CordovaLib", modified = True}, 
+    {fileName = "platform_www"}, 
+    {fileName = "www", modified = True}, 
+    {fileName = "yourLife", modified = True}, 
+    {fileName = "yourLife.xcodeproj"}
+  }
+}

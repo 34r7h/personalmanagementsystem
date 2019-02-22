@@ -1,0 +1,6 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973947000, 
+  files = {{fileName = "after_prepare"}, {fileName = "README.md", lastModificationTime = 1438980174000, size = 3018}}
+}

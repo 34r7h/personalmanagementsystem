@@ -1,0 +1,92 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396381000, 
+  files = 
+  {
+    {
+      fileName = "drawable-land-hdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 28728, 
+      resolution = {width = 800, height = 480}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-land-ldpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 12736, 
+      resolution = {width = 320, height = 240}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-land-mdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 18069, 
+      resolution = {width = 480, height = 320}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-land-xhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 45995, 
+      resolution = {width = 1280, height = 720}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-land-xxhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 64777, 
+      resolution = {width = 1600, height = 960}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-land-xxxhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 92586, 
+      resolution = {width = 1920, height = 1280}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-hdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 37617, 
+      resolution = {width = 480, height = 800}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-ldpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 13783, 
+      resolution = {width = 240, height = 320}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-mdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 22253, 
+      resolution = {width = 320, height = 480}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-xhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 60856, 
+      resolution = {width = 720, height = 1280}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-xxhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 84486, 
+      resolution = {width = 960, height = 1600}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "drawable-port-xxxhdpi-screen.png", 
+      lastModificationTime = 1438981472000, 
+      size = 111762, 
+      resolution = {width = 1280, height = 1920}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

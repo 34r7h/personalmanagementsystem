@@ -1,0 +1,78 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396381000, 
+  files = 
+  {
+    {
+      fileName = "Default-568h@2x~iphone.png", 
+      lastModificationTime = 1438981472000, 
+      size = 52982, 
+      resolution = {width = 640, height = 1136}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-667h.png", 
+      lastModificationTime = 1438981472000, 
+      size = 63936, 
+      resolution = {width = 750, height = 1334}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-736h.png", 
+      lastModificationTime = 1438981472000, 
+      size = 113842, 
+      resolution = {width = 1242, height = 2208}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-Landscape-736h.png", 
+      lastModificationTime = 1438981472000, 
+      size = 86266, 
+      resolution = {width = 2208, height = 1242}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-Landscape@2x~ipad.png", 
+      lastModificationTime = 1438981472000, 
+      size = 118955, 
+      resolution = {width = 2048, height = 1536}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-Landscape~ipad.png", 
+      lastModificationTime = 1438981472000, 
+      size = 52854, 
+      resolution = {width = 1024, height = 768}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-Portrait@2x~ipad.png", 
+      lastModificationTime = 1438981472000, 
+      size = 124177, 
+      resolution = {width = 1536, height = 2048}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default-Portrait~ipad.png", 
+      lastModificationTime = 1438981472000, 
+      size = 56323, 
+      resolution = {width = 768, height = 1024}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default@2x~iphone.png", 
+      lastModificationTime = 1438981472000, 
+      size = 50538, 
+      resolution = {width = 640, height = 960}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }, 
+    {
+      fileName = "Default~iphone.png", 
+      lastModificationTime = 1438981472000, 
+      size = 22253, 
+      resolution = {width = 320, height = 480}, 
+      pixelFormat = {colorSpace = "bgra", flags = 1}
+    }
+  }
+}

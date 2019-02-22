@@ -1,0 +1,15 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396375000, 
+  files = 
+  {
+    {fileName = "bundles"}, 
+    {fileName = "classes"}, 
+    {fileName = "dependency-cache"}, 
+    {fileName = "incremental"}, 
+    {fileName = "lint"}, 
+    {fileName = "ndk"}, 
+    {fileName = "rs"}
+  }
+}

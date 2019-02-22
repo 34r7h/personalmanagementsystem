@@ -1,0 +1,22 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973968000, 
+  files = 
+  {
+    {fileName = "src"}, 
+    {fileName = "www"}, 
+    {fileName = "LICENSE", lastModificationTime = 1438980210000, size = 11341}, 
+    {
+      fileName = "package.json", 
+      lastModificationTime = 1438980210000, 
+      size = 472
+    }, 
+    {fileName = "plugin.xml", lastModificationTime = 1438980210000, size = 1996}, 
+    {
+      fileName = "README.md", 
+      lastModificationTime = 1438980210000, 
+      size = 2428
+    }
+  }
+}

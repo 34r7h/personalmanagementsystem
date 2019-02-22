@@ -1,0 +1,80 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973963000, 
+  files = 
+  {
+    {fileName = "install-device", lastModificationTime = 1445309400000, size = 1510}, 
+    {
+      fileName = "install-emulator", 
+      lastModificationTime = 1445309400000, 
+      size = 1353
+    }, 
+    {fileName = "list-devices", lastModificationTime = 1445309400000, size = 1172}, 
+    {
+      fileName = "list-emulator-images", 
+      lastModificationTime = 1445309400000, 
+      size = 1195
+    }, 
+    {fileName = "list-started-emulators", lastModificationTime = 1445309400000, size = 1191}, 
+    {
+      fileName = "start-emulator", 
+      lastModificationTime = 1445309400000, 
+      size = 1352
+    }, 
+    {fileName = "android_sdk_version.js", lastModificationTime = 1445309400000, size = 2270}, 
+    {
+      fileName = "appinfo.js", 
+      lastModificationTime = 1445309400000, 
+      size = 1815
+    }, 
+    {fileName = "build.js", lastModificationTime = 1445309400000, size = 28960}, 
+    {
+      fileName = "check_reqs.js", 
+      lastModificationTime = 1445309400000, 
+      size = 14850
+    }, 
+    {fileName = "device.js", lastModificationTime = 1445309400000, size = 4670}, 
+    {
+      fileName = "emulator.js", 
+      lastModificationTime = 1445309400000, 
+      size = 13321
+    }, 
+    {fileName = "exec.js", lastModificationTime = 1445309400000, size = 2234}, 
+    {
+      fileName = "install-device.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1036
+    }, 
+    {fileName = "install-emulator.bat", lastModificationTime = 1445309400000, size = 1040}, 
+    {
+      fileName = "list-devices.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1032
+    }, 
+    {fileName = "list-emulator-images.bat", lastModificationTime = 1445309400000, size = 1050}, 
+    {
+      fileName = "list-started-emulators.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1052
+    }, 
+    {fileName = "log.js", lastModificationTime = 1445309400000, size = 1938}, 
+    {
+      fileName = "plugin-build.gradle", 
+      lastModificationTime = 1445309400000, 
+      size = 2534
+    }, 
+    {fileName = "retry.js", lastModificationTime = 1445309400000, size = 2411}, 
+    {
+      fileName = "run.js", 
+      lastModificationTime = 1445309400000, 
+      size = 6703
+    }, 
+    {fileName = "spawn.js", lastModificationTime = 1445309400000, size = 1952}, 
+    {
+      fileName = "start-emulator.bat", 
+      lastModificationTime = 1445309400000, 
+      size = 1036
+    }
+  }
+}

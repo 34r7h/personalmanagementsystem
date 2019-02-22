@@ -1,0 +1,18 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396379000, 
+  files = 
+  {
+    {fileName = "build"}, 
+    {fileName = "Classes"}, 
+    {fileName = "CordovaLib.xcodeproj"}, 
+    {fileName = "VERSION", lastModificationTime = 1438980212000, size = 6}, 
+    {
+      fileName = "cordova.js", 
+      lastModificationTime = 1438980212000, 
+      size = 58198
+    }, 
+    {fileName = "CordovaLib_Prefix.pch", lastModificationTime = 1438980212000, size = 838}
+  }
+}

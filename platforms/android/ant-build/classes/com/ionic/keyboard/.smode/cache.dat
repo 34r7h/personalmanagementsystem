@@ -1,0 +1,20 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973948000, 
+  files = 
+  {
+    {fileName = "IonicKeyboard$1.class", lastModificationTime = 1438981502000, size = 2311}, 
+    {
+      fileName = "IonicKeyboard$2.class", 
+      lastModificationTime = 1438981502000, 
+      size = 1651
+    }, 
+    {fileName = "IonicKeyboard$3.class", lastModificationTime = 1438981502000, size = 1270}, 
+    {
+      fileName = "IonicKeyboard.class", 
+      lastModificationTime = 1438981502000, 
+      size = 2887
+    }
+  }
+}

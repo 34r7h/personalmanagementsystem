@@ -1,0 +1,32 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396373000, 
+  files = 
+  {
+    {fileName = "ant-build", modified = True}, 
+    {fileName = "ant-gen"}, 
+    {fileName = "build", modified = True}, 
+    {fileName = "libs"}, 
+    {fileName = "res"}, 
+    {fileName = "src"}, 
+    {fileName = "AndroidManifest.xml", lastModificationTime = 1445309400000, size = 1112}, 
+    {
+      fileName = "build.gradle", 
+      lastModificationTime = 1445309400000, 
+      size = 2165
+    }, 
+    {fileName = "build.xml", lastModificationTime = 1444976164000, size = 3932}, 
+    {
+      fileName = "cordova.gradle", 
+      lastModificationTime = 1445309400000, 
+      size = 7182
+    }, 
+    {fileName = "local.properties", lastModificationTime = 1438981494000, size = 98}, 
+    {
+      fileName = "project.properties", 
+      lastModificationTime = 1445309400000, 
+      size = 513
+    }
+  }
+}

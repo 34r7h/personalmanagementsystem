@@ -1,0 +1,44 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1504396360000, 
+  files = 
+  {
+    {fileName = "ant-build", modified = True}, 
+    {fileName = "ant-gen"}, 
+    {fileName = "assets", modified = True}, 
+    {fileName = "build", modified = True}, 
+    {fileName = "cordova"}, 
+    {fileName = "cordova-plugin-crosswalk-webview"}, 
+    {fileName = "CordovaLib", modified = True}, 
+    {fileName = "gradle"}, 
+    {fileName = "libs"}, 
+    {fileName = "platform_www"}, 
+    {fileName = "res", modified = True}, 
+    {fileName = "src"}, 
+    {fileName = "gradlew", lastModificationTime = 1445311024000, size = 5080}, 
+    {
+      fileName = "AndroidManifest.xml", 
+      lastModificationTime = 1445311008000, 
+      size = 1424
+    }, 
+    {fileName = "build.gradle", lastModificationTime = 1445311024000, size = 11176}, 
+    {
+      fileName = "build.xml", 
+      lastModificationTime = 1444976164000, 
+      size = 3932
+    }, 
+    {fileName = "custom_rules.xml", lastModificationTime = 1438981372000, size = 1157}, 
+    {
+      fileName = "local.properties", 
+      lastModificationTime = 1438981494000, 
+      size = 98
+    }, 
+    {fileName = "project.properties", lastModificationTime = 1445310738000, size = 686}, 
+    {
+      fileName = "settings.gradle", 
+      lastModificationTime = 1445311024000, 
+      size = 66
+    }
+  }
+}

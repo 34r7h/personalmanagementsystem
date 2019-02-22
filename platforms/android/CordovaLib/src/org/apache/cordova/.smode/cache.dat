@@ -1,0 +1,94 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "engine"}, 
+    {fileName = "AuthenticationToken.java", lastModificationTime = 1445309400000, size = 1787}, 
+    {
+      fileName = "CallbackContext.java", 
+      lastModificationTime = 1445309400000, 
+      size = 4736
+    }, 
+    {fileName = "Config.java", lastModificationTime = 1445309400000, size = 2286}, 
+    {
+      fileName = "ConfigXmlParser.java", 
+      lastModificationTime = 1445309400000, 
+      size = 5208
+    }, 
+    {fileName = "CordovaActivity.java", lastModificationTime = 1445309400000, size = 17051}, 
+    {
+      fileName = "CordovaArgs.java", 
+      lastModificationTime = 1445309400000, 
+      size = 3104
+    }, 
+    {fileName = "CordovaBridge.java", lastModificationTime = 1445309400000, size = 7541}, 
+    {
+      fileName = "CordovaClientCertRequest.java", 
+      lastModificationTime = 1445309400000, 
+      size = 2715
+    }, 
+    {fileName = "CordovaDialogsHelper.java", lastModificationTime = 1445309400000, size = 5989}, 
+    {
+      fileName = "CordovaHttpAuthHandler.java", 
+      lastModificationTime = 1445309400000, 
+      size = 1718
+    }, 
+    {fileName = "CordovaInterface.java", lastModificationTime = 1445309400000, size = 2486}, 
+    {
+      fileName = "CordovaInterfaceImpl.java", 
+      lastModificationTime = 1445309400000, 
+      size = 5753
+    }, 
+    {fileName = "CordovaPlugin.java", lastModificationTime = 1445309400000, size = 13429}, 
+    {
+      fileName = "CordovaPreferences.java", 
+      lastModificationTime = 1445309400000, 
+      size = 3039
+    }, 
+    {fileName = "CordovaResourceApi.java", lastModificationTime = 1445309400000, size = 18757}, 
+    {
+      fileName = "CordovaWebView.java", 
+      lastModificationTime = 1445309400000, 
+      size = 4645
+    }, 
+    {fileName = "CordovaWebViewEngine.java", lastModificationTime = 1445309400000, size = 2913}, 
+    {
+      fileName = "CordovaWebViewImpl.java", 
+      lastModificationTime = 1445309400000, 
+      size = 21074
+    }, 
+    {fileName = "CoreAndroid.java", lastModificationTime = 1445309400000, size = 12061}, 
+    {
+      fileName = "ExposedJsApi.java", 
+      lastModificationTime = 1445309400000, 
+      size = 1393
+    }, 
+    {fileName = "ICordovaClientCertRequest.java", lastModificationTime = 1445309400000, size = 2152}, 
+    {
+      fileName = "ICordovaCookieManager.java", 
+      lastModificationTime = 1445309400000, 
+      size = 1158
+    }, 
+    {fileName = "ICordovaHttpAuthHandler.java", lastModificationTime = 1445309400000, size = 1431}, 
+    {
+      fileName = "LOG.java", 
+      lastModificationTime = 1445309400000, 
+      size = 5883
+    }, 
+    {fileName = "NativeToJsMessageQueue.java", lastModificationTime = 1445309400000, size = 19620}, 
+    {
+      fileName = "PluginEntry.java", 
+      lastModificationTime = 1445309400000, 
+      size = 2308
+    }, 
+    {fileName = "PluginManager.java", lastModificationTime = 1445309400000, size = 18316}, 
+    {
+      fileName = "PluginResult.java", 
+      lastModificationTime = 1445309400000, 
+      size = 6580
+    }, 
+    {fileName = "Whitelist.java", lastModificationTime = 1445309400000, size = 6777}
+  }
+}

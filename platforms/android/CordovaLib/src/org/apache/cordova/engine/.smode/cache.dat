@@ -1,0 +1,26 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973964000, 
+  files = 
+  {
+    {fileName = "SystemCookieManager.java", lastModificationTime = 1445309400000, size = 2027}, 
+    {
+      fileName = "SystemExposedJsApi.java", 
+      lastModificationTime = 1445309400000, 
+      size = 2135
+    }, 
+    {fileName = "SystemWebChromeClient.java", lastModificationTime = 1445309400000, size = 11306}, 
+    {
+      fileName = "SystemWebView.java", 
+      lastModificationTime = 1445309400000, 
+      size = 3016
+    }, 
+    {fileName = "SystemWebViewClient.java", lastModificationTime = 1445309400000, size = 14399}, 
+    {
+      fileName = "SystemWebViewEngine.java", 
+      lastModificationTime = 1445309400000, 
+      size = 12735
+    }
+  }
+}

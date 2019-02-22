@@ -1,0 +1,15 @@
+
+{
+  softwareVersion = {majorVersion = 7, minorVersion = 6, buildRevision = 11, revisionString = "d3a60c1"}, 
+  lastModificationTime = 1446973948000, 
+  files = 
+  {
+    {fileName = "classes-62c45694338b91d83fd6beb7e7a8915a.jar", lastModificationTime = 1439619178000, size = 150303}, 
+    {
+      fileName = "classes-cb1e7fdeafc27fa5b24db9d09d0d0e0f.jar", 
+      lastModificationTime = 1444361758000, 
+      size = 150304
+    }, 
+    {fileName = "classes-cc5fd840cc2ed9af251578338d9387d1.jar", lastModificationTime = 1438981512000, size = 150303}
+  }
+}
